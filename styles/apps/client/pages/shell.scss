@@ -1,0 +1,18 @@
+@media screen and (max-width: 365px) {
+  .container-fluid {
+    padding: 0;
+  }
+}
+.main-shell {
+  width: 100%;
+  overflow: hidden;
+}
+.page-shell {
+  background: #f4f6f9;
+  padding-bottom: 60px;
+  position: relative;
+}
+.container-fluid {
+  max-width: 81rem;
+  padding: 25px 25px;
+}

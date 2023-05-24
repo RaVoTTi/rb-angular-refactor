@@ -3,6 +3,26 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "auth": [
+        "dist/auth"
+      ],
+      "books": [
+        "dist/books"
+      ],
+      "books-state": [
+        "dist/books-state"
+      ],
+      "checkout": [
+        "dist/checkout"
+      ],
+      "components": [
+        "dist/components"
+      ],
+      "orders": [
+        "dist/orders"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
