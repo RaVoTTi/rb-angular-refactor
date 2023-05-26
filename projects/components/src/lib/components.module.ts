@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { HeaderComponent } from './header/header.component';
 import { ImgComponent } from './img/img.component';
-import { PreloaderComponent } from '../../../client/src/app/shared/preloader/preloader.component';
+import { CardComponent } from './card/card.component';
 
 const routes: Routes = [
   {
@@ -21,13 +21,16 @@ const routes: Routes = [
     HeaderComponent,
     ImgComponent,
     BreadcrumbsComponent,
+    CardComponent,
   ],
-  imports: [RouterModule.forChild(routes), CommonModule],
+  imports: [RouterModule.forChild(routes), CommonModule, RouterModule],
   exports: [
     MainComponent,
     HeaderComponent,
     ImgComponent,
     BreadcrumbsComponent,
+    CardComponent,
+
   
   ],
 })

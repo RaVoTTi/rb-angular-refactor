@@ -1,20 +1,18 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ComponentsModule } from 'projects/components/src/public-api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PreloaderComponent } from './shared/preloader/preloader.component';
+import { ShellModule } from './shell/shell.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PreloaderComponent,
     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,ShellModule
   ],
   providers: [],
   bootstrap: [AppComponent]
