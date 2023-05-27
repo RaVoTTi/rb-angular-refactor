@@ -16,41 +16,41 @@ import { ShellComponent } from './shell/shell.component';
 //       // component: TestComponent,
 //     },
 
-//     // {
-//     //   path: 'books',
-//     //   loadChildren: () =>
-//     //     import('projects/books/src/public-api').then((m) => m.BooksModule)
-//     // },
-//     // {
-//     //   path: 'terms',
-//     //   loadChildren: () =>
-//     //   import('libs/terms/src').then((m) => m.TermsModule),
-//     // },
+    // {
+    //   path: 'books',
+    //   loadChildren: () =>
+    //     import('projects/books/src/public-api').then((m) => m.BooksModule)
+    // },
+    // {
+    //   path: 'terms',
+    //   loadChildren: () =>
+    //   import('libs/terms/src').then((m) => m.TermsModule),
+    // },
 
-//     // {
-//     //   path: 'mylearning',
-//     //   loadChildren: () =>
-//     //     import('libs/my-learning/src').then((m) => m.MyLearningModule),
-//     //   canActivate: [IsLoggedIn],
-//     // },
-//     // {
-//     //   path: 'myorders',
-//     //   loadChildren: () =>
-//     //     import('libs/my-orders/src').then((m) => m.MyOrdersModule),
-//     //   canActivate: [IsLoggedIn],
-//     // },
-//     // {
-//     //   path: 'settings',
-//     //   loadChildren: () =>
-//     //     import('libs/settings/src').then((m) => m.SettingsModule),
-//     //   canActivate: [IsLoggedIn],
-//     // },
-//     // {
-//     //   path: 'checkout',
-//     //   loadChildren: () =>
-//     //     import('libs/checkout/src').then((m) => m.CheckoutModule),
-//     //   canActivate: [IsLoggedIn],
-//     // },
+    // {
+    //   path: 'mylearning',
+    //   loadChildren: () =>
+    //     import('libs/my-learning/src').then((m) => m.MyLearningModule),
+    //   canActivate: [IsLoggedIn],
+    // },
+    // {
+    //   path: 'myorders',
+    //   loadChildren: () =>
+    //     import('libs/my-orders/src').then((m) => m.MyOrdersModule),
+    //   canActivate: [IsLoggedIn],
+    // },
+    // {
+    //   path: 'settings',
+    //   loadChildren: () =>
+    //     import('libs/settings/src').then((m) => m.SettingsModule),
+    //   canActivate: [IsLoggedIn],
+    // },
+    // {
+    //   path: 'checkout',
+    //   loadChildren: () =>
+    //     import('libs/checkout/src').then((m) => m.CheckoutModule),
+    //   canActivate: [IsLoggedIn],
+    // },
 
 //   ],
 // },]
