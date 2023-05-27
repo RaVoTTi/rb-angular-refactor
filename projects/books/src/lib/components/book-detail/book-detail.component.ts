@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IBook } from 'interfaces/IBook';
-import { WishlistService } from 'projects/books-state/src/public-api';
+import { WishlistService } from '../../services/wishlist.service';
 
 @Component({
   selector: 'frontend-book-detail',

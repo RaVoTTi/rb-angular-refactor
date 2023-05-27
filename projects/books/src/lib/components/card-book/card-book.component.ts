@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { WishlistService } from 'projects/books-state/src/lib/services/wishlist.service';
 import { IBook } from 'interfaces/public-api';
+import { WishlistService } from '../../services/wishlist.service';
 
 @Component({
-  selector: 'frontend-card-book',
-  templateUrl: './card-book.component.html'
+  selector: 'rb-card-book',
+  templateUrl: './card-book.component.html',
+  styleUrls: ['./card-book.component.scss']
 })
 export class CardBookComponent {
   @Input() book! : IBook;

@@ -6,6 +6,9 @@
       "auth": [
         "dist/auth"
       ],
+      "auth-base": [
+        "dist/auth-base"
+      ],
       "books": [
         "dist/books"
       ],

@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { HeaderComponent } from './header/header.component';
 import { ImgComponent } from './img/img.component';
-import { CardComponent } from './card/card.component';
 import { AuthHeaderComponent } from './auth-header/auth-header.component';
 import { FooterComponent } from './footer/footer.component';
 
@@ -23,7 +22,6 @@ const routes: Routes = [
     HeaderComponent,
     ImgComponent,
     BreadcrumbsComponent,
-    CardComponent,
     AuthHeaderComponent,
     FooterComponent,
   ],
@@ -35,7 +33,6 @@ const routes: Routes = [
     FooterComponent,
     ImgComponent,
     BreadcrumbsComponent,
-    CardComponent,
 
   
   ],

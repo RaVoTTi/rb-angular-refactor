@@ -14,7 +14,6 @@ import { HomeModule } from '../pages/home/home.module';
   imports: [
     CommonModule,
     ComponentsModule,
-    HomeModule,
     RouterModule
   ],
   exports:[
