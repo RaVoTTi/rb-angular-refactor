@@ -7,6 +7,8 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { HeaderComponent } from './header/header.component';
 import { ImgComponent } from './img/img.component';
 import { CardComponent } from './card/card.component';
+import { AuthHeaderComponent } from './auth-header/auth-header.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   {
@@ -22,11 +24,15 @@ const routes: Routes = [
     ImgComponent,
     BreadcrumbsComponent,
     CardComponent,
+    AuthHeaderComponent,
+    FooterComponent,
   ],
   imports: [RouterModule.forChild(routes), CommonModule, RouterModule],
   exports: [
     MainComponent,
     HeaderComponent,
+    AuthHeaderComponent,
+    FooterComponent,
     ImgComponent,
     BreadcrumbsComponent,
     CardComponent,

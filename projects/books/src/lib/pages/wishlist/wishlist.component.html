@@ -1,0 +1,10 @@
+
+  <div *ngIf="ids" class="list-container">
+    <frontend-card-book
+      *ngFor="let book of wishBooks$ | async"
+      [book]="book"
+      [isFavorite]="true"
+    >
+    </frontend-card-book>
+  </div>
+<frontend-nothing *ngIf="ids.length === 0"></frontend-nothing>

@@ -1,0 +1,40 @@
+<footer class="bg-light-primary p-8">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+            <ul class="navbar-nav justify-content-end flex-grow-1 ">
+                <li class="nav-item">
+                  <a
+                    class="nav-link fs-3 text-dark"
+                    routerLinkActive="active"
+                    routerLink="/app/home"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item mt-3">
+                  <a
+                    class="nav-link fs-3 text-dark"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    routerLink="/app/books"
+                    >Books</a
+                  >
+                </li>
+                <li class="nav-item mt-3">
+                  <a
+                    class="nav-link fs-3 text-dark"
+                    routerLinkActive="active"
+                    routerLink="/app/books/wishlist"
+                    >Wishlist</a
+                  >
+                </li>
+
+              </ul>
+        </div>
+        <div class="col-md-6">
+          <p>Contenido derecho del footer</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
