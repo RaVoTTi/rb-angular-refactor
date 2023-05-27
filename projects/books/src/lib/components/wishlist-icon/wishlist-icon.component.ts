@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { WishlistService } from '../../../../../book-state/src/lib/services/wishlist.service';
+import { WishlistService } from 'projects/books-state/src/lib/services/wishlist.service';
 
 @Component({
   selector: 'frontend-wishlist-icon',

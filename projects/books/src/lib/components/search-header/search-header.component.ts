@@ -2,8 +2,8 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { selectSearchItems } from 'libs/book-state/src';
-import { IItem } from 'libs/utils/src';
+import { IItem } from 'interfaces/public-api';
+import { selectSearchItems } from 'projects/books-state/src/lib/state/books/books.selectors';
 import {
   debounceTime,
   distinctUntilChanged,

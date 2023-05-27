@@ -1,14 +1,11 @@
 /* eslint-disable @angular-eslint/component-selector */
-import { environment } from 'environments/environment';
-import { IBook } from 'libs/utils/src';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of, take } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { BookBaseService } from '../../../../../book-state/src/lib/services/book-base.service';
-import { WishlistService } from '../../../../../book-state/src/lib/services/wishlist.service';
 import { select, Store } from '@ngrx/store';
-import { selectBooksById } from 'libs/book-state/src';
+import { BookBaseService, WishlistService, selectBooksById } from 'projects/books-state/src/public-api';
+import { IBook } from 'interfaces/public-api';
 
 @Component({
   selector: 'robinbook-book-view',

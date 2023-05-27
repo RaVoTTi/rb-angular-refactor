@@ -8,5 +8,6 @@ import { ComponentsModule } from 'projects/components/src/public-api';
 @NgModule({
   declarations: [HomeComponent, Section1Component, Section2Component, ],
   imports: [CommonModule, ComponentsModule],
+  exports: [HomeComponent]
 })
 export class HomeModule {}

@@ -1,15 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'environments/environment';
-import { IBook } from 'libs/utils/src';
-import { WishlistService } from '../../../../../book-state/src/lib/services/wishlist.service';
+import { IBook } from 'interfaces/IBook';
+import { WishlistService } from 'projects/books-state/src/public-api';
 
 @Component({
   selector: 'frontend-book-detail',
   templateUrl: './book-detail.component.html',
 })
 export class BookDetailComponent implements OnInit {
-  RAW_URL = environment.RAW_URL;
+  // RAW_URL = environment.RAW_URL;
 
   @Input() book!: IBook | undefined;
   wishlistBooks: string[] = [];

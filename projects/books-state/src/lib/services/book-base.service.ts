@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { IBook } from 'libs/utils/src';
-import { IResponse } from 'libs/utils/src';
+import { IBook } from 'interfaces/public-api';
+import { IResponse } from 'interfaces/public-api';
 import { Observable } from 'rxjs';
 
 @Injectable({

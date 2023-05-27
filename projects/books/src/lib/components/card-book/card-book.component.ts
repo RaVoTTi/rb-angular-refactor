@@ -1,14 +1,12 @@
-import { environment } from 'environments/environment';
-import { IBook } from 'libs/utils/src';
 import { Component, Input } from '@angular/core';
-import { WishlistService } from '../../../../../book-state/src/lib/services/wishlist.service';
+import { WishlistService } from 'projects/books-state/src/lib/services/wishlist.service';
+import { IBook } from 'interfaces/public-api';
 
 @Component({
   selector: 'frontend-card-book',
   templateUrl: './card-book.component.html'
 })
 export class CardBookComponent {
-  RAW_URL = environment.RAW_URL
   @Input() book! : IBook;
   @Input() isFavorite! : boolean;
 

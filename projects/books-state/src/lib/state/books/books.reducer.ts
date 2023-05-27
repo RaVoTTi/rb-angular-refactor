@@ -9,7 +9,7 @@ import {
   MetaReducer,
   on,
 } from '@ngrx/store';
-import { IBook } from 'libs/utils/src';
+import { IBook } from 'interfaces/public-api';
 import { allBooksLoaded } from './books.actions';
 // import { login, logout } from './book.actions';
 

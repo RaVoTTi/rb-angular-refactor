@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { IBook } from "libs/utils/src";
+import { IBook } from 'interfaces/public-api';
 
 export const loadAllBooks = createAction(
   "[Books Resolver] Load All Books",

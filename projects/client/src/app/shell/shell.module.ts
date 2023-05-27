@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ShellComponent } from './shell.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
 import { RouterModule } from '@angular/router';
+import { HomeModule } from '../pages/home/home.module';
 
 
 
@@ -13,6 +14,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ComponentsModule,
+    HomeModule,
     RouterModule
   ],
   exports:[

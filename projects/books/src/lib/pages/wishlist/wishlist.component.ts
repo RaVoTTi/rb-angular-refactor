@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, take } from 'rxjs';
-import { IBook, IItem, IWishlist } from 'libs/utils/src';
 import { Location } from '@angular/common';
-import { BookBaseService } from '../../../../../book-state/src/lib/services/book-base.service';
-import { WishlistService } from '../../../../../book-state/src/lib/services/wishlist.service';
 import { select, Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { selectAllBooksAsItems, selectWishBooks } from 'libs/book-state/src';
+import { IBook, IItem } from 'interfaces/public-api';
+import { WishlistService } from 'projects/books-state/src/lib/services/wishlist.service';
+import { BookBaseService } from 'projects/books-state/src/lib/services/book-base.service';
+import { selectAllBooksAsItems, selectWishBooks } from 'projects/books-state/src/public-api';
 
 
 @Component({
