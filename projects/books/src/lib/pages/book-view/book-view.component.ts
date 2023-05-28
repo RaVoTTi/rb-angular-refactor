@@ -12,6 +12,8 @@ import { IBook } from 'interfaces/public-api';
 @Component({
   selector: 'rb-book-view',
   templateUrl: './book-view.component.html',
+  styleUrls: ['./book-view.component.scss'],
+
 })
 export class BookViewComponent implements OnInit {
   RAW_URL = environment.RAW_URL

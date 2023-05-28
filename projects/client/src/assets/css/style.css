@@ -18,7 +18,7 @@ File: scss
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;
-  --bs-red: #FA896B;
+  --bs-red: #b03200;
   --bs-orange: #fd7e14;
   --bs-yellow: #FFAE1F;
   --bs-green: #13DEB9;
@@ -42,7 +42,7 @@ File: scss
   --bs-success: #13DEB9;
   --bs-info: #539BFF;
   --bs-warning: #FFAE1F;
-  --bs-danger: #FA896B;
+  --bs-danger: #b03200;
   --bs-light: #F6F9FC;
   --bs-dark: #2A3547;
   --bs-muted: #5A6A85;
@@ -67,7 +67,7 @@ File: scss
   --bs-success-rgb: 19, 222, 185;
   --bs-info-rgb: 83, 155, 255;
   --bs-warning-rgb: 255, 174, 31;
-  --bs-danger-rgb: 250, 137, 107;
+  --bs-danger-rgb: 176, 50, 0;
   --bs-light-rgb: 246, 249, 252;
   --bs-dark-rgb: 42, 53, 71;
   --bs-muted-rgb: 90, 106, 133;
@@ -92,7 +92,7 @@ File: scss
   --bs-success-text: #0fb294;
   --bs-info-text: #325d99;
   --bs-warning-text: #996813;
-  --bs-danger-text: #c86e56;
+  --bs-danger-text: #8d2800;
   --bs-light-text: #2A3547;
   --bs-dark-text: #495057;
   --bs-primary-bg-subtle: #dfe7ff;
@@ -100,7 +100,7 @@ File: scss
   --bs-success-bg-subtle: #d0f8f1;
   --bs-info-bg-subtle: #ddebff;
   --bs-warning-bg-subtle: #ffefd2;
-  --bs-danger-bg-subtle: #fee7e1;
+  --bs-danger-bg-subtle: #efd6cc;
   --bs-light-bg-subtle: #fbfcfe;
   --bs-dark-bg-subtle: #7C8FAC;
   --bs-primary-border-subtle: #becfff;
@@ -108,7 +108,7 @@ File: scss
   --bs-success-border-subtle: #a1f2e3;
   --bs-info-border-subtle: #bad7ff;
   --bs-warning-border-subtle: #ffdfa5;
-  --bs-danger-border-subtle: #fdd0c4;
+  --bs-danger-border-subtle: #dfad99;
   --bs-light-border-subtle: #EAEFF4;
   --bs-dark-border-subtle: #5A6A85;
   --bs-white-rgb: 255, 255, 255;
@@ -190,7 +190,7 @@ File: scss
   --bs-success-text: #71ebd5;
   --bs-info-text: #98c3ff;
   --bs-warning-text: #ffce79;
-  --bs-danger-text: #fcb8a6;
+  --bs-danger-text: #d08466;
   --bs-light-text: #F6F9FC;
   --bs-dark-text: #DFE5EF;
   --bs-primary-bg-subtle: #131b33;
@@ -198,7 +198,7 @@ File: scss
   --bs-success-bg-subtle: #042c25;
   --bs-info-bg-subtle: #111f33;
   --bs-warning-bg-subtle: #332306;
-  --bs-danger-bg-subtle: #321b15;
+  --bs-danger-bg-subtle: #230a00;
   --bs-light-bg-subtle: #343a40;
   --bs-dark-bg-subtle: #1a1d20;
   --bs-primary-border-subtle: #385199;
@@ -206,7 +206,7 @@ File: scss
   --bs-success-border-subtle: #0b856f;
   --bs-info-border-subtle: #213e66;
   --bs-warning-border-subtle: #66460c;
-  --bs-danger-border-subtle: #965240;
+  --bs-danger-border-subtle: #6a1e00;
   --bs-light-border-subtle: #495057;
   --bs-dark-border-subtle: #343a40;
   --bs-heading-color: #fff;
@@ -2839,13 +2839,13 @@ progress {
 
 .table-danger {
   --bs-table-color: #000;
-  --bs-table-bg: #fee7e1;
-  --bs-table-border-color: #e5d0cb;
-  --bs-table-striped-bg: #f1dbd6;
+  --bs-table-bg: #efd6cc;
+  --bs-table-border-color: #d7c1b8;
+  --bs-table-striped-bg: #e3cbc2;
   --bs-table-striped-color: #000;
-  --bs-table-active-bg: #e5d0cb;
-  --bs-table-active-color: #000;
-  --bs-table-hover-bg: #ebd6d0;
+  --bs-table-active-bg: #d7c1b8;
+  --bs-table-active-color: #fff;
+  --bs-table-hover-bg: #ddc6bd;
   --bs-table-hover-color: #000;
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);
@@ -3663,7 +3663,7 @@ textarea.form-control-lg {
 .was-validated .form-control:invalid, .form-control.is-invalid {
   border-color: var(--bs-danger);
   padding-right: calc(1.5em + 0.75rem);
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23FA896B'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23FA896B' stroke='none'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23b03200'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23b03200' stroke='none'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right calc(0.375em + 0.1875rem) center;
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
@@ -3682,7 +3682,7 @@ textarea.form-control-lg {
   border-color: var(--bs-danger);
 }
 .was-validated .form-select:invalid:not([multiple]):not([size]), .was-validated .form-select:invalid:not([multiple])[size="1"], .form-select.is-invalid:not([multiple]):not([size]), .form-select.is-invalid:not([multiple])[size="1"] {
-  --bs-form-select-bg-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23FA896B'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23FA896B' stroke='none'/%3e%3c/svg%3e");
+  --bs-form-select-bg-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23b03200'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23b03200' stroke='none'/%3e%3c/svg%3e");
   padding-right: 4.125rem;
   background-position: right 0.75rem center, center right 2.25rem;
   background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
@@ -3887,19 +3887,19 @@ textarea.form-control-lg {
 
 .btn-danger {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #FA896B;
-  --bs-btn-border-color: #FA896B;
+  --bs-btn-bg: #b03200;
+  --bs-btn-border-color: #b03200;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #d5745b;
-  --bs-btn-hover-border-color: #c86e56;
-  --bs-btn-focus-shadow-rgb: 251, 155, 129;
+  --bs-btn-hover-bg: #962b00;
+  --bs-btn-hover-border-color: #8d2800;
+  --bs-btn-focus-shadow-rgb: 188, 81, 38;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #c86e56;
-  --bs-btn-active-border-color: #bc6750;
+  --bs-btn-active-bg: #8d2800;
+  --bs-btn-active-border-color: #842600;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #FA896B;
-  --bs-btn-disabled-border-color: #FA896B;
+  --bs-btn-disabled-bg: #b03200;
+  --bs-btn-disabled-border-color: #b03200;
 }
 
 .btn-light {
@@ -4311,19 +4311,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-danger {
-  --bs-btn-color: #FA896B;
-  --bs-btn-border-color: #FA896B;
+  --bs-btn-color: #b03200;
+  --bs-btn-border-color: #b03200;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #FA896B;
-  --bs-btn-hover-border-color: #FA896B;
-  --bs-btn-focus-shadow-rgb: 250, 137, 107;
+  --bs-btn-hover-bg: #b03200;
+  --bs-btn-hover-border-color: #b03200;
+  --bs-btn-focus-shadow-rgb: 176, 50, 0;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #FA896B;
-  --bs-btn-active-border-color: #FA896B;
+  --bs-btn-active-bg: #b03200;
+  --bs-btn-active-border-color: #b03200;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #FA896B;
+  --bs-btn-disabled-color: #b03200;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #FA896B;
+  --bs-btn-disabled-border-color: #b03200;
   --bs-gradient: none;
 }
 
@@ -8657,7 +8657,7 @@ textarea.form-control-lg {
 
 .text-bg-danger {
   color: #fff !important;
-  background-color: RGBA(250, 137, 107, var(--bs-bg-opacity, 1)) !important;
+  background-color: RGBA(176, 50, 0, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-light {
@@ -8791,10 +8791,10 @@ textarea.form-control-lg {
 }
 
 .link-danger {
-  color: #FA896B !important;
+  color: #b03200 !important;
 }
 .link-danger:hover, .link-danger:focus {
-  color: #c86e56 !important;
+  color: #8d2800 !important;
 }
 
 .link-light {
@@ -22014,6 +22014,38 @@ textarea.form-control-lg {
   left: 0;
   right: 0;
   margin: 0 auto;
+}
+
+.user-profile-tab .nav-item .nav-link {
+  color: #5A6A85;
+}
+.user-profile-tab .nav-item .nav-link.active {
+  color: #3e7d73;
+  border-bottom: 2px solid #3e7d73;
+}
+
+.card-title {
+  font-size: 18px;
+}
+
+.card-subtitle {
+  font-size: 14px;
+}
+
+.card {
+  margin-bottom: 30px;
+}
+
+.card-hover {
+  transition: 0.2s ease-in;
+}
+.card-hover:hover {
+  transform: translate3d(0px, -5px, 0px);
+}
+
+.cardwithborder .card {
+  box-shadow: none;
+  border: 1px solid #ebf1f6;
 }
 
 a {
