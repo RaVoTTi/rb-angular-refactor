@@ -5,7 +5,7 @@ import { BooksService } from '../../services/books.service';
 import { WishlistService } from '../../services/wishlist.service';
 
 @Component({
-  selector: 'robinbook-books-list',
+  selector: 'rb-books-list',
   templateUrl: './books-list.component.html',
   styleUrls: ['./books-list.component.scss']
 

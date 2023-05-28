@@ -10,7 +10,7 @@ import { IBook } from 'interfaces/public-api';
 
 
 @Component({
-  selector: 'robinbook-book-view',
+  selector: 'rb-book-view',
   templateUrl: './book-view.component.html',
 })
 export class BookViewComponent implements OnInit {
@@ -19,7 +19,7 @@ export class BookViewComponent implements OnInit {
   bookId!: string;
 
   constructor(
-    private bookBaseService: BooksService,
+    private booksService: BooksService,
     private wishlistService:WishlistService,
     private route: ActivatedRoute,
     private location: Location,
@@ -33,7 +33,7 @@ export class BookViewComponent implements OnInit {
     this.route.params.pipe(take(1)).subscribe((params) => {
       if (params['id']) {
         this.bookId = params['id'];
-        this.bookBaseService
+        this.booksService
           .getBookBaseById(this.bookId)
           .pipe(take(1))
           .subscribe(({ result  }) => {

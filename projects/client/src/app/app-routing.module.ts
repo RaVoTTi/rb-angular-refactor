@@ -76,7 +76,6 @@ const routes: Routes = [
 
       {
         path: 'books',
-        component: BooksListComponent,
         loadChildren:() => import('projects/books/src/public-api').then((m) => m.BooksModule),
 
         // resolve: {

@@ -1,21 +1,14 @@
 // ANGULAR
-import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
-
 
 import { BookViewComponent } from './pages/book-view/book-view.component';
 import { BooksListComponent } from './pages/books-list/books-list.component';
-import { ComponentsModule } from 'projects/components/src/public-api';
 import { CardBookComponent } from './components/card-book/card-book.component';
-import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { SearchHeaderComponent } from './components/search-header/search-header.component';
-
+import { NgModule } from '@angular/core';
 
 // import { WishlistService } from './services/wishlist.service';
-
-
 
 // ME
 // import { WishlistComponent } from './pages/wishlist/wishlist.component';
@@ -32,7 +25,10 @@ import { SearchHeaderComponent } from './components/search-header/search-header.
 // import { TermsComponent } from '../../../terms/src/lib/terms/terms.component';
 
 const routes: Routes = [
-
+  {
+    path: '',
+    component: SearchHeaderComponent,
+    children: [
       {
         path: '',
         component: BooksListComponent,
@@ -48,15 +44,15 @@ const routes: Routes = [
         //   books: BooksResolver,
         // },
       },
-
-      // {
-      //   path: 'wishlist',
-      //   component: WishlistComponent,
-      //   // resolve: {
-      //   //   books: BooksResolver,
-      //   // },
-      // },
-
+    ],
+  },
+  // {
+  //   path: 'wishlist',
+  //   component: WishlistComponent,
+  //   // resolve: {
+  //   //   books: BooksResolver,
+  //   // },
+  // },
 ];
 
 @NgModule({
@@ -64,20 +60,18 @@ const routes: Routes = [
     BooksListComponent,
     BookViewComponent,
     CardBookComponent,
-    BookDetailComponent,
-    SearchHeaderComponent
+    SearchHeaderComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     // RouterModule,
     // UtilsModule,
-    
   ],
   exports: [
 
-  ],
 
+  ],
 })
 export class BooksModule {
   // constructor(
