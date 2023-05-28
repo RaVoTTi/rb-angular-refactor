@@ -32,10 +32,7 @@ import { SearchHeaderComponent } from './components/search-header/search-header.
 // import { TermsComponent } from '../../../terms/src/lib/terms/terms.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: SearchHeaderComponent,
-    children: [
+
       {
         path: '',
         component: BooksListComponent,
@@ -59,8 +56,7 @@ const routes: Routes = [
       //   //   books: BooksResolver,
       //   // },
       // },
-    ],
-  },
+
 ];
 
 @NgModule({
@@ -76,8 +72,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     // RouterModule,
     // UtilsModule,
-    ReactiveFormsModule,
-    ComponentsModule
+    
   ],
   exports: [
 

@@ -9,12 +9,7 @@ import { ImgComponent } from './img/img.component';
 import { AuthHeaderComponent } from './auth-header/auth-header.component';
 import { FooterComponent } from './footer/footer.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: MainComponent,
-  },
-];
+
 
 @NgModule({
   declarations: [
@@ -25,7 +20,7 @@ const routes: Routes = [
     AuthHeaderComponent,
     FooterComponent,
   ],
-  imports: [RouterModule.forChild(routes), CommonModule, RouterModule],
+  imports: [RouterModule, CommonModule, RouterModule],
   exports: [
     MainComponent,
     HeaderComponent,
