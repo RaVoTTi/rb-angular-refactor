@@ -10,6 +10,7 @@ import { BooksListComponent } from './pages/books-list/books-list.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
 import { CardBookComponent } from './components/card-book/card-book.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { SearchHeaderComponent } from './components/search-header/search-header.component';
 
 
 // import { WishlistService } from './services/wishlist.service';
@@ -30,47 +31,49 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 // import { UtilsModule } from 'interfaces/public-api';
 // import { TermsComponent } from '../../../terms/src/lib/terms/terms.component';
 
-// const routes: Routes = [
-//   {
-//     path: '',
-//     children: [
-//       {
-//         path: '',
-//         component: BooksListComponent,
+const routes: Routes = [
+  {
+    path: '',
+    component: SearchHeaderComponent,
+    children: [
+      {
+        path: '',
+        component: BooksListComponent,
 
-//         // resolve: {
-//         //   books: BooksResolver,
-//         // },
-//       },
-//       {
-//         path: 'id/:id',
-//         component: BookViewComponent,
-//         // resolve: {
-//         //   books: BooksResolver,
-//         // },
-//       },
+        // resolve: {
+        //   books: BooksResolver,
+        // },
+      },
+      {
+        path: 'id/:id',
+        component: BookViewComponent,
+        // resolve: {
+        //   books: BooksResolver,
+        // },
+      },
 
-//       // {
-//       //   path: 'wishlist',
-//       //   component: WishlistComponent,
-//       //   // resolve: {
-//       //   //   books: BooksResolver,
-//       //   // },
-//       // },
-//     ],
-//   },
-// ];
+      // {
+      //   path: 'wishlist',
+      //   component: WishlistComponent,
+      //   // resolve: {
+      //   //   books: BooksResolver,
+      //   // },
+      // },
+    ],
+  },
+];
 
 @NgModule({
   declarations: [
     BooksListComponent,
     BookViewComponent,
     CardBookComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    SearchHeaderComponent
   ],
   imports: [
     CommonModule,
-    // RouterModule.forChild(routes),
+    RouterModule.forChild(routes),
     // RouterModule,
     // UtilsModule,
     ReactiveFormsModule,

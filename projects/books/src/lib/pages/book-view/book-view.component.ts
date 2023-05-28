@@ -25,7 +25,9 @@ export class BookViewComponent implements OnInit {
     private location: Location,
     private router: Router,
 
-  ) {}
+  ) {
+    console.log('Entro')
+  }
 
   ngOnInit(): void {
     this.route.params.pipe(take(1)).subscribe((params) => {

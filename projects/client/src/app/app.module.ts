@@ -7,18 +7,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HomeModule } from './pages/home/home.module';
-import { ShellModule } from './shell/shell.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from 'projects/auth-base/src/public-api';
+import { ShellComponent } from './shell/shell.component';
+import { ComponentsModule } from 'projects/components/src/public-api';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    ShellComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ShellModule,
+    // ShellModule,
     HomeModule,
     HttpClientModule,
+    ComponentsModule
 
     // BooksModule,
     // StoreDevtoolsModule.instrument({
@@ -34,4 +39,4 @@ import { JwtInterceptor } from 'projects/auth-base/src/public-api';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

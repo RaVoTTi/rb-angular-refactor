@@ -2,3 +2,14 @@
 
 @import 'styles/apps/client/client.scss';
 
+.container-fluid {
+    max-width: 81rem;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 365px) {
+    .container-fluid {
+        padding: 0;
+    }
+}

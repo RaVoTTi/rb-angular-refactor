@@ -62,6 +62,7 @@ import { ShellComponent } from './shell/shell.component';
 // },]
 
 const routes: Routes = [
+
   {
     path: 'app',
     component: ShellComponent,
@@ -71,46 +72,39 @@ const routes: Routes = [
         component: HomeComponent,
         // canActivate: [IsLoggedOut],
 
-        // component: TestComponent,
       },
+
       {
         path: 'books',
-        children: [
-          {
-            path: '',
-            component: BooksListComponent,
+        component: BooksListComponent,
+        loadChildren:() => import('projects/books/src/public-api').then((m) => m.BooksModule),
 
-            // resolve: {
-            //   books: BooksResolver,
-            // },
-          },
-          {
-            path: 'id/:id',
-            component: BookViewComponent,
-            // resolve: {
-            //   books: BooksResolver,
-            // },
-          },
-
-          // {
-          //   path: 'wishlist',
-          //   component: WishlistComponent,
-          //   // resolve: {
-          //   //   books: BooksResolver,
-          //   // },
-          // },
-        ],
+        // resolve: {
+        //   books: BooksResolver,
+        // },
       },
+      //     {
+      //       path: 'bookid/:id',
+      //       component: BookViewComponent,
+      //       // resolve: {
+      //       //   books: BooksResolver,
+      //       // },
+      //     },
 
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: '/app/home',
-      },
+      //     // {
+      //     //   path: 'wishlist',
+      //     //   component: WishlistComponent,
+      //     //   // resolve: {
+      //     //   //   books: BooksResolver,
+      //     //   // },
+      //     // },
+
     ],
   },
-  // { path: '', redirectTo: '/app', pathMatch: 'full' },
+
   { path: '**', redirectTo: '/app/home' },
+  // { path: '', redirectTo: '/app' , pathMatch: 'full'},
+
 ];
 
 @NgModule({
@@ -118,8 +112,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       useHash: true,
     }),
-    BooksModule,
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
