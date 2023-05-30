@@ -62,7 +62,6 @@ import { ShellComponent } from './shell/shell.component';
 // },]
 
 const routes: Routes = [
-
   {
     path: 'app',
     component: ShellComponent,
@@ -71,16 +70,23 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent,
         // canActivate: [IsLoggedOut],
-
       },
 
       {
         path: 'books',
-        loadChildren:() => import('projects/books/src/public-api').then((m) => m.BooksModule),
+        loadChildren: () =>
+          import('projects/books/src/public-api').then((m) => m.BooksModule),
+      },
 
-        // resolve: {
-        //   books: BooksResolver,
-        // },
+      {
+        path: 'terms',
+        loadChildren: () =>
+        import('./pages/terms/terms.module').then((m) => m.TermsModule),
+      },
+      {
+        path: 'faq',
+        loadChildren: () =>
+        import('./pages/faq/faq.module').then((m) => m.FAQModule),
       },
       //     {
       //       path: 'bookid/:id',
@@ -97,13 +103,15 @@ const routes: Routes = [
       //     //   //   books: BooksResolver,
       //     //   // },
       //     // },
-
     ],
   },
-
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('projects/auth-user/src/public-api').then((m) => m.AuthUserModule),
+  },
   { path: '**', redirectTo: '/app/home' },
   // { path: '', redirectTo: '/app' , pathMatch: 'full'},
-
 ];
 
 @NgModule({
@@ -114,4 +122,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

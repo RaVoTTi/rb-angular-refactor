@@ -1,0 +1,205 @@
+<!-- <div class="auth-container">
+  <div class="auth-in">
+    <a class="auth-logo">
+      <img
+        class="logo"
+        src="assets/img/logo-header.svg"
+        alt=""
+        routerLink="/app/books"
+      />
+    </a>
+
+    <div class="auth-card" *ngIf="loginForm; else signup">
+      <div class="auth-alert">
+        <i>🏹</i>
+        Enter your details below to continue
+      </div>
+      <form class="" [formGroup]="loginForm" autocomplete="off">
+        <div class="input-label">
+          <label class="label"> Email</label>
+          <input
+            placeholder="robin@boook.com"
+            formControlName="email"
+            type="text"
+            class="form-control"
+          />
+          <small [errorMsg]="errorMsg('email')"> </small>
+        </div>
+        <div class="input-label">
+          <label class="label"> Password</label>
+          <input
+            type="password"
+            placeholder="*********"
+            formControlName="password"
+            class="form-control"
+          />
+          <small [errorMsg]="errorMsg('password')"> </small>
+        </div>
+        <div class="d-flex justify-content-between m-2">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Remember Me
+            </label>
+          </div>
+
+          <a routerLink="/app/terms"> Forgot Password? </a>
+        </div>
+
+
+        <div class="row mb-3 mt-3">
+          <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              (click)="onSubmit()"
+              [disabled]="loginForm.invalid || loginForm.disabled"
+            >
+              <span class="spinner-border spinner-border-sm mr-1"></span> Start
+              Now
+            </button>
+          </div>
+        </div>
+        <div class="d-flex justify-content-evenly">
+          <span>Don't have account</span>
+
+          <a routerLink="/auth/signup"> Create account </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<!-- <ng-template #signup>
+  <div class="auth-card">
+    <div class="auth-alert">
+      <i>🏹</i> Fill the gaps and discover a great amount of new oppotunities!
+    </div>
+    <form [formGroup]="signUpForm" autocomplete="off">
+      <div class="input-label">
+        <label class="label"> Name</label>
+        <input
+          placeholder="Robin"
+          formControlName="name"
+          type="text"
+          class="form-control"
+        />
+        <small [errorMsg]="errorMsg('name')"> </small>
+      </div>
+      <div class="input-label">
+        <label class="label"> LastName</label>
+        <input
+          type="text"
+          placeholder="Boook"
+          formControlName="lastName"
+          class="form-control"
+        />
+        <small [errorMsg]="errorMsg('lastName')"> </small>
+      </div>
+      <div class="input-label">
+        <label class="label"> Email</label>
+        <input
+          placeholder="robin@boook.com"
+          formControlName="email"
+          type="text"
+          class="form-control"
+        />
+        <small [errorMsg]="errorMsg('email')"> </small>
+      </div>
+      <div class="input-label">
+        <label class="label"> Phone</label>
+        <input
+          type="number"
+          placeholder="(111) 111-1111"
+          formControlName="phone"
+          class="form-control"
+        />
+        <small [errorMsg]="errorMsg('phone')"> </small>
+      </div>
+      <div class="input-label">
+        <label class="label"> Password</label>
+        <input
+          type="password"
+          placeholder="********"
+          formControlName="password"
+          class="form-control"
+        />
+        <small [errorMsg]="errorMsg('password')"> </small>
+      </div>
+      <div class="input-label">
+        <label class="label">Confirm Password</label>
+        <input
+          type="password"
+          placeholder="********"
+          formControlName="password2"
+          class="form-control"
+        />
+        <small [errorMsg]="errorMsg('password2')"> </small>
+      </div>
+
+
+      <div class="form-check m-2">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          formControlName="terms"
+
+          value=""
+          id="flexCheckDefault"
+        />
+        <label class="form-check-label" for="flexCheckDefault">
+          Accept <a href="">Terms & Conditions</a>
+        </label>
+      </div>
+      <div class="row mb-3 mt-3">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            (click)="onSubmit()"
+            [disabled]="signUpForm.invalid || signUpForm.disabled"
+          >
+            <span class="spinner-border spinner-border-sm mr-1"></span> Create
+            Account
+          </button>
+        </div>
+      </div>
+
+      <div class="row mb-5">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+          <span class="text-xs text-muted me-3">Already have an account?</span>
+          <a routerLink="/auth"
+            ><span class="text-xs text-primary fw-bold">Login Now </span></a
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template> -->
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="position-relative overflow-hidden radial-gradient min-vh-100">
+    <div class="position-relative z-index-5">
+      <div class="row">
+        <div class="col-xl-7 col-xxl-8">
+          <a routerLink="/app/books" class="text-nowrap logo-img d-block px-4 pt-3 w-100">
+            <img src="assets/rb/logo-header.svg" width="180" alt="">
+          </a>
+          <div class="d-none d-xl-flex align-items-center justify-content-center" style="height: calc(100vh - 80px);">
+            <img src="assets/images/backgrounds/login-security.svg" alt="" class="img-fluid" width="500">
+          </div>
+        </div>
+  
+        <div class="col-xl-5 col-xxl-4">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

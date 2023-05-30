@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
+export interface INavItem {
+  title: string,
+  onClick: () => void
+}
 @Component({
   selector: 'rb-auth-header',
   templateUrl: './auth-header.component.html',
-  styles: [
-  ]
+
 })
 export class AuthHeaderComponent {
+  @Input() src!: string;
 
 }

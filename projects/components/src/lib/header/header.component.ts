@@ -6,6 +6,8 @@ export interface INavItem {
 @Component({
   selector: 'rb-header',
   templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+
 })
 export class HeaderComponent {
   @Input() src!: string;

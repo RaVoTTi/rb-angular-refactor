@@ -68,10 +68,7 @@ const routes: Routes = [
     // RouterModule,
     // UtilsModule,
   ],
-  exports: [
 
-
-  ],
 })
 export class BooksModule {
   // constructor(

@@ -9,6 +9,9 @@
       "auth-base": [
         "dist/auth-base"
       ],
+      "auth-user": [
+        "dist/auth-user"
+      ],
       "books": [
         "dist/books"
       ],
