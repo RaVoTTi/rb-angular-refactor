@@ -1,0 +1,36 @@
+
+.shopping-cart {
+  width: 330px !important;
+}
+ul{
+  list-style: none;
+
+}
+.profile-dropdown{
+  min-width: 350px;
+  max-height: fit-content;
+  
+}
+.navbar-nav .dropdown-menu {
+  background-color: white;
+
+  position: absolute;
+  min-width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+
+  .dropdown-item {
+    border-radius: 8px;
+  }
+
+
+}
+.message-body {
+  max-height: 360px;
+  a {
+    cursor: pointer;
+  }
+}
+.content-dd{
+  width: 360px;
+}

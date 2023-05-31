@@ -6,6 +6,8 @@ export interface INavItem {
 @Component({
   selector: 'rb-auth-header',
   templateUrl: './auth-header.component.html',
+  styleUrls: ['./auth-header.component.scss'],
+
 
 })
 export class AuthHeaderComponent {
