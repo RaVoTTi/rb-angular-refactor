@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidatorsService } from '../../validators/validators.service';
+import { AuthBaseService, IRegister } from 'projects/auth-base/src/public-api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-signup',
@@ -12,6 +14,10 @@ export class SignupComponent {
 
   constructor(
     private formBuilder: FormBuilder,
+    private authBaseService: AuthBaseService,
+    private router: Router,
+
+
     private vs: ValidatorsService // private messageService: MessageService
   ) {
     this._initForm();
@@ -22,7 +28,17 @@ export class SignupComponent {
       this.signUpForm.markAllAsTouched();
       return;
     }
-    console.log(this.signUpForm.value);
+    const user = this.signUpForm.value as IRegister
+    this.authBaseService
+      .postSignUp(user).subscribe((response) => {
+
+        console.log(response)
+        if (response.token) {
+          this.router.navigate(['/app/books']);
+        }
+      })
+
+
   }
   private _initForm() {
     this.signUpForm = this.formBuilder.group(

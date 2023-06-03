@@ -7,20 +7,19 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './pages/home/home.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthBaseModule, JwtInterceptor } from 'projects/auth-base/src/public-api';
-import { ShellComponent } from './shell/shell.component';
+import { ShellComponent } from './shared/shell/shell.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
-    ShellComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // ShellModule,
+    SharedModule,
     HomeModule,
     HttpClientModule,
-    ComponentsModule,
 
     AuthBaseModule.forRoot(),
 
