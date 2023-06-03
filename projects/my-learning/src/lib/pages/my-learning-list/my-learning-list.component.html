@@ -1,10 +1,11 @@
+<div class="list-container">
+  <ng-container *ngIf="allMyLearnings">
 
-<div *ngIf="allMyLearnings" class="list-container">
-  <rb-card-learning
-    *ngFor="let learning of allMyLearnings "
-    [learning]="learning"
-  >
-  </rb-card-learning>
+    <rb-card-learning 
+    *ngFor="let learning of allMyLearnings" 
+    [learning]="learning">
+
+    </rb-card-learning>
+    <ng-container />
+  </ng-container>
 </div>
-
-

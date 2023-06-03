@@ -16,4 +16,6 @@ export interface ILearningBook {
   name: string;
   evaluation: IEvaluation[];
   content: string;
+  image: string;
+
 }

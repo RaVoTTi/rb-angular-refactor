@@ -4,14 +4,13 @@ import { IBook, ILearning, ILearningBook } from 'interfaces/public-api';
 @Component({
   selector: 'rb-card-learning',
   templateUrl: './card-learning.component.html',
-  styles: [
-  ]
+  styleUrls: ['./card-learning.component.scss']
 })
 export class CardLearningComponent {
   @Input() learning!: ILearning;
-  // @Input() book!: ILearning;
 
   constructor() {
+
   }
 
 }

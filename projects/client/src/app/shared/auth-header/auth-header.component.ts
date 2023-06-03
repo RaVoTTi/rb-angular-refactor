@@ -43,7 +43,7 @@ export class AuthHeaderComponent {
     {
       title: 'My Orders',
       url: '/app/myorders',
-      icon: 'Wallet'
+      icon: 'wallet'
     },
     {
       title: 'Support',

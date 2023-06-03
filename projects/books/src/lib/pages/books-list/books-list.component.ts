@@ -30,6 +30,7 @@ export class BooksListComponent implements OnInit {
         this.books = response.result;
       });
   }
+
   isFavorite(id:string): boolean{
     if(this.wishlistBooks.includes(id)){
       return true
