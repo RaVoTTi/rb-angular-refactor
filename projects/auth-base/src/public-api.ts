@@ -14,7 +14,7 @@ export * from './lib/interfaces/IRegister'
 
 // GUARDS
 
-export * from './lib/guards/auth-admin.guard';
+// export * from './lib/guards/auth-admin.guard';
 export * from './lib/guards/is-logged-in.guard';
 export * from './lib/guards/is-logged-out.guard';
 

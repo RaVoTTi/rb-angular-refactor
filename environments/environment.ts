@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   API_URL: 'http://localhost:8080/api/v1',
   RAW_URL: 'http://localhost:8080',
+  TOKEN: 'super-token'
 };
 
 /*

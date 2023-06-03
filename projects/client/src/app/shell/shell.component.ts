@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocalStorageService } from 'projects/auth-base/src/public-api';
 
 @Component({
   selector: 'app-shell',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   ]
 })
 export class ShellComponent {
-
+  isAuth! : boolean
+constructor(private localStorageService: LocalStorageService){
+  this.isAuth = !!this.localStorageService.getToken()
+  console.log(this.isAuth)
+}
 }

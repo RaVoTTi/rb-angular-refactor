@@ -1,24 +1,21 @@
-import { CanActivateFn, CanDeactivateFn } from '@angular/router';
+import { CanActivateFn, CanDeactivateFn, Router } from '@angular/router';
 import { AuthBaseService } from '../services/auth-base.service';
 import { Injectable, inject } from '@angular/core';
 import { LocalStorageService } from '../services/local-storage.service';
 
-Injectable({
-  providedIn: 'root',
-})
-class IsLoggedInGuard {
-  constructor(private localStorageService: LocalStorageService) {
 
+export const isLoggedInGuard: CanActivateFn = () => {
+
+  const localStorageService: LocalStorageService = inject(LocalStorageService)
+  const router: Router = inject(Router)
+  
+
+  
+  if (!localStorageService.getToken() ){
+    router.createUrlTree(['/app/home'])
   }
-  canActivate(): boolean {
-    
-    return !!this.localStorageService.getToken()
-  }
 
+  return !!localStorageService.getToken() 
 
-
-}
-export const isLoggedInGuard: CanActivateFn = (route, state) => {
-  return inject(IsLoggedInGuard).canActivate()
 };
 

@@ -8,8 +8,8 @@
   data-sidebar-position="fixed"
   data-header-position="fixed"
 >
-<rb-header></rb-header>
-<!-- <rb-auth-header></rb-auth-header> -->
+<rb-header *ngIf="!isAuth"></rb-header>
+<rb-auth-header *ngIf="isAuth"></rb-auth-header>
 
 <router-outlet></router-outlet>
 <!-- <app-home></app-home> -->
