@@ -1,13 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {
-  BooksListComponent,
-  BooksModule,
-  BookViewComponent,
-  // WishlistComponent,
-} from 'projects/books/src/public-api';
 import { HomeComponent } from './pages/home/home.component';
 import { ShellComponent } from './shell/shell.component';
+import { isLoggedInGuard } from 'projects/auth-base/src/public-api';
 // import { PagesRoutingModule } from './pages/pages.routing';
 
 // const routes: Routes =  [ {
@@ -73,21 +68,27 @@ const routes: Routes = [
       },
 
       {
-        path: 'books',
-        loadChildren: () =>
-          import('projects/books/src/public-api').then((m) => m.BooksModule),
-      },
-
-      {
         path: 'terms',
         loadChildren: () =>
-        import('./pages/terms/terms.module').then((m) => m.TermsModule),
+          import('./pages/terms/terms.module').then((m) => m.TermsModule),
       },
       {
         path: 'faq',
         loadChildren: () =>
-        import('./pages/faq/faq.module').then((m) => m.FAQModule),
+          import('./pages/faq/faq.module').then((m) => m.FAQModule),
       },
+      {
+        path: 'books',
+        loadChildren: () =>
+          import('projects/books/src/public-api').then((m) => m.BooksModule),
+      },
+      {
+        path: 'mylearning',
+        loadChildren: () =>
+          import('projects/my-learning/src/public-api').then((m) => m.MyLearningModule),
+        canActivate: [isLoggedInGuard]
+      },
+
       //     {
       //       path: 'bookid/:id',
       //       component: BookViewComponent,
@@ -122,4 +123,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

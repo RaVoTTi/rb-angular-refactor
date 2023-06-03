@@ -1,17 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { BooksModule } from 'projects/books/src/public-api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
 import { HomeModule } from './pages/home/home.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptor } from 'projects/auth-base/src/public-api';
+import { AuthBaseModule, JwtInterceptor } from 'projects/auth-base/src/public-api';
 import { ShellComponent } from './shell/shell.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,13 +20,9 @@ import { ComponentsModule } from 'projects/components/src/public-api';
     // ShellModule,
     HomeModule,
     HttpClientModule,
-    ComponentsModule
+    ComponentsModule,
 
-    // BooksModule,
-    // StoreDevtoolsModule.instrument({
-    //   maxAge: 25,
-    //   logOnly: environment.production,
-    // }),
+    AuthBaseModule.forRoot(),
 
   ],
   providers: [

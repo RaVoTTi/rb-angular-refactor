@@ -27,6 +27,9 @@
       "interfaces": [
         "dist/interfaces"
       ],
+      "my-learning": [
+        "dist/my-learning"
+      ],
       "orders": [
         "dist/orders"
       ]

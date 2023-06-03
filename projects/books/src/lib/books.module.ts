@@ -8,6 +8,8 @@ import { CardBookComponent } from './components/card-book/card-book.component';
 import { SearchHeaderComponent } from './components/search-header/search-header.component';
 import { NgModule } from '@angular/core';
 
+import { CardLearningComponent } from '../../../my-learning/src/lib/components/card-learning/card-learning.component';
+
 // import { WishlistService } from './services/wishlist.service';
 
 // ME
@@ -44,6 +46,7 @@ const routes: Routes = [
         //   books: BooksResolver,
         // },
       },
+      
     ],
   },
   // {
@@ -57,10 +60,14 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
+    CardBookComponent,
+    
+    SearchHeaderComponent,
+
     BooksListComponent,
     BookViewComponent,
-    CardBookComponent,
-    SearchHeaderComponent,
+
+
   ],
   imports: [
     CommonModule,

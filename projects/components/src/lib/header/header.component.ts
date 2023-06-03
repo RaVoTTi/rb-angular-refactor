@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
-export interface INavItem {
+interface INavItem {
   title: string,
-  onClick: () => void
+  url: string,
+  icon: string
 }
 @Component({
   selector: 'rb-header',
@@ -11,5 +12,34 @@ export interface INavItem {
 })
 export class HeaderComponent {
   @Input() src!: string;
+  public sideBarItems: INavItem[] = [
+    {
+      title: 'Home',
+      url: '/app/settings',
+      icon: 'home'
+    },
+    {
+      title: 'Books',
+      url: '/app/books',
+      icon: 'book'
+    },
+    {
+      title: 'FAQ',
+      url: '/app/faq',
+      icon: 'vocabulary'
+    },
+    {
+      title: 'Cart',
+      url: '/app/cart',
+      icon: 'shopping-cart'
+    },
+    {
+      title: 'Wishlist',
+      url: '/app/wishlist',
+      icon: 'heart'
+    },
+    
+
+  ]
 
 }

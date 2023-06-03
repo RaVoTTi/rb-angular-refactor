@@ -30,9 +30,9 @@ export class AuthBaseService {
     private router: Router
   ) {}
 
-  login(login: ILogin) {
-    // this.store.dispatch(AuthActions.loginRequest({ login }));
-  }
+  // login(login: ILogin) {
+  //   // this.store.dispatch(AuthActions.loginRequest({ login }));
+  // }
 
   postLogin(login: ILogin): Observable<IResponse> {
     return this.http

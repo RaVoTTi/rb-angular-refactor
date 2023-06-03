@@ -1,8 +1,10 @@
 import { Component, Input } from '@angular/core';
-export interface INavItem {
+interface INavItem {
   title: string,
-  onClick: () => void
+  url: string,
+  icon: string
 }
+
 @Component({
   selector: 'rb-auth-header',
   templateUrl: './auth-header.component.html',
@@ -12,5 +14,66 @@ export interface INavItem {
 })
 export class AuthHeaderComponent {
   @Input() src!: string;
+  public sideBarItems: INavItem[] = [
+    {
+      title: 'My Profile',
+      url: '/app/settings',
+      icon: 'user'
+    },
+    {
+      title: 'Books',
+      url: '/app/books',
+      icon: 'book'
+    },
+    {
+      title: 'My Learning',
+      url: '/app/mylearning',
+      icon: 'vocabulary'
+    },
+    {
+      title: 'Cart',
+      url: '/app/cart',
+      icon: 'shopping-cart'
+    },
+    {
+      title: 'Wishlist',
+      url: '/app/wishlist',
+      icon: 'heart'
+    },
+    {
+      title: 'My Orders',
+      url: '/app/myorders',
+      icon: 'Wallet'
+    },
+    {
+      title: 'Support',
+      url: '/app/support',
+      icon: 'phone'
+    },
+
+  ]
+  public dropDownItems: INavItem[]=[
+    {
+      title: 'My Profile',
+      url: '/app/settings',
+      icon: 'user'
+    },
+    {
+      title: 'Wishlist',
+      url: '/app/wishlist',
+      icon: 'heart'
+    },
+    {
+      title: 'My Orders',
+      url: '/app/myorders',
+      icon: 'Wallet'
+    },
+    {
+      title: 'Support',
+      url: '/app/support',
+      icon: 'phone'
+    },
+
+  ]
 
 }

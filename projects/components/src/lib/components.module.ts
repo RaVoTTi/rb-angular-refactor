@@ -7,29 +7,30 @@ import { HeaderComponent } from './header/header.component';
 
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
-import { MainComponent } from './pages/main/main.component';
 import { ImgComponent } from './img/img.component';
 import { FooterComponent } from './footer/footer.component';
+import { SubHeaderComponent } from './sub-header/sub-header.component';
 
 
 
 @NgModule({
   declarations: [
-    MainComponent,
     AuthHeaderComponent,
     HeaderComponent,
     ImgComponent,
     BreadcrumbsComponent,
     FooterComponent,
+    SubHeaderComponent,
   ],
   imports: [RouterModule, CommonModule, RouterModule],
   exports: [
-    MainComponent,
     HeaderComponent,
     AuthHeaderComponent,
     FooterComponent,
     ImgComponent,
     BreadcrumbsComponent,
+    SubHeaderComponent,
+
 
   
   ],

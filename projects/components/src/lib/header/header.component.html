@@ -91,46 +91,17 @@
     />
   </div>
   <div class="offcanvas-body p-4">
-    <ul class="navbar-nav justify-content-end flex-grow-1">
-      <li class="nav-item">
-        <a
-          class="nav-link fs-3 text-dark"
-          routerLinkActive="active"
-          routerLink="/app/home"
-          >Home</a
-        >
+    <ul class="list-group pt-2 border-bottom  rounded-0">
+      <li *ngFor="let item of sideBarItems" class="list-group-item border-0 p-0 mb-2">
+        <a [routerLink]="item.url"
+          class="d-flex align-items-center gap-2 list-group-item-action text-dark px-3 py-6 rounded-1"><i
+            class="ti fs-6" ngClass="ti-{{item.icon}}"></i>{{item.title}}
+        </a>
       </li>
-      <li class="nav-item mt-3">
-        <a
-          class="nav-link fs-3 text-dark"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          routerLink="/app/books"
-          >Books</a
-        >
-      </li>
-      <li class="nav-item mt-3">
-        <a
-          class="nav-link fs-3 text-dark"
-          routerLinkActive="active"
-          routerLink="/app/faq"
-          >FAQ</a
-        >
-      </li>
-      <li class="nav-item mt-3">
-        <a
-          routerLink="/auth/login"
-          class="btn btn-outline-primary fs-3 rounded w-100 btn-hover-shadow px-3 py-2"
-          >Login</a
-        >
-      </li>
-      <li class="nav-item mt-3">
-        <a
-          routerLink="/auth/signup"
-          class="btn btn-primary fs-3 rounded btn-hover-shadow px-3 py-2 w-100 text-nowrap"
-          >Sign Up For Free</a
-        >
-      </li>
+    <a class="btn btn-outline-primary w-100 mt-4">Loging</a>
+    <a class="btn btn-primary w-100 mt-4 text-nowrap">Sign Up For Free</a>
+
+     
     </ul>
   </div>
 </div>
