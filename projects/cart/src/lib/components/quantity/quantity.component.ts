@@ -12,6 +12,6 @@ constructor(private cartService: CartService){
 
 }
 setQuantity(i:number){
-  this.cartService.setQuantity(this.id, i)
+  let cart = this.cartService.setQuantity(this.id, i)
 }
 }
