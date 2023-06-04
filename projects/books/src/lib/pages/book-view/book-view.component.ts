@@ -7,6 +7,7 @@ import { BooksService } from '../../services/books.service';
 import { WishlistService } from '../../services/wishlist.service';
 import { environment } from 'environments/environment';
 import { IBook } from 'interfaces/public-api';
+import { CartService } from 'projects/cart/src/lib/services/cart.service';
 
 
 @Component({
@@ -23,6 +24,8 @@ export class BookViewComponent implements OnInit {
   constructor(
     private booksService: BooksService,
     private wishlistService:WishlistService,
+    private cartService:CartService,
+    
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
@@ -36,23 +39,30 @@ export class BookViewComponent implements OnInit {
       if (params['id']) {
         this.bookId = params['id'];
         this.booksService
-          .getBookBaseById(this.bookId)
+          .getBookBaseByIds([this.bookId])
           .pipe(take(1))
           .subscribe(({ result  }) => {
             if (result) {
-              this.book = result;
+              this.book = result[0];
             }
           });
       }
     });
   }
-
+  setQuantity(i:number){
+    this.cartService.setQuantity(this.bookId, i)
+  }
   back(){
     this.location.back()
   }
   addBookToWishlist(){
   
       this.wishlistService.setBookWishlist(this.bookId)
+
+  }
+  AddToCart(i : number){
+      this.cartService.setQuantity(this.bookId, i)
+
   }
   // toCheckOut(){
   //   if(this.isAuth$){

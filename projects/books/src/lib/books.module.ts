@@ -9,6 +9,7 @@ import { SearchHeaderComponent } from './components/search-header/search-header.
 import { NgModule } from '@angular/core';
 
 import { CardLearningComponent } from '../../../my-learning/src/lib/components/card-learning/card-learning.component';
+import { CartModule } from 'projects/cart/src/public-api';
 
 // import { WishlistService } from './services/wishlist.service';
 
@@ -72,6 +73,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+
     // RouterModule,
     // UtilsModule,
   ],

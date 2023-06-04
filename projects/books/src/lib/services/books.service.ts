@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { IBook, IResponse } from 'interfaces/public-api';
+import { IBook, ICartItem, IResponse } from 'interfaces/public-api';
 
 import { Observable } from 'rxjs';
 
@@ -17,10 +17,10 @@ export class BooksService {
       `${this.API_URL}/book`
     );
   }
-  getBookBaseByIds(ids: string[]): Observable<IResponse<IBook>> {
-    return this.http.get<IResponse<IBook>>(`${this.API_URL}/book/${ids}`);
+  getBookBaseByIds(ids: string[]): Observable<IResponse<IBook[]>> {
+    return this.http.get<IResponse<IBook[]>>(`${this.API_URL}/book/${ids}`);
   }
-  getBookBaseById(id: string): Observable<IResponse<IBook>> {
-    return this.http.get<IResponse<IBook>>(`${this.API_URL}/book/${id}`);
-  }
+  // getBookBaseById(id: string): Observable<IResponse<IBook>> {
+  //   return this.http.get<IResponse<IBook>>(`${this.API_URL}/book/${id}`);
+  // }
 }

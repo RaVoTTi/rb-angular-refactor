@@ -4,6 +4,8 @@ import { ComponentsModule, SubHeaderComponent } from 'projects/components/src/pu
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartTableComponent } from './pages/cart-table/cart-table.component';
 import { CommonModule } from '@angular/common';
+import { CartService } from './services/cart.service';
+import { QuantityComponent } from './components/quantity/quantity.component';
 
 
 const routes: Routes = [
@@ -22,7 +24,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     CartItemComponent,
-    CartTableComponent
+    CartTableComponent,
+    QuantityComponent
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -32,4 +35,8 @@ const routes: Routes = [
   exports: [
   ]
 })
-export class CartModule { }
+export class CartModule {
+  constructor(private cartService:CartService){
+    cartService.initCartLocalStorage()
+  }
+ }

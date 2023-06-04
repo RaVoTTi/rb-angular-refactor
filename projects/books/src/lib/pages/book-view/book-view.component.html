@@ -62,6 +62,7 @@
                   class="btn minus min-width-40 py-0 border-end border-secondary fs-5 border-end-0 text-secondary"
                   type="button"
                   id="add1"
+                  (click)="setQuantity(-1)"
                 >
                   <i class="ti ti-minus"></i>
                 </button>
@@ -77,6 +78,7 @@
                   class="btn min-width-40 py-0 border border-secondary fs-5 border-start-0 text-secondary add"
                   type="button"
                   id="addo2"
+                  (click)="setQuantity(+1)"
                 >
                   <i class="ti ti-plus"></i>
                 </button>
@@ -88,6 +90,7 @@
                 >Buy Now</a
               >
               <a
+              (click)="AddToCart(1)"
                 class="btn d-block fw-semibold btn-outline-primary px-7 py-8"
                 >Add to Cart</a
               >
