@@ -18,6 +18,9 @@
       "books-state": [
         "dist/books-state"
       ],
+      "cart": [
+        "dist/cart"
+      ],
       "checkout": [
         "dist/checkout"
       ],

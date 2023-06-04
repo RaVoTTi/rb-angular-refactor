@@ -35,7 +35,12 @@ const routes: Routes = [
         canActivate: [isLoggedInGuard],
         loadChildren: () =>
           import('projects/my-learning/src/public-api').then((m) => m.MyLearningModule),
-      }
+      },
+      {
+        path: 'cart',
+        loadChildren: () =>
+          import('projects/cart/src/public-api').then((m) => m.CartModule),
+      },
     ],
   },
   {
@@ -45,8 +50,8 @@ const routes: Routes = [
     loadChildren: () =>
       import('projects/auth-user/src/public-api').then((m) => m.AuthUserModule),
   },
-  { path: '**', redirectTo: '/app/home' },
-  // { path: '', redirectTo: '/app' , pathMatch: 'full'},
+  { path: '**', redirectTo: '/app/books' },
+  // { path: '', redirectTo: '/app/home'},
 ];
 
 @NgModule({

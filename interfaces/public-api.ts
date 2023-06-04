@@ -13,3 +13,4 @@ export * from './IItem';
 export * from './IWishlist';
 export * from './ICheckout';
 export * from './IStripe';
+export * from './ICartItem';
