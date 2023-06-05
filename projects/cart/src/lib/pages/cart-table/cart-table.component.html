@@ -18,24 +18,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let item of cartItems">
+                                        <tr *ngFor="let item of newCart | async">
                                             <td class="border-bottom-0">
                                                 <div class="d-flex align-items-center gap-3">
                                                     <img [src]="item.image" alt="" class="img-fluid rounded" width="80">
                                                     <div>
                                                         <h6 class="fw-semibold fs-4 mb-0">{{item.name | titlecase}}</h6>
-                                                        <p class="mb-0">{{item.subject.name}}</p>
-                                                        <a href="javascript:void(0)" class="text-danger fs-4"><i
+                                                        <!-- <p class="mb-0">{{item.subject.name}}</p> -->
+                                                        <a (click)="deleteItem(item._id)" class="text-danger fs-4"><i
                                                                 class="ti ti-trash"></i></a>
                                                     </div>
-                                                </div>
+                                                </div> 
                                             </td>
                                             <td class="border-bottom-0">
 
-                                                <rb-quantity  [id]="item._id"></rb-quantity>
+                                                <rb-quantity (emitValue)="setQuantity(item._id, $event)"  [quantity]="cartLocal.items[item._id]"></rb-quantity>
                                             </td>
                                             <td class="text-end border-bottom-0">
-                                                <h6 class="fs-4 fw-semibold mb-0">$285</h6>
+                                                <h6 class="fs-4 fw-semibold mb-0">{{item.minPrice | currency}}</h6>
                                             </td>
                                         </tr>
 
@@ -48,19 +48,19 @@
                                     <h5 class="fs-5 fw-semibold mb-4">Order Summary</h5>
                                     <div class="d-flex justify-content-between mb-4">
                                         <p class="mb-0 fs-4">Sub Total</p>
-                                        <h6 class="mb-0 fs-4 fw-semibold">$285</h6>
+                                        <h6 class="mb-0 fs-4 fw-semibold">{{total | currency}}</h6>
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
-                                        <p class="mb-0 fs-4">Discount 5%</p>
-                                        <h6 class="mb-0 fs-4 fw-semibold text-danger">-$14</h6>
+                                        <p class="mb-0 fs-4">Discount 0%</p>
+                                        <h6 class="mb-0 fs-4 fw-semibold text-danger">-{{discount | currency}}</h6>
                                     </div>
                                     <div class="d-flex justify-content-between mb-4">
-                                        <p class="mb-0 fs-4">Shipping</p>
+                                        <p class="mb-0 fs-4" >Shipping</p>
                                         <h6 class="mb-0 fs-4 fw-semibold">Free</h6>
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <h6 class="mb-0 fs-4 fw-semibold">Total</h6>
-                                        <h6 class="mb-0 fs-5 fw-semibold">$271</h6>
+                                        <h6 class="mb-0 fs-5 fw-semibold">{{total | currency}}</h6>
                                     </div>
                                 </div>
                             </div>

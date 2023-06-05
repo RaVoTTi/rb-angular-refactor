@@ -8,6 +8,8 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ImgComponent } from './img/img.component';
 import { FooterComponent } from './footer/footer.component';
 import { SubHeaderComponent } from './sub-header/sub-header.component';
+import { QuantityComponent } from './quantity/quantity.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,13 +19,15 @@ import { SubHeaderComponent } from './sub-header/sub-header.component';
     BreadcrumbsComponent,
     FooterComponent,
     SubHeaderComponent,
+    QuantityComponent
   ],
-  imports: [RouterModule, CommonModule, RouterModule],
+  imports: [RouterModule, CommonModule, FormsModule],
   exports: [
     FooterComponent,
     ImgComponent,
     BreadcrumbsComponent,
     SubHeaderComponent,
+    QuantityComponent
 
 
   

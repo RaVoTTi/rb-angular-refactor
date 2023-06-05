@@ -31,7 +31,6 @@ export class BookViewComponent implements OnInit {
     private router: Router,
 
   ) {
-    console.log('Entro')
   }
 
   ngOnInit(): void {

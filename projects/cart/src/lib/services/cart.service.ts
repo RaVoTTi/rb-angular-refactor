@@ -19,8 +19,8 @@ export class CartService {
   initCartLocalStorage() {
     const oldCart = this.getCart();
     if (!oldCart) {
-    const initCartJson = JSON.stringify(this.initCart);
-    localStorage.setItem(CART_KEY, initCartJson);
+      const initCartJson = JSON.stringify(this.initCart);
+      localStorage.setItem(CART_KEY, initCartJson);
     }
 
   }
@@ -32,43 +32,40 @@ export class CartService {
     return cart;
   }
 
-  setQuantity(itemId:string , i: number ){
+  setQuantity(itemId: string, i: number) {
     const cart = this.getCart();
-    if (!cart.items[itemId]) {
-      cart.items[itemId] = i;
-    } else {
-      cart.items[itemId] = cart.items[itemId] + i;
-    }
-    if(cart.items[itemId] <= 0){
-      delete cart.items[itemId]
-    }
+
+
+    cart.items[itemId] = i;
+
+
+
     const cartString = JSON.stringify(cart);
     localStorage.setItem(CART_KEY, cartString);
     this.cart$.next(cart)
 
     return cart;
   }
-  getQuantity(itemId:string){
+  getQuantity(itemId: string) {
     const cart = this.getCart();
 
     return cart.items[itemId]
   }
 
-  // deleteBookCart(itemId: string): ICart {
-  //   const cart = this.getCart();
-  //   if (cart.items[itemId]) {
-  //     const index = cart.items.indexOf(itemId);
-  //     if (index !== -1) {
-  //       cart.items.splice(index, 1);
-  //     }
-  //     const cartString = JSON.stringify(cart);
-  //     localStorage.setItem(CART_KEY, cartString);
-  //     this.cart$.next(cart)
+  deleteItemCart(itemId: string): ICart {
+    const cart = this.getCart();
 
-  //   }
 
-  //   return cart;
-  // }
+    delete cart.items[itemId]
+
+
+
+    const cartString = JSON.stringify(cart);
+    localStorage.setItem(CART_KEY, cartString);
+    this.cart$.next(cart)
+
+    return cart;
+  }
   emptyBookCart() {
     localStorage.setItem(CART_KEY, this.initCartString);
     this.cart$.next(this.initCart)

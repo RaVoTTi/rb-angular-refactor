@@ -1,0 +1,13 @@
+<td>
+  <div class="input-group input-group-sm rounded">
+    <button class="btn minus min-width-40 py-0 border-end border-success border-end-0 text-success"
+      (click)="setQuantity(-1)" type="button" id="add1"><i class="ti ti-minus"></i></button>
+    <input type="number" [(ngModel)]="quantity"
+    (ngModelChange)="onChange($event)"
+    [ngClass]="{'is-invalid': quantity > 10 || quantity < 0 }"
+      class="min-width-40  border border-success text-success fs-3 fw-semibold form-control text-center qty">
+    <!-- <span class="min-width-40 flex-grow-0 border border-success text-success fs-3 fw-semibold form-control text-center qty" > </span> -->
+    <button class="btn min-width-40 py-0 border border-success border-start-0 text-success add" (click)="setQuantity(1)"
+      type="button" id="addo2"><i class="ti ti-plus"></i></button>
+  </div>
+</td>

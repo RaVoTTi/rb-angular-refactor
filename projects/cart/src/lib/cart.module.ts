@@ -5,7 +5,7 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartTableComponent } from './pages/cart-table/cart-table.component';
 import { CommonModule } from '@angular/common';
 import { CartService } from './services/cart.service';
-import { QuantityComponent } from './components/quantity/quantity.component';
+import { QuantityComponent } from '../../../components/src/lib/quantity/quantity.component';
 
 
 const routes: Routes = [
@@ -25,7 +25,6 @@ const routes: Routes = [
   declarations: [
     CartItemComponent,
     CartTableComponent,
-    QuantityComponent
   ],
   imports: [
     RouterModule.forChild(routes),

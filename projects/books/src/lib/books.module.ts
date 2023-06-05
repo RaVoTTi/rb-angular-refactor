@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 
 import { CardLearningComponent } from '../../../my-learning/src/lib/components/card-learning/card-learning.component';
 import { CartModule } from 'projects/cart/src/public-api';
+import { ComponentsModule } from 'projects/components/src/public-api';
 
 // import { WishlistService } from './services/wishlist.service';
 
@@ -47,7 +48,7 @@ const routes: Routes = [
         //   books: BooksResolver,
         // },
       },
-      
+
     ],
   },
   // {
@@ -62,7 +63,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     CardBookComponent,
-    
+
     SearchHeaderComponent,
 
     BooksListComponent,
@@ -73,7 +74,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-
+    ComponentsModule
     // RouterModule,
     // UtilsModule,
   ],

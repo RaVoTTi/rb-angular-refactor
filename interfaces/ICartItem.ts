@@ -1,10 +1,12 @@
+import { IMinIBook } from "./IMinIBook";
 import { ISubject } from "./ISubject";
 
-export interface ICartItem {
-    title: string;
+export interface ICartItem  extends IMinIBook{
+    name: string;
     image: string;
     _id: string;
-    price: number
+    minPrice: number;
+    quantity: number
 
 
 }

@@ -1,8 +1,9 @@
 import { IAutor } from "./IAutor"
 import { IEvaluation } from "./IEvaluation"
+import { IMinIBook } from "./IMinIBook"
 import { ISubject } from "./ISubject"
 
-export interface IBook {
+export interface IBook extends IMinIBook{
   _id:string
   autor: IAutor
   subject: ISubject
@@ -12,7 +13,8 @@ export interface IBook {
   image: string
   minPrice: number
   maxPrice: number
-  dateCreated: Date
+  dateCreated?: Date
+  
   // rating?: number
   description?: string
   // numReviews?: number
