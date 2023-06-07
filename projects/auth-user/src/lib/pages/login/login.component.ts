@@ -31,21 +31,17 @@ export class LoginComponent {
       this.loginForm.markAllAsTouched();
       return;
     }
-
-
     const { email, password } = this.loginForm.value as ILogin;
-    console.log(email, password)
-    console.log(this.loginForm.invalid)
+
 
     this.authBaseService
       .postLogin({ email, password }).subscribe((response) => {
 
-        console.log(response)
         if (response.token) {
-          console.log(this.loginForm.value)
 
           this.localStorageService.setToken(response.token)
           this.router.navigate(['/app/books']);
+          
         }
       })
 

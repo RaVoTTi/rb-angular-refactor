@@ -1,3 +1,3 @@
 export interface ICart {
-    items: {[itemName: string]: number}
+    items: string[]
 }

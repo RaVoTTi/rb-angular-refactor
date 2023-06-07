@@ -7,7 +7,7 @@ import { BooksService } from '../../services/books.service';
 import { WishlistService } from '../../services/wishlist.service';
 import { environment } from 'environments/environment';
 import { IBook } from 'interfaces/public-api';
-import { CartService } from 'projects/cart/src/lib/services/cart.service';
+import { CartLocalService } from 'projects/cart/src/lib/services/cart-local.service';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class BookViewComponent implements OnInit {
   constructor(
     private booksService: BooksService,
     private wishlistService:WishlistService,
-    private cartService:CartService,
+    private cartLocalService:CartLocalService,
     
     private route: ActivatedRoute,
     private location: Location,
@@ -48,9 +48,7 @@ export class BookViewComponent implements OnInit {
       }
     });
   }
-  setQuantity(i:number){
-    this.cartService.setQuantity(this.bookId, i)
-  }
+
   back(){
     this.location.back()
   }
@@ -59,8 +57,8 @@ export class BookViewComponent implements OnInit {
       this.wishlistService.setBookWishlist(this.bookId)
 
   }
-  AddToCart(i : number){
-      this.cartService.setQuantity(this.bookId, i)
+  AddToCart(){
+      this.cartLocalService.setBookCart(this.bookId)
 
   }
   // toCheckOut(){

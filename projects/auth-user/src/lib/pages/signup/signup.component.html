@@ -5,7 +5,7 @@
     <h2 class="mb-3 fs-7 fw-bolder">Welcome to Robin Boook</h2>
     <p class="mb-8">Your Literary Companion</p>
 
-    <form [formGroup]="signUpForm">
+    <form [formGroup]="signUpForm" (submit)="signUp()">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Name</label>
         <input
@@ -71,25 +71,21 @@
           <input
             class="form-check-input primary"
             type="checkbox"
-            value=""
             id="flexCheckChecked"
-            checked
+            formControlName="terms"
+            [value]="true"
           />
           <label class="form-check-label text-dark" for="flexCheckChecked">
             Accept
-            <a
-              class="text-primary fw-medium"
-              routerLink="/app/terms"
+            <a class="text-primary fw-medium" routerLink="/app/terms"
               >Terms & Conditions</a
             >
           </label>
         </div>
       </div>
-      <a
-      (click)="signUp()"
-        class="btn btn-primary w-100 py-8 mb-4 rounded-2"
-        >Sign Up</a
-      >
+      <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">
+        Sign Up
+      </button>
       <div class="d-flex align-items-center">
         <p class="fs-4 mb-0 text-dark">Already have an Account?</p>
         <a class="text-primary fw-medium ms-2" routerLink="/auth/login"

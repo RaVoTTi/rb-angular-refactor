@@ -35,7 +35,6 @@ export class AuthBaseService {
   // }
 
   postLogin(login: ILogin): Observable<IResponse> {
-    console.log('login')
     return this.http
       .post<IResponse>(`${this.API_URL}/auth/login`, login)
 

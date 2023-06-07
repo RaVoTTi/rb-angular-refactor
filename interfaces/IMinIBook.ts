@@ -5,6 +5,6 @@ export interface IMinIBook {
     name: string
     state: boolean
     image: string
-    minPrice: number
+    price: number
   }
   

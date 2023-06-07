@@ -11,8 +11,7 @@ export interface IBook extends IMinIBook{
   state: boolean
   isFeatured: boolean
   image: string
-  minPrice: number
-  maxPrice: number
+  price: number
   dateCreated?: Date
   
   // rating?: number

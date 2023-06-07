@@ -11,6 +11,5 @@ export class ShellComponent {
   isAuth! : boolean
 constructor(private localStorageService: LocalStorageService){
   this.isAuth = !!this.localStorageService.getToken()
-  console.log(this.isAuth)
 }
 }
