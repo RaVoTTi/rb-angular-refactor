@@ -11,6 +11,7 @@ import { NgModule } from '@angular/core';
 import { CardLearningComponent } from '../../../my-learning/src/lib/components/card-learning/card-learning.component';
 import { CartModule } from 'projects/cart/src/public-api';
 import { ComponentsModule } from 'projects/components/src/public-api';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
 
 // import { WishlistService } from './services/wishlist.service';
 
@@ -49,15 +50,13 @@ const routes: Routes = [
         // },
       },
 
+      {
+        path: 'wishlist',
+        component: WishlistComponent,
+
+      },
     ],
   },
-  // {
-  //   path: 'wishlist',
-  //   component: WishlistComponent,
-  //   // resolve: {
-  //   //   books: BooksResolver,
-  //   // },
-  // },
 ];
 
 @NgModule({
@@ -68,6 +67,7 @@ const routes: Routes = [
 
     BooksListComponent,
     BookViewComponent,
+    WishlistComponent,
 
 
   ],

@@ -1,0 +1,7 @@
+<div class="list-container">
+    <rb-card-book
+      *ngFor="let book of wishlistItems$ | async "
+      [book]="book"
+      >
+    </rb-card-book>
+</div> 

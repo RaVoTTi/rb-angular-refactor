@@ -4,7 +4,7 @@ import { take } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { BooksService } from '../../services/books.service';
-import { WishlistService } from '../../services/wishlist.service';
+import { WishlistLocalService } from '../../services/wishlist-local.service';
 import { environment } from 'environments/environment';
 import { IBook } from 'interfaces/public-api';
 import { CartLocalService } from 'projects/cart/src/lib/services/cart-local.service';
@@ -23,7 +23,7 @@ export class BookViewComponent implements OnInit {
 
   constructor(
     private booksService: BooksService,
-    private wishlistService:WishlistService,
+    private wishlistLocalService:WishlistLocalService,
     private cartLocalService:CartLocalService,
     
     private route: ActivatedRoute,
@@ -38,11 +38,11 @@ export class BookViewComponent implements OnInit {
       if (params['id']) {
         this.bookId = params['id'];
         this.booksService
-          .getBookBaseByIds([this.bookId])
+          .getBookBaseById(this.bookId)
           .pipe(take(1))
           .subscribe(({ result  }) => {
             if (result) {
-              this.book = result[0];
+              this.book = result;
             }
           });
       }
@@ -54,7 +54,7 @@ export class BookViewComponent implements OnInit {
   }
   addBookToWishlist(){
   
-      this.wishlistService.setBookWishlist(this.bookId)
+      this.wishlistLocalService.setBookWishlist(this.bookId)
 
   }
   AddToCart(){

@@ -1,5 +1,4 @@
 import { Injectable, OnInit } from '@angular/core';
-import { IWishlist } from 'interfaces/public-api';
 import { BehaviorSubject } from 'rxjs';
 
 export const WISHLIST_KEY = 'wishlist';
@@ -7,16 +6,12 @@ export const WISHLIST_KEY = 'wishlist';
 @Injectable({
   providedIn: 'root',
 })
-export class WishlistService {
-  wishlist$ : BehaviorSubject<IWishlist> = new BehaviorSubject(this.getWishlist())
+export class WishlistLocalService {
+  wishlist$: BehaviorSubject<string[]> = new BehaviorSubject(this.getWishlist());
 
-  initWishlist: IWishlist = {
-    books: [],
-  };
-  initWishlistString = '{"books":[]}';
-//  implements OnInit
-  // ngOnInit(): void {
-  // }
+
+  initWishlist: string[] = []
+  initWishlistString = '{"items":{}}';
 
   initWishlistLocalStorage() {
     const oldWishlist = this.getWishlist();
@@ -24,43 +19,41 @@ export class WishlistService {
       const initWishlistJson = JSON.stringify(this.initWishlist);
       localStorage.setItem(WISHLIST_KEY, initWishlistJson);
     }
- 
+    console.log('valentin')
+
   }
-  getWishlist(): IWishlist {
+  getWishlist(): string[] {
     const wishlistRaw = localStorage.getItem(WISHLIST_KEY);
-    const wishlist: IWishlist = wishlistRaw
-      ? JSON.parse(wishlistRaw)
-      : this.initWishlist;
+    const wishlist: string[] = wishlistRaw ? JSON.parse(wishlistRaw) : this.initWishlist;
     return wishlist;
   }
-  setBookWishlist(bookId: string): IWishlist {
+  setBookWishlist(bookId: string): string[] {
     const wishlist = this.getWishlist();
-    if (!wishlist.books.includes(bookId)) {
-      wishlist.books.push(bookId);
+    if (!wishlist.includes(bookId)) {
+      wishlist.push(bookId);
       const wishlistString = JSON.stringify(wishlist);
       localStorage.setItem(WISHLIST_KEY, wishlistString);
-      this.wishlist$.next(wishlist)
+      this.wishlist$.next(wishlist);
     }
 
     return wishlist;
   }
-  deleteBookWishlist(bookId: string): IWishlist {
+  deleteBookWishlist(bookId: string): string[] {
     const wishlist = this.getWishlist();
-    if (wishlist.books.includes(bookId)) {
-      const index = wishlist.books.indexOf(bookId);
+    if (wishlist.includes(bookId)) {
+      const index = wishlist.indexOf(bookId);
       if (index !== -1) {
-        wishlist.books.splice(index, 1);
+        wishlist.splice(index, 1);
       }
       const wishlistString = JSON.stringify(wishlist);
       localStorage.setItem(WISHLIST_KEY, wishlistString);
-      this.wishlist$.next(wishlist)
-
+      this.wishlist$.next(wishlist);
     }
 
     return wishlist;
   }
-  emptyBookWishlist(){
+  emptyBookWishlist() {
     localStorage.setItem(WISHLIST_KEY, this.initWishlistString);
-    this.wishlist$.next(this.initWishlist)
+    this.wishlist$.next(this.initWishlist);
   }
 }

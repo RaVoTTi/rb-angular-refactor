@@ -6,4 +6,5 @@ export interface ICartItem  extends IMinIBook{
     image: string;
     _id: string;
     price: number;
+    subject: ISubject
 }

@@ -8,7 +8,7 @@ import { CartHttpService } from '../../services/cart-http.service';
 @Component({
   selector: 'rb-cart-table',
   templateUrl: './cart-table.component.html',
-  styleUrls: ['./cart-table.component.css']
+  styleUrls: ['./cart-table.component.scss']
 })
 export class CartTableComponent implements OnInit {
   cartItems$!: BehaviorSubject<ICartItem[] | undefined>

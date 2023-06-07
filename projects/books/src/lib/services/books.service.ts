@@ -20,7 +20,7 @@ export class BooksService {
   getBookBaseByIds(ids: string[]): Observable<IResponse<IBook[]>> {
     return this.http.get<IResponse<IBook[]>>(`${this.API_URL}/book/${ids}`);
   }
-  // getBookBaseById(id: string): Observable<IResponse<IBook>> {
-  //   return this.http.get<IResponse<IBook>>(`${this.API_URL}/book/${id}`);
-  // }
+  getBookBaseById(id: string): Observable<IResponse<IBook>> {
+    return this.http.get<IResponse<IBook>>(`${this.API_URL}/book/id/${id}`);
+  }
 }
