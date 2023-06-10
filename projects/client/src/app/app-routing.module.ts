@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ShellComponent } from './shared/shell/shell.component';
-import { isLoggedInGuard, isLoggedOutGuard } from 'projects/auth-base/src/public-api';
+import {
+  isLoggedInGuard,
+  isLoggedOutGuard,
+} from 'projects/auth-base/src/public-api';
 
 const routes: Routes = [
   {
@@ -34,12 +37,19 @@ const routes: Routes = [
         path: 'mylearning',
         canActivate: [isLoggedInGuard],
         loadChildren: () =>
-          import('projects/my-learning/src/public-api').then((m) => m.MyLearningModule),
+          import('projects/my-learning/src/public-api').then(
+            (m) => m.MyLearningModule
+          ),
       },
       {
         path: 'cart',
         loadChildren: () =>
           import('projects/cart/src/public-api').then((m) => m.CartModule),
+      },
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('projects/settings/src/public-api').then((m) => m.SettingsModule),
       },
     ],
   },
@@ -62,7 +72,7 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 // import { PagesRoutingModule } from './pages/pages.routing';
 
 // const routes: Routes =  [ {
@@ -115,4 +125,3 @@ export class AppRoutingModule { }
 
 //   ],
 // },]
-
