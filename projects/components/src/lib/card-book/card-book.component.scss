@@ -5,9 +5,10 @@
   max-width: 300px;
   min-width: 180px;
   margin: 0 auto;
+  border: 1px #000;
   background: var(--background-color);
   box-shadow: -2px 5px 20px 0 rgb(173 173 173 / 19%);
-  border-radius: 20px;
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
   z-index: 1;
@@ -149,12 +150,16 @@
   }
 }
 .card-book:hover {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  // box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
-  transform: translate(-1px, 4px);
-  animation: ease;
-  transition-duration: 0.4s;
-
+  // transform: translate(-1px, 4px);
+  // animation: ease;
+  // transition-duration: 0.4s;
+  transform: scale(1.01);
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+  transition-delay: 0s;
+  transition-property: all;
 }
 .featured {
   grid-column: span 2;

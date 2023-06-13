@@ -9,7 +9,8 @@
             data-aos-delay="200"
             data-aos-duration="1000"
           >
-            <i class="ti ti-bow text-secondary fs-8"></i>Unleash the power of knowledge, in a nutshell.
+            <i class="ti ti-bow text-secondary fs-8"></i>Unleash the power of
+            knowledge, in a nutshell.
           </h6>
           <h1
             class="fw-bolder mb-8 fs-13"
@@ -17,7 +18,7 @@
             data-aos-delay="400"
             data-aos-duration="1000"
           >
-            Efficient reading  
+            Efficient reading
             <span class="text-primary"> for the modern</span> outlaw.
           </h1>
           <p
@@ -26,7 +27,8 @@
             data-aos-delay="600"
             data-aos-duration="1000"
           >
-          Constructing an arsenal of words and knowledge to empower the underprivileged minds: Robin Hood of education.
+            Constructing an arsenal of words and knowledge to empower the
+            underprivileged minds: Robin Hood of education.
           </p>
           <div
             class="d-sm-flex align-items-center gap-3"
@@ -53,35 +55,16 @@
         >
           <div class="d-flex flex-row">
             <div class="">
-<              <div class="banner-img-1 slideup">
-                <img
-                  src="./assets/images/hero-img/bannerimg1.svg"
-                  alt=""
-                  class="img-fluid"
-                />
-              </div>>
-              <div class="banner-img-1 slideup">
-                <img
-                  src="./assets/images/hero-img/bannerimg1.svg"
-                  alt=""
-                  class="img-fluid"
-                />
+              <div *ngFor="let book of books" class="banner-img-1 slideup m-3">
+                <rb-card-book [book]="book"> </rb-card-book>
               </div>
             </div>
             <div class="">
-              <div class="banner-img-2 slideDown">
-                <img
-                  src="./assets/images/hero-img/bannerimg2.svg"
-                  alt=""
-                  class="img-fluid"
-                />
-              </div>
-              <div class="banner-img-2 slideDown">
-                <img
-                  src="./assets/images/hero-img/bannerimg2.svg"
-                  alt=""
-                  class="img-fluid"
-                />
+              <div
+                *ngFor="let book of booksInverse"
+                class="banner-img-2 slideDown m-3"
+              >
+                <rb-card-book [book]="book"> </rb-card-book>
               </div>
             </div>
           </div>

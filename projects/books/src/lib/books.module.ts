@@ -4,14 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { BookViewComponent } from './pages/book-view/book-view.component';
 import { BooksListComponent } from './pages/books-list/books-list.component';
-import { CardBookComponent } from './components/card-book/card-book.component';
 import { SearchHeaderComponent } from './components/search-header/search-header.component';
 import { NgModule } from '@angular/core';
 
-import { CardLearningComponent } from '../../../my-learning/src/lib/components/card-learning/card-learning.component';
-import { CartModule } from 'projects/cart/src/public-api';
-import { ComponentsModule } from 'projects/components/src/public-api';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { ComponentsModule } from 'projects/components/src/public-api';
 
 // import { WishlistService } from './services/wishlist.service';
 
@@ -61,7 +58,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    CardBookComponent,
+    // CardBookComponent,
 
     SearchHeaderComponent,
 

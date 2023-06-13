@@ -9,6 +9,7 @@ import { ImgComponent } from './img/img.component';
 import { FooterComponent } from './footer/footer.component';
 import { SubHeaderComponent } from './sub-header/sub-header.component';
 import { FormsModule } from '@angular/forms';
+import { CardBookComponent } from './card-book/card-book.component';
 
 
 
@@ -16,12 +17,15 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     ImgComponent,
     BreadcrumbsComponent,
+    CardBookComponent,
     FooterComponent,
     SubHeaderComponent,
   ],
   imports: [RouterModule, CommonModule, FormsModule],
   exports: [
     FooterComponent,
+    CardBookComponent,
+
     ImgComponent,
     BreadcrumbsComponent,
     SubHeaderComponent,
