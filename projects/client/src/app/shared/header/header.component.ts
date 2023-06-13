@@ -15,8 +15,13 @@ export class HeaderComponent {
   public sideBarItems: INavItem[] = [
     {
       title: 'Home',
-      url: '/app/settings',
+      url: '/app/home',
       icon: 'home'
+    },
+    {
+      title: 'About Us',
+      url: '/app/about',
+      icon: 'home-question'
     },
     {
       title: 'Books',
@@ -26,7 +31,7 @@ export class HeaderComponent {
     {
       title: 'FAQ',
       url: '/app/faq',
-      icon: 'vocabulary'
+      icon: 'info-square-rounded'
     },
     {
       title: 'Cart',

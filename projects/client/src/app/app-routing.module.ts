@@ -28,6 +28,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/faq/faq.module').then((m) => m.FAQModule),
       },
+            {
+        path: 'about',
+        loadChildren: () =>
+          import('./pages/about/about.module').then((m) => m.AboutModule),
+      },
       {
         path: 'books',
         loadChildren: () =>

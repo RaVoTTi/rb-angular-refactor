@@ -41,6 +41,16 @@ export class Section2Component {
         "description": "Summaries help you evaluate whether a book aligns with your interests and needs, allowing you to make informed decisions about which books to pursue further."
       },
       {
+        "title": "Efficient selection process",
+        "icon": "ti-click",
+        "description": "Summaries help you evaluate whether a book aligns with your interests and needs, allowing you to make informed decisions about which books to pursue further."
+      },
+      {
+        "title": "Motivational Boost for the Time-strapped",
+        "icon": "ti-rocket",
+        "description": "The ultimate motivational method that will make you want to finish the book as quickly as possible. Get ready for a surge of energy and determination as you dive into these inspiring pages!"
+        },
+      {
         "title": "Improved memory retention",
         "icon": "ti-brain",
         "description": "Summaries often focus on the most important points, making them effective tools for reinforcing your understanding and recall of key ideas."
