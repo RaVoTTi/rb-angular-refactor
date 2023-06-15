@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IBook } from 'interfaces/public-api';
+import { WishlistHttpService } from '../../services/wishlist-http.service';
+import { WishlistLocalService } from '../../services/wishlist-local.service';
 // import { WishlistHttpService } from '../../services/wishlist-http.service';
 // import {
 //   WishlistLocalService,
@@ -12,13 +14,25 @@ import { IBook } from 'interfaces/public-api';
 })
 export class CardBookComponent {
   @Input() book!: IBook;
-  @Input() icon!: string;
+  @Input() isFavorite!: boolean;
 
 
-  // constructor(
-    // private wishlistLocalService: WishlistLocalService,
-    // private wishlistHttpService: WishlistHttpService
-  // ) {}
+  addBookToWishlist(id: string) {
+    //  this.isFavorite(id)
+    if (this.isFavorite === false) {
+      this.isFavorite = true;
+      this.wishlistLocalService.setBookWishlist(id);
+    } else {
+      this.isFavorite = false;
+      this.wishlistLocalService.deleteBookWishlist(id);
+      this.wishlistHttpService.deleteItemWishlist(id);
+    }
+  }
+
+  constructor(
+    private wishlistLocalService: WishlistLocalService,
+    private wishlistHttpService: WishlistHttpService
+  ) {}
 
   // addBookToWishlist() {
   //   if (this.isFavorite === false) {

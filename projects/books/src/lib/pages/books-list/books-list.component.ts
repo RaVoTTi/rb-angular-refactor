@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IBook } from 'interfaces/public-api';
 import { take } from 'rxjs';
 import { BooksService } from '../../services/books.service';
-import { WishlistLocalService,   } from '../../services/wishlist-local.service';
+import { WishlistLocalService, } from '../../services/wishlist-local.service';
+import { WishlistHttpService } from '../../services/wishlist-http.service';
 
 @Component({
   selector: 'rb-books-list',
@@ -11,14 +12,18 @@ import { WishlistLocalService,   } from '../../services/wishlist-local.service';
 
 })
 export class BooksListComponent implements OnInit {
-  books!: IBook[]| undefined;
+  books!: IBook[] | undefined;
   wishlistBooks: string[] = [];
+
+
 
   constructor(
     private booksService: BooksService,
     private wishlistLocalService: WishlistLocalService,
-    
-    ) {}
+    private wishlistHttpService: WishlistHttpService,
+
+
+  ) { }
 
   ngOnInit(): void {
     this.wishlistBooks = this.wishlistLocalService.getWishlist()
@@ -31,10 +36,8 @@ export class BooksListComponent implements OnInit {
       });
   }
 
-  // isFavorite(id:string): boolean{
-  //   if(this.wishlistBooks.includes(id)){
-  //     return true
-  //   }
-  //   return false
-  // }
+  isFavorite(id: string): boolean {
+    return this.wishlistLocalService.isFavorite(id)
+
+  }
 }

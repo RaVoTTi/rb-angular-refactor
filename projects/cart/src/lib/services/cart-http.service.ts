@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { IBook, ICartItem, IResponse } from 'interfaces/public-api';
-import { BehaviorSubject, Observable, take, tap } from 'rxjs';
+import { IBook, ICartItem, IResponse, IStripe } from 'interfaces/public-api';
+import { BehaviorSubject, Observable, switchMap, take, tap } from 'rxjs';
 import { CartLocalService } from './cart-local.service';
 
 @Injectable({
@@ -44,8 +44,18 @@ export class CartHttpService {
       );
   }
 
-  // this.initCartByIds().subscribe( ({result}) => {
+  // this.initCartByIds().subscribe( ({result}) => {return this.http.
   // })
+
+  buyCart(ids:string[]){
+    return this.http
+    .post<IStripe>(`${this.API_URL}/myorder/placeorder`, { ids })
+    .pipe(
+      switchMap(({ url }) => {
+        return window.location.href = url;
+      })
+    );
+  }
 
   deleteItemCart(id: string) {
     const newCart = this.cartHttp$.value?.filter((book) => book._id !== id);

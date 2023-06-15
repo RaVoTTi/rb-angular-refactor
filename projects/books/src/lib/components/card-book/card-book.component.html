@@ -16,7 +16,9 @@
   <i
     class="toolbar-button ti"
     title="To Wishlist"
-    [ngClass]="'ti-' + icon"
+    [ngClass]="isFavorite ? 'ti-heart-filled' : 'ti-heart'" 
+    (click)="addBookToWishlist(book._id)"
+
     >
   </i>
 </div>

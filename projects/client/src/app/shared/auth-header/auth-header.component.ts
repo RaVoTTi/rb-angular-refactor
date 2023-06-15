@@ -37,7 +37,7 @@ export class AuthHeaderComponent {
     },
     {
       title: 'Wishlist',
-      url: '/app/wishlist',
+      url: '/app/books/wishlist',
       icon: 'heart'
     },
     {
@@ -60,7 +60,7 @@ export class AuthHeaderComponent {
     },
     {
       title: 'Wishlist',
-      url: '/app/wishlist',
+      url: '/app/books/wishlist',
       icon: 'heart'
     },
     {

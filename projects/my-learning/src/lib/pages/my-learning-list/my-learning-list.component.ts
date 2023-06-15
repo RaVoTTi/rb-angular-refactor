@@ -28,7 +28,6 @@ export class MyLearningListComponent implements OnInit {
       .getMyLearnings()
       .pipe(take(1))
       .subscribe((response) => {
-        console.log(response)
         this.allMyLearnings = response.result;
       
       });

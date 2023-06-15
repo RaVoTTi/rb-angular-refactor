@@ -2,21 +2,11 @@
   <div class="card shadow-none border mt-3">
     <div class="card-body p-4">
       <div class="wizard-content">
-        <form
-          action="#"
-          class="tab-wizard wizard-circle wizard clearfix"
-          role="application"
-          id="steps-uid-0"
-        >
+        <form action="#" class="tab-wizard wizard-circle wizard clearfix" role="application" id="steps-uid-0">
           <div class="content clearfix">
             <!-- Step 1 -->
-            <section
-              id="steps-uid-0-p-0"
-              role="tabpanel"
-              aria-labelledby="steps-uid-0-h-0"
-              class="body current"
-              aria-hidden="false"
-            >
+            <section id="steps-uid-0-p-0" role="tabpanel" aria-labelledby="steps-uid-0-h-0" class="body current"
+              aria-hidden="false">
               <div class="table-responsive">
                 <table class="table align-middle text-nowrap mb-0">
                   <thead class="fs-4">
@@ -29,22 +19,13 @@
                     <tr *ngFor="let item of cartItems$ | async">
                       <td class="border-bottom-0">
                         <div class="d-flex align-items-center gap-3">
-                          <img
-                            [src]="item.image"
-                            alt=""
-                            class="img-fluid rounded"
-                            width="80"
-                          />
+                          <img [src]="item.image" alt="" class="img-fluid rounded" width="80" />
                           <div>
                             <h6 class="fw-semibold fs-4 mb-0">
                               {{ item.name | titlecase }}
                             </h6>
                             <p class="mb-0">{{item.subject.name}}</p>
-                            <a
-                              (click)="deleteItem(item._id)"
-                              class="text-danger fs-4"
-                              ><i class="ti ti-trash"></i
-                            ></a>
+                            <a (click)="deleteItem(item._id)" class="text-danger fs-4"><i class="ti ti-trash"></i></a>
                           </div>
                         </div>
                       </td>
@@ -103,9 +84,7 @@
             </section>
           </div>
           <div class="d-flex justify-content-end">
-            <a class="btn btn-primary fw-semibold py-4 rounded-2 align-self-end"
-              >Go to Payment</a
-            >
+            <button (click)="goToPayment(cartIds$.value)" class="btn btn-primary fw-semibold py-4 rounded-2 align-self-end">Go to Payment</button>
           </div>
         </form>
       </div>

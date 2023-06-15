@@ -19,9 +19,9 @@ export class CartLocalService {
       const initCartJson = JSON.stringify(this.initCart);
       localStorage.setItem(CART_KEY, initCartJson);
     }
-    console.log('valentin')
 
   }
+  
   getCart(): string[] {
     const cartRaw = localStorage.getItem(CART_KEY);
     const cart: string[] = cartRaw ? JSON.parse(cartRaw) : this.initCart;

@@ -40,7 +40,7 @@ export class HeaderComponent {
     },
     {
       title: 'Wishlist',
-      url: '/app/wishlist',
+      url: '/app/books/wishlist',
       icon: 'heart'
     },
     

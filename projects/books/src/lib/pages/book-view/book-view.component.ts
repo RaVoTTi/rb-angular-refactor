@@ -38,7 +38,7 @@ export class BookViewComponent implements OnInit {
       if (params['id']) {
         this.bookId = params['id'];
         this.booksService
-          .getBookBaseById(this.bookId)
+          .getBookById(this.bookId)
           .pipe(take(1))
           .subscribe(({ result  }) => {
             if (result) {

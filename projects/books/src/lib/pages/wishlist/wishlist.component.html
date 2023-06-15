@@ -2,6 +2,7 @@
     <rb-card-book
       *ngFor="let book of wishlistItems$ | async "
       [book]="book"
+      [isFavorite]="isFavorite(book._id)"
       >
     </rb-card-book>
 </div> 

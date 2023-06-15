@@ -13,6 +13,8 @@ import { CartHttpService } from '../../services/cart-http.service';
 export class CartTableComponent implements OnInit {
   cartItems$!: BehaviorSubject<ICartItem[] | undefined>
   cartPrice$!: BehaviorSubject<number >
+  cartIds$!: BehaviorSubject<string[] >
+
 
 
 
@@ -30,6 +32,7 @@ export class CartTableComponent implements OnInit {
     this.cartHttpService.initCartByIds().subscribe()
     this.cartItems$ = this.cartHttpService.cartHttp$
     this.cartPrice$ = this.cartHttpService.cartPrice$
+    this.cartIds$ = this.cartLocalService.cart$
 
     
 
@@ -39,6 +42,18 @@ export class CartTableComponent implements OnInit {
   deleteItem(id:string){
     this.cartLocalService.deleteBookCart(id)
     this.cartHttpService.deleteItemCart(id)
+  }
+
+  goToPayment(ids :string[]){
+    this.cartHttpService
+    .buyCart(ids)
+    .subscribe(
+      error => {
+        if(error){
+          console.log('Error Stripe')
+        }
+      }
+    );
   }
   // reload(){
   //   this.cartItems?.forEach((book, index) => {

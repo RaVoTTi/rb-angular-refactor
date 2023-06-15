@@ -4,7 +4,10 @@
     <rb-card-book
       *ngFor="let book of books"
       [book]="book"
+      [isFavorite]="isFavorite(book._id)"
+
       >
     </rb-card-book>
   </ng-container>
 </div> 
+

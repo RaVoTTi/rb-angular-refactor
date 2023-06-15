@@ -52,6 +52,9 @@ export class WishlistLocalService {
 
     return wishlist;
   }
+  isFavorite(id: string) {
+    return this.wishlist$.value?.includes(id)
+  }
   emptyBookWishlist() {
     localStorage.setItem(WISHLIST_KEY, this.initWishlistString);
     this.wishlist$.next(this.initWishlist);
