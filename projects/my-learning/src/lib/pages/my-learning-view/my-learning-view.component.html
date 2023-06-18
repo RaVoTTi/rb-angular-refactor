@@ -1,17 +1,5 @@
-<div class="content-container">
-  <div class="learning-header">
-    <div routerLink="/app/mylearning">
-      <i class="pi pi-angle-left"></i>
-      <span> Back to My Learning</span>
-    </div>
-    <!-- <div routerLink="{{ '/app/mylearning/myevaluation/' + learning._id }}">
-      <span> Go to Evaluation</span>
-      <i class="pi pi-angle-right"></i>
-    </div> -->
-  </div>
-  <div class="card-content">
-    <h2>{{ learning.book.name }}</h2>
-    <div innerHTML="{{ learning.book.content }}"></div>
-  </div>
-
+<!-- <rb-sub-header [title]="learning.book.name" subtitle="settings"></rb-sub-header> -->
+<rb-sub-header [title]="book.name" subtitle="My learnings"></rb-sub-header>
+<div class="container-fluid">
+  <div class="mt-3 fs-6" [innerHTML]="htmlContent"></div>
 </div>

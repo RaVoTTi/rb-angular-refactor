@@ -33,6 +33,9 @@
       "my-learning": [
         "dist/my-learning"
       ],
+      "my-orders": [
+        "dist/my-orders"
+      ],
       "orders": [
         "dist/orders"
       ],

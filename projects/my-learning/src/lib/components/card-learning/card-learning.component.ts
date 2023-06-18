@@ -7,7 +7,7 @@ import { IBook, ILearning, ILearningBook } from 'interfaces/public-api';
   styleUrls: ['./card-learning.component.scss']
 })
 export class CardLearningComponent {
-  @Input() learning!: ILearning;
+  @Input() book!: IBook;
 
   constructor() {
 

@@ -24,6 +24,7 @@ export class CartTableComponent implements OnInit {
     private cartLocalService: CartLocalService,
     private cartHttpService: CartHttpService,
     
+    
 
   ) {
     
@@ -48,10 +49,16 @@ export class CartTableComponent implements OnInit {
     this.cartHttpService
     .buyCart(ids)
     .subscribe(
-      error => {
-        if(error){
-          console.log('Error Stripe')
-        }
+      ({result}) => {
+
+        if(result){
+          console.log(result)
+          window.open(result)
+          }
+          else{
+            console.log('Error')
+          }
+        
       }
     );
   }

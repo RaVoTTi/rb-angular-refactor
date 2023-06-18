@@ -1,9 +1,11 @@
+<rb-sub-header title="My Learning" subtitle="books"></rb-sub-header>
+
 <div class="list-container">
   <ng-container *ngIf="allMyLearnings">
 
     <rb-card-learning 
-    *ngFor="let learning of allMyLearnings" 
-    [learning]="learning">
+    *ngFor="let book of allMyLearnings" 
+    [book]="book">
 
     </rb-card-learning>
     <ng-container />

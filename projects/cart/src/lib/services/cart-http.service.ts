@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { IBook, ICartItem, IResponse, IStripe } from 'interfaces/public-api';
-import { BehaviorSubject, Observable, switchMap, take, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, switchMap, take, tap, throwError } from 'rxjs';
 import { CartLocalService } from './cart-local.service';
 
 @Injectable({
@@ -13,29 +13,29 @@ export class CartHttpService {
     ICartItem[] | undefined
   >(undefined);
   cartPrice$: BehaviorSubject<number> = new BehaviorSubject<
-  number
->(0);
+    number
+  >(0);
 
   API_URL = environment.API_URL;
 
   constructor(
     private http: HttpClient,
     private cartLocalService: CartLocalService
-  ) {}
+  ) { }
   initCartByIds(): Observable<IResponse<ICartItem[]>> {
     const ids = this.cartLocalService.getCart();
 
     let queryIds = ''
-    ids.forEach((id)=> queryIds += `ids[]=${id}&`)
+    ids.forEach((id) => queryIds += `ids[]=${id}&`)
 
     return this.http
       .get<IResponse<ICartItem[]>>(`${this.API_URL}/book/query?${queryIds}`)
       .pipe(
         tap(({ result }) => {
           this.cartHttp$.next(result);
-          let counter:number = 0
-          this.cartHttp$.value?.forEach(({price}) => {
-            counter += price 
+          let counter: number = 0
+          this.cartHttp$.value?.forEach(({ price }) => {
+            counter += price
           });
 
           this.cartPrice$.next(counter);
@@ -47,22 +47,18 @@ export class CartHttpService {
   // this.initCartByIds().subscribe( ({result}) => {return this.http.
   // })
 
-  buyCart(ids:string[]){
+  buyCart(ids: string[]): Observable<IResponse<string>> {
     return this.http
-    .post<IStripe>(`${this.API_URL}/myorder/placeorder`, { ids })
-    .pipe(
-      switchMap(({ url }) => {
-        return window.location.href = url;
-      })
-    );
+      .post<IResponse<string>>(`${this.API_URL}/myorder/placeorder`, { ids })
+
   }
 
   deleteItemCart(id: string) {
     const newCart = this.cartHttp$.value?.filter((book) => book._id !== id);
     this.cartHttp$.next(newCart);
-    let counter:number = 0
-    this.cartHttp$.value?.forEach(({price}) => {
-      counter += price 
+    let counter: number = 0
+    this.cartHttp$.value?.forEach(({ price }) => {
+      counter += price
     });
 
     this.cartPrice$.next(counter);

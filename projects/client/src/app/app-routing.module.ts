@@ -47,6 +47,15 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'myorders',
+        canActivate: [isLoggedInGuard],
+        loadChildren: () =>
+          import('projects/my-orders/src/public-api').then(
+            (m) => m.MyOrdersModule
+          ),
+      },
+      
+      {
         path: 'cart',
         loadChildren: () =>
           import('projects/cart/src/public-api').then((m) => m.CartModule),

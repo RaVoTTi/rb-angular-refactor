@@ -234,48 +234,6 @@
         }
       }
     },
-    "orders": {
-      "projectType": "library",
-      "root": "projects/orders",
-      "sourceRoot": "projects/orders/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/orders/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/orders/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/orders/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/orders/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/orders/**/*.ts",
-              "projects/orders/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "interfaces": {
       "projectType": "library",
       "root": "projects/interfaces",
@@ -523,6 +481,48 @@
             "lintFilePatterns": [
               "projects/settings/**/*.ts",
               "projects/settings/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "my-orders": {
+      "projectType": "library",
+      "root": "projects/my-orders",
+      "sourceRoot": "projects/my-orders/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/my-orders/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/my-orders/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/my-orders/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/my-orders/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/my-orders/**/*.ts",
+              "projects/my-orders/**/*.html"
             ]
           }
         }

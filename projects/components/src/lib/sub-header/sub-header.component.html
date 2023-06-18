@@ -3,13 +3,14 @@
         <div class="container-fluid ">
             <div class="card-body px-4 py-1">
                 <div class="row align-items-center">
-                    <h4 class="fw-semibold text-light-info">My Learning</h4>
+                    <h4 class="fw-semibold text-light-info">{{title | titlecase}}</h4>
                     <nav aria-label="breadcrumb text-light-info">
                         <ol class="breadcrumb text-light-info">
                             <li class="breadcrumb-item text-light-info">
-                                <a class="text-muted text-light-info">Home</a>
+                                <a class="text-muted text-light-info" [routerLink]="'/app/' + subtitle">{{subtitle |
+                                    titlecase}}</a>
                             </li>
-                            <li class="breadcrumb-item text-light-info" aria-current="page">FAQ</li>
+                            <li class="breadcrumb-item text-light-info" aria-current="page">{{title | titlecase}}</li>
                         </ol>
                     </nav>
                 </div>

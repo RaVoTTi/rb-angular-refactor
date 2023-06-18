@@ -16,7 +16,7 @@ import { BooksService } from '../../../../../books/src/lib/services/books.servic
 export class MyLearningListComponent implements OnInit {
   // allMyLearnings$!: Observable<ILearning[]>;
   // countMyLearnings$!: Observable<number>;
-  allMyLearnings!: ILearning[] | undefined;
+  allMyLearnings!: IBook[] | undefined;
 
 
 

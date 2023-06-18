@@ -13,7 +13,7 @@ export interface IBook extends IMinIBook{
   image: string
   price: number
   dateCreated?: Date
-  
+  content: string
   // rating?: number
   description?: string
   // numReviews?: number

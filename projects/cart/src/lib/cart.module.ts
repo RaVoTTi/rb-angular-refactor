@@ -7,15 +7,11 @@ import { CartLocalService } from './services/cart-local.service';
 
 
 const routes: Routes = [
+
   {
     path: '',
-    component: SubHeaderComponent,
-    children: [
-      {
-        path: '',
-        component: CartTableComponent,
+    component: CartTableComponent,
 
-      },]
   }
 ]
 
@@ -32,7 +28,7 @@ const routes: Routes = [
   ]
 })
 export class CartModule {
-  constructor(private cartLocalService:CartLocalService){
+  constructor(private cartLocalService: CartLocalService) {
     cartLocalService.initCartLocalStorage()
   }
- }
+}

@@ -7,10 +7,10 @@ import { ComponentsModule, SubHeaderComponent } from 'projects/components/src/pu
 import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: SubHeaderComponent,
-    children: [
+  // {
+  //   path: '',
+  //   component: SubHeaderComponent,
+  //   children: [
       {
         path: '',
         component: MyLearningListComponent,
@@ -20,13 +20,16 @@ const routes: Routes = [
         path: 'id/:id',
         component: MyLearningViewComponent,
 
-      },]
-  }
+      }
+      // ,]
+  // }
 ]
 
 @NgModule({
   declarations: [
     MyLearningListComponent,
+    MyLearningViewComponent,
+
     CardLearningComponent,
   ],
   imports: [
