@@ -7,6 +7,7 @@ import { PasswordComponent } from './sections/password/password.component';
 import { DetailsComponent } from './sections/details/details.component';
 import { CryptoAddressComponent } from './sections/crypto-address/crypto-address.component';
 import { ImageComponent } from './sections/image/image.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
 
@@ -27,12 +28,13 @@ const routes: Routes = [
     PasswordComponent,
     DetailsComponent,
     CryptoAddressComponent,
-    ImageComponent
+    ImageComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ComponentsModule
+    ComponentsModule,
+    ReactiveFormsModule
   ],
   exports: [
   ]

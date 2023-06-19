@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { LocalStorageService } from 'projects/auth-base/src/public-api';
+import { AuthBaseService, LocalStorageService } from 'projects/auth-base/src/public-api';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-shell',
@@ -8,8 +9,10 @@ import { LocalStorageService } from 'projects/auth-base/src/public-api';
   ]
 })
 export class ShellComponent {
-  isAuth! : boolean
-constructor(private localStorageService: LocalStorageService){
-  this.isAuth = !!this.localStorageService.getToken()
-}
+  isAuth$!: BehaviorSubject<boolean | undefined> 
+
+
+  constructor(private localStorageService: LocalStorageService) {
+    this.isAuth$ = this.localStorageService.isAuth$
+  }
 }

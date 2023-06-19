@@ -1,17 +1,22 @@
  import { Injectable } from '@angular/core';
 import { IToken } from 'interfaces/public-api';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStorageService {
   TOKEN = 'super-token';
+  isAuth$: BehaviorSubject<boolean | undefined> = new BehaviorSubject<boolean | undefined>(undefined)
+
 
   setToken(data: string) {
     return localStorage.setItem(this.TOKEN, data);
   }
   getToken() {
-    return localStorage.getItem(this.TOKEN);
+    const token = localStorage.getItem(this.TOKEN);
+    this.isAuth$.next(!!token)
+    return token
   }
   getTokenDecode() {
     const token = this.getToken();
@@ -21,6 +26,8 @@ export class LocalStorageService {
     return null
   }
   deleteToken() {
+    this.isAuth$.next(false)
+
     localStorage.removeItem(this.TOKEN);
   }
   isValidToken() {

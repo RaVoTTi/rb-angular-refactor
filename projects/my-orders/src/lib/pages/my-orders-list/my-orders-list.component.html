@@ -1,43 +1,13 @@
-<rb-sub-header title="My orders" subtitle="settings"></rb-sub-header>
+<rb-sub-header title="My orders" subtitle="books"></rb-sub-header>
 
-<!-- <section class="order">
-  <div class="container-fluid">
-    <div class="order-table" *ngIf="orders">
-
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Order id</th>
-            <th>Name</th>
-            <th *ngIf="screenWidth > 700">Date</th>
-            <th>Condition</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let order of orders">
-            <td>
-              <a [routerLink]="['/app/myorders/id/', order._id]">{{ order._id.slice(-10) }} </a>
-            </td>
-            <td>{{ order.book.name | titlecase }}</td>
-            <td *ngIf="screenWidth > 700">{{ order.dateCreated | date}}</td>
-            <td>{{order.condition | titlecase}} </td>
-            <td>{{ order.price | currency }}</td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-</section> -->
 <div class="container-fluid  ">
   <div *ngFor="let order of orders" class="table-responsive border rounded my-3 p-4">
     <table class="table align-middle text-nowrap ">
       <thead>
         <tr>
-          <th >{{order.dateCreated | date}}</th>
-          <th class="text-end " > <a [routerLink]="['/app/myorders/id/', order._id]" class="text-info "> See invoice</a></th>
+          <th>{{order.dateCreated | date}}</th>
+          <th class="text-end "> <a [routerLink]="['/app/myorders/id/', order._id]" class="text-info "> See invoice</a>
+          </th>
 
         </tr>
       </thead>
@@ -64,33 +34,13 @@
             </h6>
           </td>
         </tr>
-        <!-- <tr *ngFor="let book of order.books">
-          <td>
-            <div class="d-flex align-items-center">
-              <img src="../../dist/images/products/s1.jpg" class="rounded-circle" alt="..." width="56" height="56">
-              <div class="ms-3">
-                <h6 class="fw-semibold mb-0 fs-4">How Innovation Works</h6>
-                <p class="mb-0">books</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p class="mb-0">Thu, Jan 12 2023</p>
-          </td>
-          <td>
-            <div class="d-flex align-items-center">
-              <span class="bg-success p-1 rounded-circle"></span>
-              <p class="mb-0 ms-2">InStock</p>
-            </div>
-          </td>ordeProductsr
-          <td>
-            <h6 class="mb-0 fs-4">$275</h6>
-          </td>
-          <td><a class="fs-6 text-muted" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top"
-              data-bs-title="Edit"><i class="ti ti-dots-vertical"></i></a></td>
-        </tr> -->
-
       </tbody>
     </table>
+    <div *ngIf="order.condition == 'purchased'" class="text-end">
+      <button class="btn btn-primary print-page" type="button">
+        <span><i class="ti ti-currency-dollar fs-5"></i>
+          Claim </span>
+      </button>
+    </div>
   </div>
 </div>

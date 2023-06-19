@@ -29,7 +29,7 @@ export class MyLearningListComponent implements OnInit {
       .pipe(take(1))
       .subscribe((response) => {
         this.allMyLearnings = response.result;
-      
+      console.log(this.allMyLearnings)
       });
    
       // this.allMyLearnings$ = this.store.pipe(select(selectAllMyLearnings));

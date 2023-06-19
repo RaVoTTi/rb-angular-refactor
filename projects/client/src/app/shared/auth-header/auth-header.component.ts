@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthBaseService } from 'projects/auth-base/src/public-api';
 interface INavItem {
   title: string,
   url: string,
@@ -14,6 +15,10 @@ interface INavItem {
 })
 export class AuthHeaderComponent {
   @Input() src!: string;
+
+  constructor(
+    private authBaseService: AuthBaseService
+  ) { }
   public sideBarItems: INavItem[] = [
     {
       title: 'My Profile',
@@ -52,7 +57,7 @@ export class AuthHeaderComponent {
     },
 
   ]
-  public dropDownItems: INavItem[]=[
+  public dropDownItems: INavItem[] = [
     {
       title: 'My Profile',
       url: '/app/settings',
@@ -75,5 +80,9 @@ export class AuthHeaderComponent {
     },
 
   ]
+  logOut() {
+    this.authBaseService.logout('/app/home')
+
+  }
 
 }

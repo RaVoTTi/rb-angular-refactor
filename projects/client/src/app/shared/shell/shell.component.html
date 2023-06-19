@@ -8,8 +8,8 @@
   data-sidebar-position="fixed"
   data-header-position="fixed"
 >
-<app-header *ngIf="!isAuth"></app-header>
-<app-auth-header *ngIf="isAuth"></app-auth-header>
+<app-header *ngIf="!(isAuth$ | async)"></app-header>
+<app-auth-header *ngIf="isAuth$ | async"></app-auth-header>
 
 <router-outlet></router-outlet>
 <!-- <app-home></app-home> -->

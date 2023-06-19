@@ -17,18 +17,17 @@ import { ILogin, IResponse } from 'interfaces/public-api';
 })
 export class AuthBaseService {
   API_URL = environment.API_URL;
-  // isAuthenticated$ : BehaviorSubject<boolean> = new BehaviorSubject(false)
 
   constructor(
     // private authFacade: AuthFacade,
 
     private http: HttpClient,
     // private wishlistService:WishlistService,
-    private localService : LocalStorageService,
+    private localService: LocalStorageService,
     // private store: Store,
 
     private router: Router
-  ) {}
+  ) { }
 
   // login(login: ILogin) {
   //   // this.store.dispatch(AuthActions.loginRequest({ login }));
@@ -66,9 +65,9 @@ export class AuthBaseService {
   }
 
   logout(route: string) {
-    this.router.navigateByUrl(route);
     // this.wishlistService.emptyBookWishlist();
     this.localService.deleteToken();
+    this.router.navigateByUrl(route);
     // this.store.dispatch(AuthActions.logout());
   }
   // initAppSession() {
