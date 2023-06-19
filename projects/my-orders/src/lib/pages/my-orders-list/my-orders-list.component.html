@@ -32,7 +32,7 @@
 
 </section> -->
 <div class="container-fluid  ">
-  <div *ngFor="let order of orders" class="table-responsive border rounded my-3">
+  <div *ngFor="let order of orders" class="table-responsive border rounded my-3 p-4">
     <table class="table align-middle text-nowrap ">
       <thead>
         <tr>
@@ -44,12 +44,15 @@
       <tbody>
         <tr *ngFor="let book of order.books ">
           <td class="border-bottom-0">
-            <div class="d-flex align-items-center gap-3">
+            <div class="d-flex align-items-center  gap-3">
               <img [src]="book.image" alt="" class="img-fluid rounded" width="80" />
               <div>
-                <h6 class="fw-semibold fs-4 mb-0">
+                <h6 class="fw-semibold fs-6 mb-0 ms-1">
                   {{ book.name | titlecase }}
                 </h6>
+                <span class="mb-1 badge rounded-pill bg-secondary fs-3 mt-3">
+                  {{order.condition | titlecase}}
+                </span>
                 <!-- <p class="mb-0">{{book.subject.name}}</p> -->
               </div>
             </div>
