@@ -1,18 +1,12 @@
 <!-- Body Wrapper -->
-<div
-  class="page-wrapper"
-  id="main-wrapper"
-  data-layout="horizontal"
-  data-navbarbg="skin6"
-  data-sidebartype="full"
-  data-sidebar-position="fixed"
-  data-header-position="fixed"
->
-<app-header *ngIf="!(isAuth$ | async)"></app-header>
-<app-auth-header *ngIf="isAuth$ | async"></app-auth-header>
+<div class="page-wrapper" id="main-wrapper" data-layout="horizontal" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
 
-<router-outlet></router-outlet>
-<!-- <app-home></app-home> -->
-<rb-footer></rb-footer>
+  <app-header *ngIf="isAuth  === false"></app-header>
+  <app-auth-header *ngIf="isAuth"></app-auth-header>
+
+  <router-outlet></router-outlet>
+  <!-- <app-home></app-home> -->
+  <rb-footer></rb-footer>
 
 </div>

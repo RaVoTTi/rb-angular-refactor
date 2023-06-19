@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SubHeaderComponent } from './sub-header/sub-header.component';
 import { FormsModule } from '@angular/forms';
 import { CardBookComponent } from './card-book/card-book.component';
+import { PreloaderComponent } from './preloader/preloader.component';
 
 
 
@@ -20,6 +21,7 @@ import { CardBookComponent } from './card-book/card-book.component';
     CardBookComponent,
     FooterComponent,
     SubHeaderComponent,
+    PreloaderComponent
   ],
   imports: [RouterModule, CommonModule, FormsModule],
   exports: [
@@ -29,6 +31,7 @@ import { CardBookComponent } from './card-book/card-book.component';
     ImgComponent,
     BreadcrumbsComponent,
     SubHeaderComponent,
+    PreloaderComponent
 
 
   

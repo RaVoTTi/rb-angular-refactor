@@ -51,9 +51,9 @@ export class AuthHeaderComponent {
       icon: 'wallet'
     },
     {
-      title: 'Support',
-      url: '/app/support',
-      icon: 'phone'
+      title: 'FAQ',
+      url: '/app/faq',
+      icon: 'info-square-rounded'
     },
 
   ]
@@ -74,9 +74,9 @@ export class AuthHeaderComponent {
       icon: 'wallet'
     },
     {
-      title: 'Support',
-      url: '/app/support',
-      icon: 'phone'
+      title: 'FAQ',
+      url: '/app/faq',
+      icon: 'info-square-rounded'
     },
 
   ]

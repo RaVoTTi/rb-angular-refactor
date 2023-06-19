@@ -11,17 +11,17 @@ export class CartLocalService {
 
 
   initCart: string[] = []
-  initCartString = '{"items":{}}';
+  initCartString = JSON.stringify(this.initCart);
 
   initCartLocalStorage() {
     const oldCart = this.getCart();
     if (!oldCart) {
-      const initCartJson = JSON.stringify(this.initCart);
-      localStorage.setItem(CART_KEY, initCartJson);
+
+      localStorage.setItem(CART_KEY, this.initCartString);
     }
 
   }
-  
+
   getCart(): string[] {
     const cartRaw = localStorage.getItem(CART_KEY);
     const cart: string[] = cartRaw ? JSON.parse(cartRaw) : this.initCart;
@@ -29,9 +29,16 @@ export class CartLocalService {
   }
   setBookCart(bookId: string): string[] {
     const cart = this.getCart();
+    if (!Array.isArray(cart)) {
+      this.emptyBookCart()
+
+    }
+
     if (!cart.includes(bookId)) {
+
       cart.push(bookId);
-      const cartString = JSON.stringify(cart);
+
+      const cartString = JSON.stringify(cart)
       localStorage.setItem(CART_KEY, cartString);
       this.cart$.next(cart);
     }

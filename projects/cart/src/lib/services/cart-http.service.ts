@@ -47,10 +47,16 @@ export class CartHttpService {
   // this.initCartByIds().subscribe( ({result}) => {return this.http.
   // })
 
-  buyCart(ids: string[]): Observable<IResponse<string>> {
+  buyCart(ids: string[]) {
     return this.http
       .post<IResponse<string>>(`${this.API_URL}/myorder/placeorder`, { ids })
-
+      .pipe(
+        tap(({ result }) => {
+          if (result)
+            window.location.href = result;
+        }
+        )
+      );
   }
 
   deleteItemCart(id: string) {
@@ -63,4 +69,8 @@ export class CartHttpService {
 
     this.cartPrice$.next(counter);
   }
+  emptyBookHttpCart() {
+    this.cartHttp$.next([])
+  }
+
 }

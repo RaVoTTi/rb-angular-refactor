@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AuthBaseService, LocalStorageService } from 'projects/auth-base/src/public-api';
 import { BehaviorSubject } from 'rxjs';
 
@@ -8,11 +8,18 @@ import { BehaviorSubject } from 'rxjs';
   styles: [
   ]
 })
-export class ShellComponent {
-  isAuth$!: BehaviorSubject<boolean | undefined> 
-
+export class ShellComponent implements OnInit {
+  isAuth!: boolean | undefined
 
   constructor(private localStorageService: LocalStorageService) {
-    this.isAuth$ = this.localStorageService.isAuth$
   }
+  ngOnInit() {
+    this.localStorageService.isAuth$.subscribe((isAuth) =>
+      setTimeout(() => {
+        this.isAuth = isAuth
+      })
+    )
+
+  }
+
 }

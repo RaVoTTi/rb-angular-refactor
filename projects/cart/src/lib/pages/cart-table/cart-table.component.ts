@@ -12,22 +12,22 @@ import { CartHttpService } from '../../services/cart-http.service';
 })
 export class CartTableComponent implements OnInit {
   cartItems$!: BehaviorSubject<ICartItem[] | undefined>
-  cartPrice$!: BehaviorSubject<number >
-  cartIds$!: BehaviorSubject<string[] >
-
+  cartPrice$!: BehaviorSubject<number>
+  cartIds$!: BehaviorSubject<string[]>
+  loading : Boolean = false;
 
 
 
 
   constructor(
-    
+
     private cartLocalService: CartLocalService,
     private cartHttpService: CartHttpService,
-    
-    
+
+
 
   ) {
-    
+
   }
   ngOnInit(): void {
     this.cartHttpService.initCartByIds().subscribe()
@@ -35,32 +35,26 @@ export class CartTableComponent implements OnInit {
     this.cartPrice$ = this.cartHttpService.cartPrice$
     this.cartIds$ = this.cartLocalService.cart$
 
-    
 
-    
+
+
   }
 
-  deleteItem(id:string){
+  deleteItem(id: string) {
     this.cartLocalService.deleteBookCart(id)
     this.cartHttpService.deleteItemCart(id)
   }
 
-  goToPayment(ids :string[]){
+  goToPayment(ids: string[]) {
+    this.loading = true
     this.cartHttpService
-    .buyCart(ids)
-    .subscribe(
-      ({result}) => {
+      .buyCart(ids)
+      .subscribe(
+        (error) => {
+          console.log(error)
 
-        if(result){
-          console.log(result)
-          window.open(result)
-          }
-          else{
-            console.log('Error')
-          }
-        
-      }
-    );
+        }
+      );
   }
   // reload(){
   //   this.cartItems?.forEach((book, index) => {
