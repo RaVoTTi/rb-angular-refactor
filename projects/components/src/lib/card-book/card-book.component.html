@@ -1,5 +1,5 @@
 <div class="card-book">
-  <div class="card-container" [routerLink]="['/app/books/id/', book._id]">
+  <div class="card-container" [routerLink]="url">
     <div class="upper-container">
       <img class="image" [src]="book.image" [alt]="book.image" />
     </div>
@@ -13,11 +13,6 @@
   </div>
   <span class="toolbar-tag"> # {{ book.subject.name }}</span>
 
-  <i
-    class="toolbar-button ti"
-    title="To Wishlist"
-    [ngClass]="'ti-' + icon"
-    >
+  <i class="toolbar-button ti" title="To Wishlist" [ngClass]="'ti-' + icon " (click)="emitClick()">
   </i>
 </div>
-

@@ -27,6 +27,9 @@
       "components": [
         "dist/components"
       ],
+      "info": [
+        "dist/info"
+      ],
       "interfaces": [
         "dist/interfaces"
       ],

@@ -17,21 +17,11 @@ const routes: Routes = [
         component: HomeComponent,
         canActivate: [isLoggedOutGuard],
       },
+      {
+        path: 'info',
+        loadChildren: () =>
+          import('projects/info/src/public-api').then((m) => m.InfoModule),
 
-      {
-        path: 'terms',
-        loadChildren: () =>
-          import('./pages/terms/terms.module').then((m) => m.TermsModule),
-      },
-      {
-        path: 'faq',
-        loadChildren: () =>
-          import('./pages/faq/faq.module').then((m) => m.FAQModule),
-      },
-            {
-        path: 'about',
-        loadChildren: () =>
-          import('./pages/about/about.module').then((m) => m.AboutModule),
       },
       {
         path: 'books',
@@ -54,7 +44,7 @@ const routes: Routes = [
             (m) => m.MyOrdersModule
           ),
       },
-      
+
       {
         path: 'cart',
         loadChildren: () =>
@@ -86,7 +76,7 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
 // import { PagesRoutingModule } from './pages/pages.routing';
 
 // const routes: Routes =  [ {

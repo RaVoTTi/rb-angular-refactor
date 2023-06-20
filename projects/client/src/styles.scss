@@ -4,7 +4,7 @@
 
 .container-fluid {
     max-width: 81rem;
-    padding: 0 1rem;
+    padding: 1rem;
     margin: 0 auto;
 }
 
@@ -15,9 +15,7 @@
 }
 
 .list-container {
-    max-width: 81rem;
-    margin: 0 auto;
-    padding: 1rem;
+
     gap: 1em;
     display: grid;
     justify-content: center;

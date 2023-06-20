@@ -3,70 +3,38 @@
     <div class="row align-items-center">
       <div class="col-xl-6">
         <div class="hero-content my-11 my-xl-0">
-          <h6
-            class="d-flex align-items-center gap-2 fs-4 fw-semibold mb-3"
-            data-aos="fade-up"
-            data-aos-delay="200"
-            data-aos-duration="1000"
-          >
+          <h6 class="d-flex align-items-center gap-2 fs-4 fw-semibold mb-3" data-aos="fade-up" data-aos-delay="200"
+            data-aos-duration="1000">
             <i class="ti ti-bow text-secondary fs-8"></i>Unleash the power of
             knowledge, in a nutshell.
           </h6>
-          <h1
-            class="fw-bolder mb-8 fs-13"
-            data-aos="fade-up"
-            data-aos-delay="400"
-            data-aos-duration="1000"
-          >
+          <h1 class="fw-bolder mb-8 fs-13" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
             Efficient reading
             <span class="text-primary"> for the modern</span> outlaw.
           </h1>
-          <p
-            class="fs-5 mb-5 text-dark fw-normal"
-            data-aos="fade-up"
-            data-aos-delay="600"
-            data-aos-duration="1000"
-          >
+          <p class="fs-5 mb-5 text-dark fw-normal" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
             Constructing an arsenal of words and knowledge to empower the
             underprivileged minds: Robin Hood of education.
           </p>
-          <div
-            class="d-sm-flex align-items-center gap-3"
-            data-aos="fade-up"
-            data-aos-delay="800"
-            data-aos-duration="1000"
-          >
-            <button
-              class="btn btn-primary px-5 btn-hover-shadow d-block mb-3 mb-sm-0"
-              routerLink="/app/books" 
-
-              >Browse Books</button
-            >
-            <button
-              class="btn btn-outline-primary d-block scroll-link"
-              routerLink="/auth/signup" 
-
-              >Try for free</button
-            >
+          <div class="d-sm-flex align-items-center gap-3" data-aos="fade-up" data-aos-delay="800"
+            data-aos-duration="1000">
+            <button class="btn btn-primary px-5 btn-hover-shadow d-block mb-3 mb-sm-0" routerLink="/app/books">Browse
+              Books</button>
+            <button class="btn btn-outline-primary d-block scroll-link" routerLink="/auth/signup">Try for free</button>
           </div>
         </div>
       </div>
       <div class="col-xl-6 d-none d-xl-block">
-        <div
-          class="hero-img-slide position-relative bg-light-primary p-4 rounded"
-        >
+        <div class="hero-img-slide position-relative bg-light-primary p-4 rounded">
           <div class="d-flex flex-row">
             <div class="">
               <div *ngFor="let book of books" class="banner-img-1 slideup m-3">
-                <rb-card-book [book]="book"> </rb-card-book>
+                <rb-card-book [book]="book" [url]="'/app/books/id/' + book._id" icon="heart"> </rb-card-book>
               </div>
             </div>
             <div class="">
-              <div
-                *ngFor="let book of booksInverse"
-                class="banner-img-2 slideDown m-3"
-              >
-                <rb-card-book [book]="book"> </rb-card-book>
+              <div *ngFor="let book of booksInverse" class="banner-img-2 slideDown m-3">
+                <rb-card-book [book]="book" [url]="'/app/books/id/' + book._id" icon="heart"> </rb-card-book>
               </div>
             </div>
           </div>

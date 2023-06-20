@@ -1,13 +1,11 @@
 <!-- <rb-search-header></rb-search-header> -->
-<div class="list-container">
-  <ng-container *ngIf="books">
-    <rb-card-book
-      *ngFor="let book of books"
-      [book]="book"
-      [isFavorite]="isFavorite(book._id)"
+<div class="container-fluid">
 
-      >
+  <div class="list-container" *ngIf="books">
+    <rb-card-book *ngFor="let book of books" [book]="book" (buttonEmitter)="addBookToWishlist(book._id)"
+      [icon]="isFavorite(book._id) ? 'heart-filled' : 'heart'" [url]="'/app/books/id/' + book._id">
     </rb-card-book>
-  </ng-container>
-</div> 
+  </div>
 
+
+</div>

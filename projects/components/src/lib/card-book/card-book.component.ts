@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IBook } from 'interfaces/public-api';
 
 @Component({
@@ -9,7 +9,12 @@ import { IBook } from 'interfaces/public-api';
 export class CardBookComponent {
   @Input() book!: IBook;
   @Input() icon!: string;
+  @Input() url!: string;
+
+  @Output() buttonEmitter = new EventEmitter<void>();
 
 
-
+  emitClick() {
+    this.buttonEmitter.emit()
+  }
 }

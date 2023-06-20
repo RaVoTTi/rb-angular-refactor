@@ -7,14 +7,18 @@ import { ComponentsModule, SubHeaderComponent } from 'projects/components/src/pu
 const routes: Routes = [
   {
     path: '',
-    component: MyOrdersListComponent,
+    children: [
+      {
+        path: '',
+        component: MyOrdersListComponent,
 
-  },
-  {
-    path: 'id/:id',
-    component: MyOrderViewComponent,
+      },
+      {
+        path: 'id/:id',
+        component: MyOrderViewComponent,
 
-  },
+      },]
+  }
 ];
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes), ComponentsModule],

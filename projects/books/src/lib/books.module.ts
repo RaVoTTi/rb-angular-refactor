@@ -9,7 +9,6 @@ import { NgModule } from '@angular/core';
 
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
-import { CardBookComponent } from './components/card-book/card-book.component';
 
 // import { WishlistService } from './services/wishlist.service';
 
@@ -59,7 +58,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    CardBookComponent,
+    // CardBookComponent,
 
     SearchHeaderComponent,
 
@@ -72,7 +71,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    // ComponentsModule
+    ComponentsModule
     // RouterModule,
     // UtilsModule,
   ],

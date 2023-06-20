@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'rb-preloader',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./preloader.component.scss']
 })
 export class PreloaderComponent {
-
+  @Input() full: boolean = false
 }

@@ -20,7 +20,7 @@ export class HeaderComponent {
     },
     {
       title: 'About Us',
-      url: '/app/about',
+      url: '/app/info/about',
       icon: 'home-question'
     },
     {
@@ -30,7 +30,7 @@ export class HeaderComponent {
     },
     {
       title: 'FAQ',
-      url: '/app/faq',
+      url: '/app/info/faq',
       icon: 'info-square-rounded'
     },
     {

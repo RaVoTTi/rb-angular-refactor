@@ -52,6 +52,7 @@ export class CartHttpService {
       .post<IResponse<string>>(`${this.API_URL}/myorder/placeorder`, { ids })
       .pipe(
         tap(({ result }) => {
+          console.log(result)
           if (result)
             window.location.href = result;
         }

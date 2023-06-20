@@ -52,7 +52,7 @@ export class AuthHeaderComponent {
     },
     {
       title: 'FAQ',
-      url: '/app/faq',
+      url: '/app/info/faq',
       icon: 'info-square-rounded'
     },
 
@@ -75,7 +75,7 @@ export class AuthHeaderComponent {
     },
     {
       title: 'FAQ',
-      url: '/app/faq',
+      url: '/app/info/faq',
       icon: 'info-square-rounded'
     },
 
