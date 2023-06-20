@@ -9,9 +9,8 @@ import { CartLocalService } from './cart-local.service';
   providedIn: 'root',
 })
 export class CartHttpService {
-  cartHttp$: BehaviorSubject<ICartItem[] | undefined> = new BehaviorSubject<
-    ICartItem[] | undefined
-  >(undefined);
+  cartHttp$: BehaviorSubject<ICartItem[]> = new BehaviorSubject<
+    ICartItem[]>([])
   cartPrice$: BehaviorSubject<number> = new BehaviorSubject<
     number
   >(0);
@@ -32,7 +31,7 @@ export class CartHttpService {
       .get<IResponse<ICartItem[]>>(`${this.API_URL}/book/query?${queryIds}`)
       .pipe(
         tap(({ result }) => {
-          this.cartHttp$.next(result);
+          this.cartHttp$.next(result || []);
           let counter: number = 0
           this.cartHttp$.value?.forEach(({ price }) => {
             counter += price

@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { ShellComponent } from './shared/shell/shell.component';
+
 import {
   isLoggedInGuard,
   isLoggedOutGuard,
 } from 'projects/auth-base/src/public-api';
+
+import { HomeComponent } from './pages/home/home.component';
+import { ShellComponent } from './shared/shell/shell.component';
+
 
 const routes: Routes = [
   {
@@ -17,8 +20,10 @@ const routes: Routes = [
         component: HomeComponent,
         canActivate: [isLoggedOutGuard],
       },
+
       {
         path: 'info',
+
         loadChildren: () =>
           import('projects/info/src/public-api').then((m) => m.InfoModule),
 
@@ -55,6 +60,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('projects/settings/src/public-api').then((m) => m.SettingsModule),
       },
+
     ],
   },
   {

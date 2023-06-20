@@ -37,7 +37,7 @@
       </tbody>
     </table>
     <div *ngIf="order.condition == 'purchased'" class="text-end">
-      <button class="btn btn-primary print-page" type="button">
+      <button [routerLink]="'/app/myorders/evaluation/' + order._id" class="btn btn-primary print-page" type="button">
         <span><i class="ti ti-currency-dollar fs-5"></i>
           Claim </span>
       </button>

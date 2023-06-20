@@ -9,7 +9,7 @@ import { IOrder } from 'interfaces/public-api';
 })
 export class MyOrdersListComponent implements OnInit {
   orders!: IOrder[];
-  screenWidth: any;
+  // screenWidth: any;
 
   constructor(private myOrdersService: MyOrdersService) {}
   // ngOnInit(): void {
@@ -26,9 +26,11 @@ export class MyOrdersListComponent implements OnInit {
         }
       });
   }
+  
 
-  @HostListener('window:resize', ['$event'])
-  onWindowResize() {
-    this.screenWidth = window.innerWidth;
-  }
+  // @HostListener('window:resize', ['$event'])
+  // onWindowResize() {
+  //   this.screenWidth = window.innerWidth;
+  // }
+
 }

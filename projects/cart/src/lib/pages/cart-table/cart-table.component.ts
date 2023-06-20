@@ -11,10 +11,10 @@ import { CartHttpService } from '../../services/cart-http.service';
   styleUrls: ['./cart-table.component.scss']
 })
 export class CartTableComponent implements OnInit {
-  cartItems$!: BehaviorSubject<ICartItem[] | undefined>
+  cartItems$: BehaviorSubject<ICartItem[]> = new BehaviorSubject<ICartItem[]>([])
   cartPrice$!: BehaviorSubject<number>
   cartIds$!: BehaviorSubject<string[]>
-  loading : Boolean = false;
+  loading: Boolean = false;
 
 
 
@@ -55,6 +55,7 @@ export class CartTableComponent implements OnInit {
 
         }
       );
+ 
   }
   // reload(){
   //   this.cartItems?.forEach((book, index) => {

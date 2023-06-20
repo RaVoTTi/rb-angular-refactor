@@ -1,13 +1,14 @@
 <rb-sub-header title="My Learning" subtitle="books"></rb-sub-header>
 <div class="container-fluid">
-  <div class="list-container">
-    <ng-container *ngIf="allMyLearnings">
+  <div class="list-container" *ngIf="allMyLearnings ; else preloader">
 
-      <rb-card-book *ngFor="let book of allMyLearnings" [book]="book" [url]="'/app/mylearning/id/' + book._id">
+    <rb-card-book *ngFor="let book of allMyLearnings" [book]="book" [url]="'/app/mylearning/id/' + book._id">
 
-      </rb-card-book>
-      <ng-container />
-    </ng-container>
+    </rb-card-book>
+    <ng-container />
   </div>
-  <rb-preloader></rb-preloader>
+  <ng-template #preloader>
+
+    <rb-preloader></rb-preloader>
+  </ng-template>
 </div>
