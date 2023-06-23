@@ -21,9 +21,9 @@ export class WishlistComponent implements OnInit {
     this.wishlistHttpService.initWishlistByIds().subscribe();
     this.wishlistItems$ = this.wishlistHttpService.wishlistHttp$;
   }
-  isFavorite(id: string): boolean {
-    return this.wishlistLocalService.isFavorite(id)
+  // isFavorite(id: string): boolean {
+  //   return !!this.wishlistLocalService.isFavorite(id)
 
-  }
+  // }
 
 }

@@ -7,28 +7,31 @@ export const WISHLIST_KEY = 'wishlist';
   providedIn: 'root',
 })
 export class WishlistLocalService {
-  wishlist$: BehaviorSubject<string[]> = new BehaviorSubject(this.getWishlist());
+  wishlist$: BehaviorSubject<string[]> = new BehaviorSubject(
+    this.getWishlist() || []
+  );
 
+  initWishlist: string[] = [];
+  initWishlistString = JSON.stringify(this.initWishlist);
 
-  initWishlist: string[] = []
-  initWishlistString = '{"items":{}}';
+  // initWishlistString = '{"items":{}}';
 
   initWishlistLocalStorage() {
     const oldWishlist = this.getWishlist();
     if (!oldWishlist) {
-      const initWishlistJson = JSON.stringify(this.initWishlist);
-      localStorage.setItem(WISHLIST_KEY, initWishlistJson);
+      localStorage.setItem(WISHLIST_KEY, this.initWishlistString);
     }
-    console.log('valentin')
-
   }
-  getWishlist(): string[] {
+  getWishlist(): string[] | null {
     const wishlistRaw = localStorage.getItem(WISHLIST_KEY);
-    const wishlist: string[] = wishlistRaw ? JSON.parse(wishlistRaw) : this.initWishlist;
-    return wishlist;
+
+    return wishlistRaw ? JSON.parse(wishlistRaw) : null;
   }
   setBookWishlist(bookId: string): string[] {
-    const wishlist = this.getWishlist();
+    const wishlist = this.getWishlist() || [];
+    if (!Array.isArray(wishlist)) {
+      this.emptyBookWishlist();
+    }
     if (!wishlist.includes(bookId)) {
       wishlist.push(bookId);
       const wishlistString = JSON.stringify(wishlist);
@@ -39,7 +42,7 @@ export class WishlistLocalService {
     return wishlist;
   }
   deleteBookWishlist(bookId: string): string[] {
-    const wishlist = this.getWishlist();
+    const wishlist = this.getWishlist() || [];
     if (wishlist.includes(bookId)) {
       const index = wishlist.indexOf(bookId);
       if (index !== -1) {
@@ -53,7 +56,11 @@ export class WishlistLocalService {
     return wishlist;
   }
   isFavorite(id: string) {
-    return this.wishlist$.value?.includes(id)
+    if (!Array.isArray(this.wishlist$.value)) {
+      this.emptyBookWishlist();
+      return false
+    }
+    return this.wishlist$.value?.includes(id);
   }
   emptyBookWishlist() {
     localStorage.setItem(WISHLIST_KEY, this.initWishlistString);

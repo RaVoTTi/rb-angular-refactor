@@ -17,7 +17,6 @@ export class ShellComponent implements OnInit {
     this.localStorageService.isAuth$.subscribe((isAuth) =>
       setTimeout(() => {
         this.isAuth = isAuth
-        console.log(isAuth)
       })
     )
 

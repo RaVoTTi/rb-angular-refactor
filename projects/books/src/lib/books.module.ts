@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
+import { WishlistLocalService } from './services/wishlist-local.service';
 
 // import { WishlistService } from './services/wishlist.service';
 
@@ -50,7 +51,6 @@ const routes: Routes = [
       {
         path: 'wishlist',
         component: WishlistComponent,
-
       },
     ],
   },
@@ -65,22 +65,17 @@ const routes: Routes = [
     BooksListComponent,
     BookViewComponent,
     WishlistComponent,
-
-
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ComponentsModule
+    ComponentsModule,
     // RouterModule,
     // UtilsModule,
   ],
-
 })
 export class BooksModule {
-  // constructor(
-  //   wishlistService: WishlistService
-  //   ) {
-  //   wishlistService.initWishlistLocalStorage();
-  // }
+  constructor(wishlistService: WishlistLocalService) {
+    wishlistService.initWishlistLocalStorage();
+  }
 }

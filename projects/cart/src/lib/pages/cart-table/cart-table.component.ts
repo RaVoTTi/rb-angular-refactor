@@ -14,7 +14,7 @@ export class CartTableComponent implements OnInit {
   cartItems$: BehaviorSubject<ICartItem[]> = new BehaviorSubject<ICartItem[]>([])
   cartPrice$!: BehaviorSubject<number>
   cartIds$!: BehaviorSubject<string[]>
-  loading: Boolean = false;
+  loading: boolean = false;
 
 
 
@@ -39,6 +39,7 @@ export class CartTableComponent implements OnInit {
 
 
   }
+
 
   deleteItem(id: string) {
     this.cartLocalService.deleteBookCart(id)

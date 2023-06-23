@@ -5,6 +5,7 @@ import { MyOrdersListComponent } from './pages/my-orders-list/my-orders-list.com
 import { MyOrderViewComponent } from './pages/my-order-view/my-order-view.component';
 import { ComponentsModule, SubHeaderComponent } from 'projects/components/src/public-api';
 import { EvaluationComponent } from './pages/evaluation/evaluation.component';
+import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   {
     path: '',
@@ -28,7 +29,7 @@ const routes: Routes = [
   }
 ];
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes), ComponentsModule],
   declarations: [MyOrdersListComponent, MyOrderViewComponent, EvaluationComponent],
+  imports: [CommonModule, RouterModule.forChild(routes), ComponentsModule, ReactiveFormsModule],
 })
 export class MyOrdersModule { }
