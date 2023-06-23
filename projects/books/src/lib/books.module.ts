@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
 import { WishlistLocalService } from './services/wishlist-local.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // import { WishlistService } from './services/wishlist.service';
 
@@ -28,10 +29,7 @@ import { WishlistLocalService } from './services/wishlist-local.service';
 // import { TermsComponent } from '../../../terms/src/lib/terms/terms.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: SearchHeaderComponent,
-    children: [
+
       {
         path: '',
         component: BooksListComponent,
@@ -52,8 +50,7 @@ const routes: Routes = [
         path: 'wishlist',
         component: WishlistComponent,
       },
-    ],
-  },
+
 ];
 
 @NgModule({
@@ -70,6 +67,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ComponentsModule,
+    ReactiveFormsModule
     // RouterModule,
     // UtilsModule,
   ],

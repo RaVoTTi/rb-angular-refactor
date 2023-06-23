@@ -20,4 +20,7 @@ export class MyOrdersService {
   getMyOrderEvaluation(id: string): Observable<IResponse<IBook[]>> {
     return this.http.get<IResponse<IBook[]>>(`${this.API_URL}/myorder/evaluation/${id}`);
   }
+  patchMyOrderEvaluation(id: string): Observable<IResponse> {
+    return this.http.patch<IResponse>(`${this.API_URL}/myorder/id/${id}` ,{});
+  }
 }

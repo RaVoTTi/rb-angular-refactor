@@ -4,6 +4,7 @@ import { BehaviorSubject, take } from 'rxjs';
 import { BooksService } from '../../services/books.service';
 import { WishlistLocalService, } from '../../services/wishlist-local.service';
 import { WishlistHttpService } from '../../services/wishlist-http.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'rb-books-list',
@@ -13,7 +14,8 @@ import { WishlistHttpService } from '../../services/wishlist-http.service';
 })
 export class BooksListComponent implements OnInit{
   books!: IBook[] | undefined;
-
+  allBooks! : IBook[] | undefined 
+  searchForm!: FormGroup;
 
 
 
@@ -21,9 +23,14 @@ export class BooksListComponent implements OnInit{
     private booksService: BooksService,
     private wishlistLocalService: WishlistLocalService,
     private wishlistHttpService: WishlistHttpService,
+    private fb: FormBuilder
 
 
-  ) { }
+  ) { 
+    this.searchForm = this.fb.group({
+      searchTerm: [''] // Initial value for the search term
+    });
+  }
 
   ngOnInit(): void {
 
@@ -32,6 +39,8 @@ export class BooksListComponent implements OnInit{
       .pipe(take(1))
       .subscribe((response) => {
         this.books = response.result;
+        this.allBooks = response.result;
+
       });
   }
 
@@ -55,5 +64,17 @@ export class BooksListComponent implements OnInit{
       this.wishlistLocalService.deleteBookWishlist(id);
       this.wishlistHttpService.deleteItemWishlist(id);
     }
+  }
+  search(): void {
+    const searchTerm = this.searchForm.get('searchTerm')?.value;
+    if(searchTerm){
+      this.books = this.books?.filter(book =>
+        book.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    else{
+      this.books = this.allBooks
+    }
+
   }
 }

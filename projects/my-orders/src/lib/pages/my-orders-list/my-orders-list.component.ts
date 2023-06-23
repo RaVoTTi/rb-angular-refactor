@@ -2,13 +2,15 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { take } from 'rxjs';
 import { MyOrdersService } from '../../services/my-orders.service';
 import { IOrder } from 'interfaces/public-api';
+import { conditions } from '../../utils/conditions';
 
 @Component({
-  selector: 'frontend-my-orders-list',
+  selector: 'lib-my-orders-list',
   templateUrl: './my-orders-list.component.html',
 })
 export class MyOrdersListComponent implements OnInit {
   orders!: IOrder[];
+  CONDITIONS = conditions
   // screenWidth: any;
 
   constructor(private myOrdersService: MyOrdersService) {}

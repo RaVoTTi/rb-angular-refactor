@@ -1,44 +1,45 @@
 <rb-sub-header title="Evaluation" subtitle="My Orders"></rb-sub-header>
 <div class="container-fluid">
   <ng-container *ngIf="books; else preloader">
-    <form [formGroup]="myForm">
+    <form [formGroup]="myForm" (submit)="refund()">
       <div formArrayName="books">
         <div
           class="card w-100 position-relative overflow-hidden"
           *ngFor="let book of booksControls.controls; let i = index"
         >
           <div class="card-body p-4" [formGroupName]="i">
-            <p class="card-subtitle mb-4">
+            <h5 class="card-title mb-4">
               {{ book.get(["name"])?.value | titlecase }}
-            </p>
+            </h5>
             <ng-container formArrayName="evaluation">
               <div
+                class="my-4"
                 *ngFor="
                   let question of evaluationControls(i).controls;
                   let j = index
                 "
               >
                 <ng-container [formGroupName]="j">
-                  <h5 class="card-title fw-semibold">
+                  <h6 class="card-subtitle fw-semibold">
                     {{ question.get(["question"])?.value }}
-                  </h5>
+                  </h6>
 
                   <div
-                  class="form-check  ms-3 my-3"
+                    class="form-check ms-3 my-3"
                     *ngFor="
                       let option of question.get(['options'])?.value;
                       let k = index
                     "
                   >
                     <input
-                      class="form-check-input primary fs-6"
+                      class="form-check-input primary fs-4"
                       type="radio"
-                      [value]="k"
+                      [value]="k + 1"
                       id="flexCheckChecked"
                       formControlName="selectedOption"
                     />
                     <label
-                      class="form-check-label text-dark fs-6"
+                      class="form-check-label text-dark fs-4"
                       for="flexCheckChecked"
                     >
                       {{ option }}
@@ -50,11 +51,31 @@
           </div>
         </div>
       </div>
+      <div class="card w-100 position-relative overflow-hidden">
+        <div class="card-body p-4">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="d-flex">
+                <i class="ti ti-bow fs-6 me-2 text-primary"> </i>
+                <h5 class="card-title fw-semibold">Remember,</h5>
+              </div>
+              <p class="card-subtitle">
+                You must answer all the questions correctly before submitting.
+              </p>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary py-3 rounded-2"
+              [ngClass]="myForm.invalid ? 'disabled' : ''"
+            >
+              Claim Cashback
+            </button>
+          </div>
+        </div>
+      </div>
     </form>
   </ng-container>
   <ng-template #preloader>
     <rb-preloader></rb-preloader>
   </ng-template>
-
-  
 </div>

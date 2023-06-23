@@ -7,15 +7,15 @@
         <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y fs-6 text-dark ms-3"></i>
       </form>
 
-      <a class="btn btn-primary  d-flex" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+      <!-- <a class="btn btn-primary  d-flex" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
         aria-controls="offcanvasExample">
         <i class="ti ti-adjustments fs-8"></i>
-      </a>
+      </a> -->
     </div>
   </nav>
   
 </section>
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<!-- <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-body shop-filters w-100 p-0">
     <ul class="list-group pt-2 border-bottom rounded-0">
       <h6 class="my-3 mx-4 fw-semibold">Filter by Category</h6>
@@ -28,26 +28,12 @@
     </ul>
     <ul class="list-group pt-2 border-bottom rounded-0">
       <h6 class="my-3 mx-4 fw-semibold">Sort By</h6>
-      <li class="list-group-item border-0 p-0 mx-4 mb-2">
+      <li *ngFor="let sort of sorters " class="list-group-item border-0 p-0 mx-4 mb-2">
         <a class="d-flex align-items-center gap-2 list-group-item-action text-dark px-3 py-6 rounded-1"
-          ><i class="ti ti-ad-2 fs-5"></i>Newest
+          ><i class="ti fs-5" [ngClass]="'ti-' + sort.icon"></i>{{sort.name}}
         </a>
       </li>
-      <li class="list-group-item border-0 p-0 mx-4 mb-2">
-        <a class="d-flex align-items-center gap-2 list-group-item-action text-dark px-3 py-6 rounded-1"
-          ><i class="ti ti-sort-ascending-2 fs-5"></i>Price: High-Low
-        </a>
-      </li>
-      <li class="list-group-item border-0 p-0 mx-4 mb-2">
-        <a class="d-flex align-items-center gap-2 list-group-item-action text-dark px-3 py-6 rounded-1"
-          ><i class="ti ti-sort-descending-2 fs-5"></i>Price: Low-High
-        </a>
-      </li>
-      <li class="list-group-item border-0 p-0 mx-4 mb-2">
-        <a class="d-flex align-items-center gap-2 list-group-item-action text-dark px-3 py-6 rounded-1"
-          ><i class="ti ti-ad-2 fs-5"></i>Discounted
-        </a>
-      </li>
+      
     </ul>
 
  
@@ -56,5 +42,5 @@
       <a  class="btn btn-primary w-100">Reset Filters</a>
     </div>
   </div>
-</div>
+</div> -->
 <router-outlet></router-outlet>

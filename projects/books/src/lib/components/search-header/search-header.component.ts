@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { ISubject } from 'interfaces/ISubject';
 
+interface ISort {
+  name: string,
+  icon: string,
+  sorter?: () => void
+}
+
 @Component({
   selector: 'rb-search-header',
   templateUrl: './search-header.component.html',
@@ -24,4 +30,28 @@ export class SearchHeaderComponent {
       name: 'History',
       icon: 'ti-wallpaper'
     }
-  ]}
+
+
+  ]
+  sorters: ISort[] = [
+    {
+      icon: 'ad-2',
+      name: 'Newest'
+    },
+    {
+      icon: 'sort-ascending-2',
+      name: 'Price: High-Low'
+    },
+    {
+      icon: 'sort-descending-2',
+      name: 'Price: Low-High'
+    },
+    {
+      icon: 'ad-2',
+      name: 'Discounted'
+    },
+
+
+
+  ]
+}

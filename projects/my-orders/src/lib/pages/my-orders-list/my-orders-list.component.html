@@ -20,7 +20,7 @@
                 <h6 class="fw-semibold fs-6 mb-0 ms-1">
                   {{ book.name | titlecase }}
                 </h6>
-                <span class="mb-1 badge rounded-pill bg-secondary fs-3 mt-3">
+                <span class="mb-1 badge rounded-pill fs-3 mt-3" [ngClass]="CONDITIONS[order.condition]">
                   {{order.condition | titlecase}}
                 </span>
                 <!-- <p class="mb-0">{{book.subject.name}}</p> -->
@@ -28,6 +28,7 @@
             </div>
           </td>
 
+          
           <td class="text-end border-bottom-0">
             <h6 class="fs-4 fw-semibold mb-0">
               {{ book.price | currency }}
@@ -36,7 +37,7 @@
         </tr>
       </tbody>
     </table>
-    <div *ngIf="order.condition == 'purchased'" class="text-end">
+    <div *ngIf="order.condition === 'purchased'" class="text-end">
       <button [routerLink]="'/app/myorders/evaluation/' + order._id" class="btn btn-primary print-page" type="button">
         <span><i class="ti ti-currency-dollar fs-5"></i>
           Claim </span>

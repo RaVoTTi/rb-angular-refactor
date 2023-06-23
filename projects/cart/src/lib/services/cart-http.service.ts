@@ -24,13 +24,14 @@ export class CartHttpService {
   initCartByIds(): Observable<IResponse<ICartItem[] > | null> {
 
     const ids = this.cartLocalService.getCart();
-    if(ids){
+    if(ids && ids.length !== 0){
+      console.log(true)
 
       let queryIds = ''
       ids.forEach((id) => queryIds += `ids[]=${id}&`)
   
       return this.http
-        .get<IResponse<ICartItem[]>>(`${this.API_URL}/book/query?${queryIds}`)
+        .get<IResponse<ICartItem[]>>(`${this.API_URL}/book/ids?${queryIds}`)
         .pipe(
           tap(({ result }) => {
             this.cartHttp$.next(result || []);

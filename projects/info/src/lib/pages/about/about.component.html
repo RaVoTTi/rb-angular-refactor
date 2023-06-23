@@ -1,4 +1,78 @@
-<section class="bg-primary pt-5 pt-xl-9 pb-8">
+<section class="hero-section position-relative overflow-hidden mb-0 mb-lg-11">
+  <div class="container">
+    <div class="hero-content my-8 ">
+      <!-- <h6 class="d-flex align-items-center gap-2 fs-4 fw-semibold mb-3" data-aos="fade-up" data-aos-delay="200"
+        data-aos-duration="1000">
+        <i class="ti ti-bow text-secondary fs-8"></i>Unleash the power of
+        knowledge, in a nutshell.
+      </h6> -->
+      <h1
+        class="fw-bolder mb-8 fs-13 text-center"
+        data-aos="fade-up"
+        data-aos-delay="400"
+        data-aos-duration="1000"
+      >
+        About
+        <span class="text-primary"> us</span>
+      </h1>
+      <p
+        class="fs-5 mb-5 text-dark text-justify fw-normal"
+        data-aos="fade-up"
+        data-aos-delay="400"
+        data-aos-duration="1000"
+      >
+        Greetings, noble friend! I shall guide you through this process of book
+        acquisition and comprehension, following the footsteps of Robin Hood
+        himself. Behold the comprehensive step-by-step guide to our super
+        methodology of motivation, which shall enable you to read and understand
+        books easily and swiftly.
+      </p>
+      <div class=""
+      data-aos="fade-up"
+      data-aos-delay="600"
+      data-aos-duration="1000"
+      >
+
+        <div
+        *ngFor="let step of steps ; let i = index ;"
+        class="card w-100 position-relative overflow-hidden"
+        
+        >
+        <div class="card-body p-4">
+          <h5 class="card-title mb-4">
+            {{ "Step " + step.stepNumber + ": " + step.title }}
+          </h5>
+          <ul class="list-group">
+            <li
+            *ngFor="let detail of step.details"
+              class="list-group-item border-0 fs-5 p-0 mb-2"
+              >
+              <i class="ti ti-bow  mx-2 text-primary"> </i>
+              {{ detail }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+ 
+      <p
+        class="fs-5 mb-5 text-dark text-justify fw-normal"
+        data-aos="fade-up"
+        data-aos-delay="600"
+        data-aos-duration="1000"
+      >
+        Thus, dear friend, thou art now equipped with the knowledge to embark
+        upon this literary adventure. May thou find great joy and enlightenment
+        as thou treadest the path of reading and comprehension. Remember, the
+        wisdom gained from books is a treasure that none can take away. Happy
+        reading, and may the winds of knowledge forever be in thy favor!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="bg-primary pt-5 pt-xl-9 pb-8">
+
   <div class="container">
     <div class="row justify-content-between">
       <div class="col-lg-7 col-xl-5 pt-lg-5 mb-5 mb-lg-0">
@@ -16,4 +90,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->

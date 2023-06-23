@@ -1,15 +1,38 @@
 <!-- <rb-search-header></rb-search-header> -->
-<div class="container-fluid">
+<section class="search">
+  <nav class="navbar bg-primary">
+    <div
+      class="container-fluid d-flex flex-nowrap justify-content-between align-items-center"
+    >
+      <form [formGroup]="searchForm" class="position-relative" (keydown.enter)="search()">
+        <input
+          type="text"
+          class="form-control search-chat py-2 ps-5"
+          id="text-srh"
+          placeholder="Search Product"
+          formControlName="searchTerm"
 
-  <div class="list-container" *ngIf="books ; else preloader">
-    <rb-card-book *ngFor="let book of books" [book]="book" (buttonEmitter)="addBookToWishlist(book._id)"
-      [icon]="isFavorite(book._id) ? 'heart-filled' : 'heart'" [url]="'/app/books/id/' + book._id">
+        />
+        <i
+          (click)="search()"
+          class="ti ti-search position-absolute top-50 start-0 translate-middle-y fs-6 text-dark ms-3"
+        ></i>
+      </form>
+    </div>
+  </nav>
+</section>
+<div class="container-fluid">
+  <div class="list-container" *ngIf="books; else preloader">
+    <rb-card-book
+      *ngFor="let book of books"
+      [book]="book"
+      (buttonEmitter)="addBookToWishlist(book._id)"
+      [icon]="isFavorite(book._id) ? 'heart-filled' : 'heart'"
+      [url]="'/app/books/id/' + book._id"
+    >
     </rb-card-book>
   </div>
   <ng-template #preloader>
-
     <rb-preloader></rb-preloader>
   </ng-template>
-
-
 </div>

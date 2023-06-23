@@ -41,7 +41,7 @@ const routes: Routes = [
   ]
 })
 export class InfoModule {
-  constructor(private localStorageService: LocalStorageService){
-    this.localStorageService.getToken()
-  }
+  // constructor(private localStorageService: LocalStorageService){
+  //   this.localStorageService.getToken()
+  // }
  }

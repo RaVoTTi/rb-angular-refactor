@@ -24,10 +24,10 @@ export class WishlistHttpService {
     
     let queryIds = '';
 
-    if (ids) {
+    if (ids && ids.length !== 0) {
       ids.forEach((id) => (queryIds += `ids[]=${id}&`));
       return this.http
-        .get<IResponse<IBook[]>>(`${this.API_URL}/book/query?${queryIds}`)
+        .get<IResponse<IBook[]>>(`${this.API_URL}/book/ids?${queryIds}`)
         .pipe(
           tap(({ result }) => {
             this.wishlistHttp$.next(result);

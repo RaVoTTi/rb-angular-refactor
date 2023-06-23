@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyOrdersService } from '../../services/my-orders.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
 import { IBook } from 'interfaces/IBook';
 import {
@@ -22,9 +22,6 @@ export class EvaluationComponent implements OnInit {
   myForm: FormGroup;
   orderId!: string;
   books!: IBook[] | undefined;
-  booksForm: FormGroup = this.fb.group({});
-  evaluationForm!: FormGroup;
-  evaluation!: IEvaluation[];
 
   get booksControls() {
     return this.myForm.get('books') as FormArray;
@@ -33,7 +30,8 @@ export class EvaluationComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private myOrdersService: MyOrdersService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.myForm = this.fb.group({
       books: this.fb.array([]),
@@ -68,9 +66,7 @@ export class EvaluationComponent implements OnInit {
           options: [evaluation.options],
           selectedOption: [
             null,
-            [Validators.required, 
-              equalToValidator(evaluation.correctOption)
-            ],
+            [Validators.required, equalToValidator(evaluation.correctOption)],
           ],
         });
 
@@ -91,6 +87,21 @@ export class EvaluationComponent implements OnInit {
       'evaluation'
     ) as FormArray;
   }
+  refund() {
+    if (this.myForm.invalid) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+    this.myOrdersService
+      .patchMyOrderEvaluation(this.orderId)
+      .pipe(take(1))
+      .subscribe((respose) => {
+        if(respose.ok){
+          this.router.navigateByUrl('/app/myorders')
+        }
+        
+      });
+  }
 }
 export function equalToValidator(expectedValue: any): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
@@ -101,49 +112,3 @@ export function equalToValidator(expectedValue: any): ValidatorFn {
     return null;
   };
 }
-// orderId!: string;
-// books!: IBook[] | undefined;
-// booksForm: FormGroup = this.fb.group({});
-// evaluationForm!: FormGroup;
-// evaluation!: IEvaluation[];
-
-// constructor(
-//   private route: ActivatedRoute,
-//   private myOrdersService: MyOrdersService,
-//   private fb: FormBuilder
-// ) {}
-
-// ngOnInit(): void {
-//   this.route.params.subscribe((params) => {
-//     if (params['id']) {
-//       this.orderId = params['id'];
-//     }
-//   });
-//   this.myOrdersService
-//     .getMyOrderEvaluation(this.orderId)
-//     .pipe(take(1))
-//     .subscribe((response) => {
-//       this.books = response.result || [];
-//       // this.addEvaluationControls(this.books);
-//       console.log(this.books)
-//     });
-// }}
-
-//   addEvaluationControls(books: IBook[]) {
-//     // Itera sobre las preguntas y agrega un control para cada una
-
-//     books.map((book) => {
-//       const evaluation = book.evaluation.map((evaluation) => {
-//         const options = evaluation.options.map((option) => {
-//           return this.fb.control(option, Validators.required);
-//         });
-//         return this.fb.group({
-//           correctOption: [null, Validators.required],
-//           options: this.fb.array(options),
-//         });
-//       });
-//       this.booksForm.addControl(`${book._id}`, this.fb.array(evaluation));
-//       console.log(this.booksForm)
-//     });
-//   }
-// }
