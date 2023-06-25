@@ -148,7 +148,6 @@
             "tsConfig": "projects/client/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/client/src/favicon.ico",
               "projects/client/src/assets"
             ],
             "styles": [
