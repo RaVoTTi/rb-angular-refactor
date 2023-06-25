@@ -40,11 +40,7 @@ export class Section2Component {
         "icon": "ti-click",
         "description": "Summaries help you evaluate whether a book aligns with your interests and needs, allowing you to make informed decisions about which books to pursue further."
       },
-      {
-        "title": "Efficient selection process",
-        "icon": "ti-click",
-        "description": "Summaries help you evaluate whether a book aligns with your interests and needs, allowing you to make informed decisions about which books to pursue further."
-      },
+
       {
         "title": "Motivational Boost for the Time-strapped",
         "icon": "ti-rocket",
@@ -52,7 +48,7 @@ export class Section2Component {
         },
       {
         "title": "Improved memory retention",
-        "icon": "ti-brain",
+        "icon": "ti-device-sd-card",
         "description": "Summaries often focus on the most important points, making them effective tools for reinforcing your understanding and recall of key ideas."
       },
       {
@@ -84,7 +80,12 @@ export class Section2Component {
         "title": "Accessibility for busy individuals",
         "icon": "ti-briefcase",
         "description": "For those with busy schedules, reading summarized books offers an opportunity to continue learning and engaging with new ideas, even with limited time available."
-      }
+      },
+      {
+        "title": "Improved critical thinking",
+        "icon": "ti-brain",
+        "description": "Reading book summaries can enhance your critical thinking skills by exposing you to different arguments and viewpoints. It allows you to analyze and evaluate the main ideas presented in the book, fostering a deeper understanding of the subject matter."
+        }
     ]
 
 
