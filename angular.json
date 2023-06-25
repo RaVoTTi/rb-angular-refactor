@@ -68,7 +68,9 @@
             "tsConfig": "projects/client/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/client/src/assets"
+              "projects/client/src/assets",
+              "projects/client/src/assets/rb/favicon.svg"
+
             ],
             "styles": [
               "projects/client/src/styles.scss",
@@ -82,9 +84,6 @@
               "projects/client/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js",
               "projects/client/src/assets/libs/owl.carousel/dist/owl.carousel.min.js",
               "projects/client/src/assets/js/custom.js"
-
-
-
             ]
 
           },
@@ -94,7 +93,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
