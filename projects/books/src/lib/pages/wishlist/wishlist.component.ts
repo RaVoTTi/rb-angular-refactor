@@ -25,5 +25,24 @@ export class WishlistComponent implements OnInit {
   //   return !!this.wishlistLocalService.isFavorite(id)
 
   // }
+  isFavorite(id: string): boolean {
+    return this.wishlistLocalService.isFavorite(id)
+  }
+
+  // }
+  addBookToWishlist(id: string) {
+    // console.log('valentin')
+    //  isFavorite(id)
+    let isFavorite = this.isFavorite(id)
+    
+    if (isFavorite === false) {
+      isFavorite = true;
+      this.wishlistLocalService.setBookWishlist(id);
+    } else {
+      isFavorite = false;
+      this.wishlistLocalService.deleteBookWishlist(id);
+      this.wishlistHttpService.deleteItemWishlist(id);
+    }
+  }
 
 }

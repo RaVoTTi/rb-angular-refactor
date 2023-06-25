@@ -3,6 +3,9 @@
     <rb-card-book
       *ngFor="let book of wishlistItems$ | async "
       [book]="book"
+      (buttonEmitter)="addBookToWishlist(book._id)"
+      [icon]="isFavorite(book._id) ? 'heart-filled' : 'heart'"
+      [url]="'/app/books/id/' + book._id"
       >
     </rb-card-book>
 </div> 

@@ -68,12 +68,25 @@
             "tsConfig": "projects/client/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/client/src/favicon.ico",
               "projects/client/src/assets"
             ],
             "styles": [
-              "projects/client/src/styles.scss"
+              "projects/client/src/styles.scss",
+              "projects/client/src/assets/libs/aos/dist/aos.css",
+              "projects/client/src/assets/css/style.min.css",              
+              "projects/client/src/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css"
+            ],
+            "scripts": [
+              "projects/client/src/assets/libs/jquery/dist/jquery.min.js",
+              "projects/client/src/assets/libs/aos/dist/aos.js",
+              "projects/client/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "projects/client/src/assets/libs/owl.carousel/dist/owl.carousel.min.js",
+              "projects/client/src/assets/js/custom.js"
+
+
+
             ]
+
           },
           "configurations": {
             "production": {
