@@ -44,6 +44,9 @@
       ],
       "settings": [
         "dist/settings"
+      ],
+      "test1": [
+        "dist/test1"
       ]
     },
     "outDir": "./dist/out-tsc",
