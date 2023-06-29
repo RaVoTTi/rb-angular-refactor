@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ILogin } from 'interfaces/public-api';
 import { ValidatorsService } from '../../validators/validators.service';
 import { AuthBaseService, LocalStorageService } from 'projects/auth-base/src/public-api';
-import { tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'lib-login',
@@ -18,7 +18,7 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private authBaseService: AuthBaseService,
     private localStorageService: LocalStorageService,
-
+    private toastr: ToastrService,
     private router: Router,
 
     private vs: ValidatorsService // private messageService: MessageService
@@ -46,16 +46,11 @@ export class LoginComponent {
       })
 
   }
+  showSuccess(){
+    this.toastr.info('Hello world!', 'Toastr fun!');
+    
+  }
 
-  //   .subscribe({
-  //     error: ({ error }) => {
-  //       this.loginForm.enable();
-  //       // this.alert.fire({
-  //       //   icon: 'error',
-  //       //   text: error?.msg ? error?.msg : 'Something happened',
-  //       // });
-  //     },
-  //   });
   private _initForm() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, this.vs.validatePat('emailPat')]],

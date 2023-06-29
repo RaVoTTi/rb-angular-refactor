@@ -72,6 +72,7 @@
             ],
             "styles": [
               "projects/client/src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css",
               "assets/libs/aos/dist/aos.css",
               "assets/css/style.css",
               "assets/libs/owl.carousel/dist/assets/owl.carousel.min.css"

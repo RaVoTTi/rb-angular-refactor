@@ -10,18 +10,23 @@ import { AuthBaseModule, JwtInterceptor } from 'projects/auth-base/src/public-ap
 import { ShellComponent } from './shared/shell/shell.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
     HomeModule,
     HttpClientModule,
-
     AuthBaseModule.forRoot(),
+    ToastrModule.forRoot(), 
+
+
 
   ],
   providers: [

@@ -5,6 +5,7 @@ import { AuthViewComponent } from './shared/auth-view/auth-view.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { ToastrModule } from 'ngx-toastr';
 
 const routes: Routes = [
   {
