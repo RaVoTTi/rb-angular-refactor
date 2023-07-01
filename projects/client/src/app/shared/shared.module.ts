@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { AuthHeaderComponent } from './auth-header/auth-header.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
 import { RouterModule } from '@angular/router';
+import { UtilsModule } from 'projects/utils/src/public-api';
 
 
 
@@ -18,7 +19,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     ComponentsModule,
     RouterModule,
-
+    UtilsModule
 
   ]
 })

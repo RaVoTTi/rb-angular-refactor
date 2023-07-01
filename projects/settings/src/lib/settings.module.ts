@@ -8,6 +8,7 @@ import { DetailsComponent } from './sections/details/details.component';
 import { CryptoAddressComponent } from './sections/crypto-address/crypto-address.component';
 import { ImageComponent } from './sections/image/image.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UtilsModule } from 'projects/utils/src/public-api';
 
 const routes: Routes = [
 
@@ -34,7 +35,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ComponentsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UtilsModule
   ],
   exports: [
   ]

@@ -5,6 +5,7 @@ import { ValidatorsService } from '../../validators/validators.service';
 import { AuthBaseService, LocalStorageService } from 'projects/auth-base/src/public-api';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ErrorHandlerService } from 'projects/utils/src/public-api';
 
 @Component({
   selector: 'lib-login',
@@ -19,6 +20,7 @@ export class LoginComponent {
     private authBaseService: AuthBaseService,
     private localStorageService: LocalStorageService,
     private toastr: ToastrService,
+    private errorH: ErrorHandlerService,
     private router: Router,
 
     private vs: ValidatorsService // private messageService: MessageService
@@ -46,9 +48,14 @@ export class LoginComponent {
       })
 
   }
-  showSuccess(){
-    this.toastr.info('Hello world!', 'Toastr fun!');
+  showInfo(){
+    this.toastr.info('Coming Soon', '503');
     
+  }
+
+
+  errorMsg(key: string) {
+      return this.errorH.errorMsg(this.loginForm.controls[key]);
   }
 
   private _initForm() {

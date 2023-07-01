@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AuthBaseService, LocalStorageService } from 'projects/auth-base/src/public-api';
-import { BehaviorSubject } from 'rxjs';
+import { LoadingService } from 'projects/utils/src/lib/services/loading.service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-shell',
@@ -10,13 +11,18 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ShellComponent implements OnInit {
   isAuth!: boolean | undefined
-
-  constructor(private localStorageService: LocalStorageService) {
+  isLoading$! : Observable<boolean>
+  constructor(
+    private localStorageService: LocalStorageService,
+    private loadingService: LoadingService
+    ) {
   }
   ngOnInit() {
     this.localStorageService.isAuth$.subscribe((isAuth) =>
       setTimeout(() => {
         this.isAuth = isAuth
+        this.isLoading$ = this.loadingService.isLoading$
+
       })
     )
 

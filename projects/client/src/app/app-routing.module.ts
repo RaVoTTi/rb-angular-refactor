@@ -56,13 +56,16 @@ const routes: Routes = [
 
       {
         path: 'cart',
-        canActivate: [getTokenGuard],
+        canActivate: [isLoggedInGuard],
+
 
         loadChildren: () =>
           import('projects/cart/src/public-api').then((m) => m.CartModule),
       },
       {
         path: 'settings',
+        canActivate: [isLoggedInGuard],
+
         loadChildren: () =>
           import('projects/settings/src/public-api').then((m) => m.SettingsModule),
       },

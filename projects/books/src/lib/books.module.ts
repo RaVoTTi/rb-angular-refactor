@@ -30,32 +30,31 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
 
-      {
-        path: '',
-        component: BooksListComponent,
+  {
+    path: '',
+    component: BooksListComponent,
 
-        // resolve: {
-        //   books: BooksResolver,
-        // },
-      },
-      {
-        path: 'id/:id',
-        component: BookViewComponent,
-        // resolve: {
-        //   books: BooksResolver,
-        // },
-      },
+    // resolve: {
+    //   books: BooksResolver,
+    // },
+  },
+  {
+    path: 'id/:id',
+    component: BookViewComponent,
+    // resolve: {
+    //   books: BooksResolver,
+    // },
+  },
 
-      {
-        path: 'wishlist',
-        component: WishlistComponent,
-      },
+  {
+    path: 'wishlist',
+    component: WishlistComponent,
+  },
 
 ];
 
 @NgModule({
   declarations: [
-    // CardBookComponent,
 
     SearchHeaderComponent,
 
@@ -68,8 +67,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ComponentsModule,
     ReactiveFormsModule
-    // RouterModule,
-    // UtilsModule,
+
   ],
 })
 export class BooksModule {

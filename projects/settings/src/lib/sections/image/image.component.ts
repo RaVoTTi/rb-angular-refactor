@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'lib-image',
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
   ]
 })
 export class ImageComponent {
+  constructor(private toastr: ToastrService){
+
+  }
+  showInfo(){
+    this.toastr.info('Coming Soon', '503');
+    
+  }
 
 }

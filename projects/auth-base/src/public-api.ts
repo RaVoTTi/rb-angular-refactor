@@ -20,5 +20,7 @@ export * from './lib/guards/is-logged-out.guard';
 
 // SERVICES
 export * from './lib/services/jwt.interceptor';
+export * from './lib/services/unauthorized.interceptor';
+
 export * from './lib/services/auth-base.service';
 export * from './lib/services/local-storage.service';

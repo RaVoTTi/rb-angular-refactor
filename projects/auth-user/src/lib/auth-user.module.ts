@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ComponentsModule } from 'projects/components/src/public-api';
+import { UtilsModule } from 'projects/utils/src/public-api';
 
 const routes: Routes = [
   {
@@ -29,6 +31,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
+    ComponentsModule,
+    UtilsModule
   ],
   declarations: [AuthViewComponent, LoginComponent, SignupComponent],
 })

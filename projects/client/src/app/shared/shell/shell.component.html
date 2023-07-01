@@ -5,6 +5,8 @@
   <app-header *ngIf="isAuth  === false"></app-header>
   <app-auth-header *ngIf="isAuth"></app-auth-header>
 
+  <!-- <rb-preloader *ngIf="isLoading$ | async" ></rb-preloader> -->
+
   <router-outlet></router-outlet>
   <!-- <app-home></app-home> -->
   <rb-footer></rb-footer>

@@ -47,6 +47,9 @@
       ],
       "test1": [
         "dist/test1"
+      ],
+      "utils": [
+        "dist/utils"
       ]
     },
     "outDir": "./dist/out-tsc",

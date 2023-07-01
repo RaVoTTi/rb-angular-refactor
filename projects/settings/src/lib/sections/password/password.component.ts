@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IChangePassword } from 'interfaces/IChangePassword';
 import { ValidatorsService } from 'projects/auth-user/src/lib/validators/validators.service';
 import { SettingsService } from '../../services/settings.service';
+import { ErrorHandlerService } from 'projects/utils/src/public-api';
 
 @Component({
   selector: 'lib-password',
@@ -14,7 +15,8 @@ export class PasswordComponent {
   constructor(
     private formBuilder: FormBuilder,
     private vs: ValidatorsService,
-    private settingsService: SettingsService
+    private settingsService: SettingsService,
+    private errorH : ErrorHandlerService
   ) {
     this._initForm()
   }
@@ -28,7 +30,7 @@ export class PasswordComponent {
 
     this.settingsService
       .putChangePassword({ oldPassword, newPassword }).subscribe((response) => {
-
+        this.passwordForm.reset()
       })
   }
 
@@ -37,11 +39,15 @@ export class PasswordComponent {
       {
         oldPassword: [
           '',
-          [Validators.required, this.vs.validatePat('passwordPat')],
+          [Validators.required, 
+            this.vs.validatePat('passwordPat')
+          ],
         ],
         newPassword: [
           '',
-          [Validators.required, this.vs.validatePat('passwordPat')],
+          [Validators.required, 
+            this.vs.validatePat('passwordPat')
+          ],
         ],
         newPassword2: ['', [Validators.required]],
       },
@@ -49,5 +55,9 @@ export class PasswordComponent {
         validators: [this.vs.passwordMismatch('newPassword', 'newPassword2')],
       }
     );
+  }
+  errorMsg(key: string){
+    return this.errorH.errorMsg(this.passwordForm.controls[key]);
+
   }
 }
