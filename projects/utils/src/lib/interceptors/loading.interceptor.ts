@@ -7,7 +7,7 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, catchError, finalize, throwError } from 'rxjs';
-import { LoadingService } from './loading.service';
+import { LoadingService } from '../services/loading.service';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {

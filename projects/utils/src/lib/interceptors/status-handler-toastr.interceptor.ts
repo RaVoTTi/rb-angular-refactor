@@ -25,12 +25,12 @@ export class StatusHandlerToastrInterceptor implements HttpInterceptor {
       tap((event) => {
         const http = ['PUT', 'POST', 'PATCH']
 
-        if (event instanceof HttpResponse &&  http.includes(request.method)  ) {
+        if (event instanceof HttpResponse && http.includes(request.method)) {
 
 
 
           if (event.status === 200) {
-            
+
           }
           else if (event.status === 201) {
             this.toastr.success(event.body.msg, (event.status).toString())
@@ -42,19 +42,12 @@ export class StatusHandlerToastrInterceptor implements HttpInterceptor {
       }),
 
       catchError((error: HttpErrorResponse) => {
-        // Handle error responses
-        console.log('Error status:', error.status);
-        // Perform actions based on specific status codes
 
         if (error.status === 400) {
           this.toastr.warning('Bad Request', (error.status).toString())
 
         } else if (error.status === 401) {
-          this.toastr.warning(
-
-            // 'Non Authorized'
-            error.message
-            , (error.status).toString())
+          this.toastr.warning('Non Authorized', (error.status).toString())
 
         }
         else if (error.status === 404) {

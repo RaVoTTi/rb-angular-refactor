@@ -19,7 +19,6 @@ export class UnauthorizedInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         // Handle error responses
-        console.log('Error status:', error.status);
         // Perform actions based on specific status codes
 
         if (error.status === 401) {

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { IBook, ICartItem, IResponse } from 'interfaces/public-api';
 
-import { Observable } from 'rxjs';
+import { Observable, catchError, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,9 @@ export class BooksService {
   getBooks(): Observable<IResponse<IBook[]>> {
     return this.http.get<IResponse<IBook[]>>(
       `${this.API_URL}/book`
-    );
+    )
+    
+    ;
   }
   getBookByIds(ids: string[]): Observable<IResponse<IBook[]>> {
     return this.http.get<IResponse<IBook[]>>(`${this.API_URL}/book/ids?${ids}`);

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ErrorMsgDirective } from './services/directives/error-msg.directive';
+import { ErrorMsgDirective } from './directives/error-msg.directive';
 
 
 

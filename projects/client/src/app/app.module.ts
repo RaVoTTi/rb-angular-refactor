@@ -10,8 +10,7 @@ import { AppComponent } from './app.component';
 import { AuthBaseModule, JwtInterceptor, UnauthorizedInterceptor } from 'projects/auth-base/src/public-api';
 import { HomeModule } from './pages/home/home.module';
 import { SharedModule } from './shared/shared.module';
-import { StatusHandlerToastrInterceptor } from 'projects/utils/src/lib/services/status-handler-toastr.interceptor';
-import { LoadingInterceptor, LoadingService, UtilsModule } from 'projects/utils/src/public-api';
+import {  LoadingService, RetryInterceptor, StatusHandlerToastrInterceptor, UtilsModule } from 'projects/utils/src/public-api';
 
 @NgModule({
   declarations: [
@@ -37,6 +36,8 @@ import { LoadingInterceptor, LoadingService, UtilsModule } from 'projects/utils/
     { provide: HTTP_INTERCEPTORS, useClass: UnauthorizedInterceptor, multi: true },
 
     { provide: HTTP_INTERCEPTORS, useClass: StatusHandlerToastrInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: RetryInterceptor, multi: true },
+
     // { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
 
     // { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
