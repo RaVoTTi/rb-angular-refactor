@@ -5,6 +5,7 @@ import { BooksService } from 'projects/books/src/lib/services/books.service';
 import { BehaviorSubject, Observable, of, take } from 'rxjs';
 import { CartHttpService } from '../../services/cart-http.service';
 
+
 @Component({
   selector: 'rb-cart-table',
   templateUrl: './cart-table.component.html',
@@ -48,15 +49,9 @@ export class CartTableComponent implements OnInit {
 
   goToPayment(ids: string[]) {
     this.loading = true
-    this.cartHttpService
-      .buyCart(ids)
-      .subscribe(
-        (error) => {
-          console.log(error)
+    this.cartHttpService.buyCart(ids)
 
-        }
-      );
- 
+
   }
   // reload(){
   //   this.cartItems?.forEach((book, index) => {

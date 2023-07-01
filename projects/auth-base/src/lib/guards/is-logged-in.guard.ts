@@ -12,7 +12,7 @@ export const isLoggedInGuard: CanActivateFn = () => {
 
   
   if (!localStorageService.getToken() ){
-    router.createUrlTree(['/app/home'])
+    router.navigateByUrl('/auth/login')
   }
 
   return !!localStorageService.getToken() 

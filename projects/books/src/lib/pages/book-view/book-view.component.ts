@@ -54,10 +54,12 @@ export class BookViewComponent implements OnInit {
   }
 
   buyNow() {
+    //! FIX IT, it doesn't work without auth
     this.cartLocalService.emptyBookCart()
     this.cartLocalService.setBookCart(this.bookId)
     this.cartHttpService.emptyBookHttpCart()
-    this.router.navigateByUrl('app/cart');
+    this.router.navigateByUrl('/app/cart').finally(()=> {
+    });
 
   }
 

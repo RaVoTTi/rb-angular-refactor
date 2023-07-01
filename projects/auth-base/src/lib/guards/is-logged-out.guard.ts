@@ -11,7 +11,7 @@ export const isLoggedOutGuard: CanActivateFn = (route, state) => {
   const router: Router = inject(Router)
   
   if (!!localStorageService.getToken() ){
-    router.createUrlTree(['/app/books'])
+    router.navigateByUrl('/auth/login')
   }
   return !localStorageService.getToken()  
 };
