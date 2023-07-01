@@ -25,7 +25,6 @@ export class CartHttpService {
 
     const ids = this.cartLocalService.getCart();
     if(ids && ids.length !== 0){
-      console.log(true)
 
       let queryIds = ''
       ids.forEach((id) => queryIds += `ids[]=${id}&`)
