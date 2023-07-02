@@ -33,6 +33,7 @@ export class LoginComponent {
       this.loginForm.markAllAsTouched();
       return;
     }
+    this.loginForm.disable()
     const { email, password } = this.loginForm.value as ILogin;
 
 
@@ -44,6 +45,9 @@ export class LoginComponent {
           this.localStorageService.setToken(response.token)
           this.router.navigate(['/app/books']);
           
+        }
+        else{
+          this.loginForm.enable()
         }
       })
 

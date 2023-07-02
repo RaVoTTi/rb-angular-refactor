@@ -21,7 +21,10 @@ import {  LoadingService, RetryInterceptor, StatusHandlerToastrInterceptor, Util
     BrowserAnimationsModule,
     HttpClientModule,
         
-    ToastrModule.forRoot(), 
+    ToastrModule.forRoot({
+      maxOpened: 3,
+      preventDuplicates: true
+    }), 
     
     AuthBaseModule.forRoot(),
     AppRoutingModule,

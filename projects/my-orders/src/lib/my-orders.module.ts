@@ -6,6 +6,7 @@ import { MyOrderViewComponent } from './pages/my-order-view/my-order-view.compon
 import { ComponentsModule, SubHeaderComponent } from 'projects/components/src/public-api';
 import { EvaluationComponent } from './pages/evaluation/evaluation.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UtilsModule } from 'projects/utils/src/public-api';
 const routes: Routes = [
   {
     path: '',
@@ -30,6 +31,6 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [MyOrdersListComponent, MyOrderViewComponent, EvaluationComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), ComponentsModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule.forChild(routes), ComponentsModule, ReactiveFormsModule, UtilsModule],
 })
 export class MyOrdersModule { }

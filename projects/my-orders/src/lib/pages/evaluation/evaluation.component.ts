@@ -7,11 +7,14 @@ import {
   AbstractControl,
   FormArray,
   FormBuilder,
+  FormControl,
   FormGroup,
   ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { IEvaluation } from 'interfaces/public-api';
+import { ErrorHandlerService } from 'projects/utils/src/public-api';
+import { ValidatorsService } from 'projects/auth-user/src/lib/validators/validators.service';
 
 @Component({
   selector: 'lib-evaluation',
@@ -31,7 +34,9 @@ export class EvaluationComponent implements OnInit {
     private route: ActivatedRoute,
     private myOrdersService: MyOrdersService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private errorH: ErrorHandlerService,
+    private vs: ValidatorsService
   ) {
     this.myForm = this.fb.group({
       books: this.fb.array([]),
@@ -66,7 +71,7 @@ export class EvaluationComponent implements OnInit {
           options: [evaluation.options],
           selectedOption: [
             null,
-            [Validators.required, equalToValidator(evaluation.correctOption)],
+            [Validators.required, this.vs.equalToValidator(evaluation.correctOption)],
           ],
         });
 
@@ -87,6 +92,9 @@ export class EvaluationComponent implements OnInit {
       'evaluation'
     ) as FormArray;
   }
+  selectedOptionControl(i: number, j: number) {
+    return this.evaluationControls(i).controls[j].get(['selectedOption']) as FormControl ;
+  }
   refund() {
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
@@ -102,13 +110,8 @@ export class EvaluationComponent implements OnInit {
         
       });
   }
+  errorMsg(i: number, j: number) {
+    return this.errorH.errorMsg(this.selectedOptionControl(i, j));
+  }
 }
-export function equalToValidator(expectedValue: any): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } | null => {
-    const value = control.value;
-    if (value !== expectedValue) {
-      return { equalTo: { value: expectedValue } };
-    }
-    return null;
-  };
-}
+ 

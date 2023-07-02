@@ -40,6 +40,8 @@ export class ErrorHandlerService {
       'Your password needs to be between 8 and 12 characters long and contain at least one uppercase letter and one number.',
     mismatch: 'Passwords have to be equals',
     required: 'This field is required',
+    equalTo: 'Please enter the correct option',
+
     // emailUsed: 'Please enter other email address',
   };
 

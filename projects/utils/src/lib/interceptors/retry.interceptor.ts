@@ -23,6 +23,12 @@ export class RetryInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    const http = ['PUT', 'POST', 'PATCH']
+
+    if (request.method !== "GET") {
+      return next.handle(request)
+    }
+
     let retries = 2
     return next.handle(request).pipe(
       retry({ count: retries, delay: 10000 }), // Maximum number of retries
@@ -33,22 +39,8 @@ export class RetryInterceptor implements HttpInterceptor {
             tapToDismiss: false,
             disableTimeOut: true,
           })
-        // this.toastr.error("Click to Retry", 'The Network unavailability',
-        //   {
-        //     timeOut: 0,
-        //     tapToDismiss: false,
-        //     disableTimeOut: true,
-            
-
-        //   }
-        // ).onTap.subscribe(x => {
-        //   retries = 1
-          
-        // })
         return throwError(() => error)
-
       }
-      
       )
     );
   }

@@ -11,6 +11,7 @@ import {
 
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { RBHttpErrorResponse } from 'types/http/RBHttpErrorResponse';
 
 @Injectable()
 export class StatusHandlerToastrInterceptor implements HttpInterceptor {
@@ -39,19 +40,27 @@ export class StatusHandlerToastrInterceptor implements HttpInterceptor {
             this.toastr.warning(event.body.msg, (event.status).toString())
           }
         }
+        
       }),
 
-      catchError((error: HttpErrorResponse) => {
+      catchError((error: any) => {
+        const eventRB = new RBHttpErrorResponse(error.error, error.status)
 
-        if (error.status === 400) {
-          this.toastr.warning('Bad Request', (error.status).toString())
+        if (!eventRB.error.msg) {
+          if (error.status === 400) {
+            this.toastr.warning('Bad Request', (error.status).toString())
 
-        } else if (error.status === 401) {
-          this.toastr.warning('Non Authorized', (error.status).toString())
+          } else if (error.status === 401) {
+            this.toastr.warning('Non Authorized', (error.status).toString())
 
+          }
+          else if (error.status === 404) {
+            this.toastr.warning('Resource not found', (error.status).toString())
+
+          }
         }
-        else if (error.status === 404) {
-          this.toastr.warning('Resource not found', (error.status).toString())
+        else{
+          this.toastr.warning(eventRB.error.msg , (eventRB.status).toString())
 
         }
         return throwError(() => error);

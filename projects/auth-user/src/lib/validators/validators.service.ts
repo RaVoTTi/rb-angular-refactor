@@ -4,6 +4,7 @@ import {
   FormControl,
   FormGroup,
   ValidationErrors,
+  ValidatorFn,
 } from '@angular/forms';
 
 interface IPat {
@@ -57,4 +58,17 @@ export class ValidatorsService {
       return null;
     };
   }
+  equalToValidator(expectedValue: any): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const value = control.value;
+      if (value !== expectedValue) {
+        control.setErrors({ equalTo: false});
+      
+        return { equalTo: false };
+      }
+      control.setErrors(null);
+
+      return null;
+    };
+}
 }
