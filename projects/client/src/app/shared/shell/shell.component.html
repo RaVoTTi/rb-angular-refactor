@@ -1,11 +1,11 @@
 <!-- Body Wrapper -->
+<rb-preloader [full]="true" *ngIf="isLoading$ | async" ></rb-preloader>
 <div class="page-wrapper" id="main-wrapper" data-layout="horizontal" data-navbarbg="skin6" data-sidebartype="full"
   data-sidebar-position="fixed" data-header-position="fixed">
 
   <app-header *ngIf="isAuth  === false"></app-header>
   <app-auth-header *ngIf="isAuth"></app-auth-header>
 
-  <!-- <rb-preloader *ngIf="isLoading$ | async" ></rb-preloader> -->
 
   <router-outlet></router-outlet>
   <!-- <app-home></app-home> -->

@@ -16,12 +16,13 @@ export class ShellComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private loadingService: LoadingService
     ) {
+      this.isLoading$ = this.loadingService.isLoading$
+
   }
   ngOnInit() {
     this.localStorageService.isAuth$.subscribe((isAuth) =>
       setTimeout(() => {
         this.isAuth = isAuth
-        this.isLoading$ = this.loadingService.isLoading$
 
       })
     )
