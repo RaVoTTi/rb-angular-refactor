@@ -51,6 +51,11 @@ export class AuthHeaderComponent {
       icon: 'wallet'
     },
     {
+      title: 'About Us',
+      url: '/app/info/about',
+      icon: 'home-question'
+    },
+    {
       title: 'FAQ',
       url: '/app/info/faq',
       icon: 'info-square-rounded'
@@ -74,10 +79,11 @@ export class AuthHeaderComponent {
       icon: 'wallet'
     },
     {
-      title: 'FAQ',
-      url: '/app/info/faq',
-      icon: 'info-square-rounded'
+      title: 'About Us',
+      url: '/app/info/about',
+      icon: 'home-question'
     },
+
 
   ]
   logOut() {

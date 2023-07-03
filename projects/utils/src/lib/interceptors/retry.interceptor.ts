@@ -36,7 +36,6 @@ export class RetryInterceptor implements HttpInterceptor {
         this.toastr.error("The Network is unavailability", '400',
           {
             timeOut: 0,
-            tapToDismiss: false,
             disableTimeOut: true,
           })
         return throwError(() => error)

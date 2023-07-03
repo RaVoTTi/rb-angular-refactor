@@ -9,6 +9,10 @@ export class LocalStorageService {
   TOKEN = 'super-token';
   isAuth$: BehaviorSubject<boolean | undefined> = new BehaviorSubject<boolean | undefined>(undefined)
 
+  constructor(){
+    this.getToken()
+  }
+
 
   setToken(data: string) {
     return localStorage.setItem(this.TOKEN, data);

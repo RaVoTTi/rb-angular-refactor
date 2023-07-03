@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { getTokenGuard } from 'projects/auth-base/src/lib/guards/getToken.guard';
 
 import {
   isLoggedInGuard,
@@ -24,7 +23,6 @@ const routes: Routes = [
 
       {
         path: 'info',
-        canActivate: [getTokenGuard],
 
         loadChildren: () =>
           import('projects/info/src/public-api').then((m) => m.InfoModule),
@@ -32,7 +30,6 @@ const routes: Routes = [
       },
       {
         path: 'books',
-        canActivate: [getTokenGuard],
 
         loadChildren: () =>
           import('projects/books/src/public-api').then((m) => m.BooksModule),
@@ -56,7 +53,7 @@ const routes: Routes = [
 
       {
         path: 'cart',
-        canActivate: [isLoggedInGuard],
+        // canActivate: [isLoggedInGuard],
 
 
         loadChildren: () =>
