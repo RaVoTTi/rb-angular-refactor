@@ -41,6 +41,7 @@ export class ErrorHandlerService {
     mismatch: 'Passwords have to be equals',
     required: 'This field is required',
     equalTo: 'Please enter the correct option',
+    invalid: 'It is incorrect',
 
     // emailUsed: 'Please enter other email address',
   };
@@ -50,8 +51,12 @@ export class ErrorHandlerService {
   errorMsg(formControl: AbstractControl): string | null {
     if(formControl.errors && formControl.touched){
       const firstError = Object.keys(formControl.errors)[0];
-      return this._msgs[firstError];
+      return this._msgs[firstError] || 'Error';
     }
     return null
   }
+
+
+
+
 }

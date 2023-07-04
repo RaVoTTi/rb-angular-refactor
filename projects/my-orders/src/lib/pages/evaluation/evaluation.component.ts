@@ -25,6 +25,7 @@ export class EvaluationComponent implements OnInit {
   myForm: FormGroup;
   orderId!: string;
   books!: IBook[] | undefined;
+  flag: boolean = false
 
   get booksControls() {
     return this.myForm.get('books') as FormArray;
@@ -71,7 +72,10 @@ export class EvaluationComponent implements OnInit {
           options: [evaluation.options],
           selectedOption: [
             null,
-            [Validators.required, this.vs.equalToValidator(evaluation.correctOption)],
+            [
+              Validators.required,
+              this.vs.equalToValidator(evaluation.correctOption),
+            ],
           ],
         });
 
@@ -93,10 +97,13 @@ export class EvaluationComponent implements OnInit {
     ) as FormArray;
   }
   selectedOptionControl(i: number, j: number) {
-    return this.evaluationControls(i).controls[j].get(['selectedOption']) as FormControl ;
+    return this.evaluationControls(i).controls[j].get([
+      'selectedOption',
+    ]) as FormControl;
   }
-  refund() {
+  submit() {
     if (this.myForm.invalid) {
+      this.flag = true
       this.myForm.markAllAsTouched();
       return;
     }
@@ -104,14 +111,19 @@ export class EvaluationComponent implements OnInit {
       .patchMyOrderEvaluation(this.orderId)
       .pipe(take(1))
       .subscribe((respose) => {
-        if(respose.ok){
-          this.router.navigateByUrl('/app/myorders')
+        if (respose.ok) {
+          this.router.navigateByUrl('/app/myorders');
         }
-        
       });
   }
   errorMsg(i: number, j: number) {
-    return this.errorH.errorMsg(this.selectedOptionControl(i, j));
+    if(this.flag){
+
+      return this.errorH.errorMsg(this.selectedOptionControl(i, j));
+    }
+    return null
+
   }
+
+
 }
- 

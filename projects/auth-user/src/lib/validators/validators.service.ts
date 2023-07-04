@@ -58,17 +58,30 @@ export class ValidatorsService {
       return null;
     };
   }
-  equalToValidator(expectedValue: any): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
+  equalToValidator(expectedValue: any) {
+    return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
       if (value !== expectedValue) {
         control.setErrors({ equalTo: false});
       
-        return { equalTo: false };
+        return { equalTo: true };
       }
       control.setErrors(null);
 
       return null;
     };
+}
+valid(expectedValue: any) {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const value = control.value;
+    if (value !== expectedValue) {
+      control.setErrors({ equalTo: false});
+    
+      return { equalTo: true };
+    }
+    control.setErrors(null);
+
+    return null;
+  };
 }
 }
