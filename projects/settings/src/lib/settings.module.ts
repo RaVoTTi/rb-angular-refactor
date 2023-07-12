@@ -5,10 +5,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PasswordComponent } from './sections/password/password.component';
 import { DetailsComponent } from './sections/details/details.component';
-import { CryptoAddressComponent } from './sections/crypto-address/crypto-address.component';
 import { ImageComponent } from './sections/image/image.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UtilsModule } from 'projects/utils/src/public-api';
+import { CashbackComponent } from './sections/cashback/cashback.component';
 
 const routes: Routes = [
 
@@ -28,8 +28,8 @@ const routes: Routes = [
     SettingsComponent,
     PasswordComponent,
     DetailsComponent,
-    CryptoAddressComponent,
     ImageComponent,
+    CashbackComponent,
   ],
   imports: [
     CommonModule,

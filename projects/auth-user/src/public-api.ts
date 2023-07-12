@@ -3,3 +3,6 @@
  */
 
 export * from './lib/auth-user.module';
+
+export * from './lib/validators/validators.service';
+

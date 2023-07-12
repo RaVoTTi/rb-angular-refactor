@@ -1,15 +1,46 @@
 <div class="card w-100 position-relative overflow-hidden">
   <div class="card-body p-4">
-    <h5 class="card-title fw-semibold">Change Profile</h5>
+    <!-- 
+      <h5 class="card-title fw-semibold">Change Profile</h5>
     <p class="card-subtitle mb-4">Change your profile picture from here</p>
     <div class="text-center">
-      <img src="assets/profile/user-1.jpg" alt="" class="img-fluid rounded-circle" width="120" height="120">
       <div class="d-flex align-items-center justify-content-center my-4 gap-3">
         <button class="btn btn-primary " (click)="showInfo()">Upload</button>
         <button class="btn btn-outline-danger " (click)="showInfo()">Reset</button>
       </div>
 
-      <!-- <p class="mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p> -->
+      <p class="mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+    </div> -->
+    <h5 class="card-title fw-semibold">Change Profile</h5>
+    <p class="card-subtitle mb-4">Change your profile picture from here</p>
+    <div class="d-flex align-items-center justify-content-center mb-2">
+      <div
+        class="linear-gradient d-flex align-items-center justify-content-center rounded-circle"
+        style="width: 110px; height: 110px"
+      >
+        <div
+          class="border border-4 border-white d-flex align-items-center justify-content-center rounded-circle overflow-hidden"
+          style="width: 100px; height: 100px"
+        >
+          <img
+            src="assets/profile/user-1.jpg"
+            alt=""
+            class="img-fluid rounded-circle"
+            width="120"
+            height="120"
+          />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="text-center ">
+      <div class="d-flex align-items-center justify-content-center my-4  gap-3">
+        <button class="btn btn-primary " (click)="showInfo()">Upload</button>
+        <button class="btn btn-outline-danger " (click)="showInfo()">Reset</button>
+      </div>
+
+      <p class="mb-0 mt-3">Allowed JPG, GIF or PNG. Max size of 800K</p>
     </div>
   </div>
 </div>

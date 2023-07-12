@@ -2,10 +2,14 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ILogin } from 'interfaces/public-api';
 import { ValidatorsService } from '../../validators/validators.service';
-import { AuthBaseService, LocalStorageService } from 'projects/auth-base/src/public-api';
+import {
+  AuthBaseService,
+  LocalStorageService,
+} from 'projects/auth-base/src/public-api';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ErrorHandlerService } from 'projects/utils/src/public-api';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'lib-login',
@@ -25,7 +29,7 @@ export class LoginComponent {
 
     private vs: ValidatorsService // private messageService: MessageService
   ) {
-    this._initForm()
+    this._initForm();
   }
 
   login() {
@@ -35,31 +39,30 @@ export class LoginComponent {
     }
     this.loginForm.disable()
     const { email, password } = this.loginForm.value as ILogin;
-
-
+    
     this.authBaseService
-      .postLogin({ email, password }).subscribe((response) => {
-
+      .postLogin({ email, password })
+      .subscribe((response) => {
         if (response.token) {
-
-          this.localStorageService.setToken(response.token)
+          this.localStorageService.setToken(response.token);
           this.router.navigate(['/app/books']);
-          
         }
-        else{
-          this.loginForm.enable()
-        }
+      });
+    setTimeout(()=>{
+      this.loginForm.enable()
+      this.loginForm.patchValue({
+        password: ''
       })
 
-  }
-  showInfo(){
-    this.toastr.info('Coming Soon', '503');
-    
-  }
 
+    })
+  }
+  showInfo() {
+    this.toastr.info('Coming Soon', '503');
+  }
 
   errorMsg(key: string) {
-      return this.errorH.errorMsg(this.loginForm.controls[key]);
+    return this.errorH.errorMsg(this.loginForm.controls[key]);
   }
 
   private _initForm() {

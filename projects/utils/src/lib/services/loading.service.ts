@@ -15,12 +15,10 @@ export class LoadingService {
   isLoading$ = this.loadingSubject.asObservable();
 
   show(): void {
-    console.log('OPEN');
     this.loadingSubject.next(true);
   }
 
   close(): void {
-    console.log('CLOSE');
     this.loadingSubject.next(false);
   }
 }

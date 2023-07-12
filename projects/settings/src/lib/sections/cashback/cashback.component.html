@@ -1,0 +1,58 @@
+<div class="card w-100 position-relative overflow-hidden">
+  <div
+    class="card-body p-4 d-flex flex-column justify-content-between h-100 d-inline-block"
+  >
+
+    <div>
+      <h5 class="card-title fw-semibold">Claim Cashback</h5>
+      <p class="card-subtitle mb-4">
+        Add your crypto address to claim your cashback
+      </p>
+    </div>
+    <div class="text-center">
+      <p class="mb-0 fs-4">Total Cashback</p>
+      <h4 class="mb-0 fw-semibold lh-1">{{ total
+         | currency }}</h4>
+    </div>
+    <form [formGroup]="cryptoForm" (submit)="claimCashback()">
+      <div class="mb-4">
+        <label for="exampleInputPassword1" class="form-label fw-semibold"
+          >Crypto</label
+        >
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="type"
+        >
+          <option *ngFor="let crypto of cryptosArray" [value]="crypto">
+            {{ crypto }}
+          </option>
+        </select>
+        <small [errorMsg]="errorMsg('type')"> </small>
+      </div>
+      <div class="mb-4">
+        <label for="exampleInputPassword1" class="form-label fw-semibold"
+          >Crypto Address</label
+        >
+        <input
+          type="email"
+          class="form-control"
+          formControlName="wallet"
+          id="exampleInputtext"
+          [placeholder]="getPlaceHolder()"
+        />
+        <!-- <small [errorMsg]="errorMsg('wallet')"> </small> -->
+      </div>
+
+      <div class="d-flex align-items-center justify-content-end mt-4">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="cryptoForm.invalid || cryptoForm.disabled"
+        >
+          Claim
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

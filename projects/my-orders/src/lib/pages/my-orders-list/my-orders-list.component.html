@@ -1,36 +1,49 @@
 <rb-sub-header title="My orders" subtitle="books"></rb-sub-header>
 
-<ng-container *ngIf="orders ; else preloader">
-
-  <div class="container-fluid  ">
-    <div *ngFor="let order of orders" class="table-responsive border rounded my-3 p-4">
-      <table class="table align-middle text-nowrap ">
+<ng-container *ngIf="orders; else preloader">
+  <div class="container-fluid">
+    <div
+      *ngFor="let order of orders"
+      class="table-responsive border rounded my-3 p-4"
+    >
+      <table class="table align-middle text-nowrap">
         <thead>
           <tr>
-            <th>{{order.dateCreated | date}}</th>
-            <th class="text-end "> <a [routerLink]="['/app/myorders/id/', order._id]" class="text-info "> See
-                invoice</a>
+            <th>Purchased: {{ order.dateCreated | date }} </th>
+            <th class="text-end">
+              <a
+                [routerLink]="['/app/myorders/id/', order._id]"
+                class="text-info"
+              >
+                See invoice</a
+              >
             </th>
-
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let book of order.books ">
+          <tr *ngFor="let book of order.books">
             <td class="border-bottom-0">
-              <div class="d-flex align-items-center  gap-3">
-                <img [src]="book.image" alt="" class="img-fluid rounded" width="80" />
+              <div class="d-flex align-items-center gap-3">
+                <img
+                  [src]="book.image"
+                  alt=""
+                  class="img-fluid rounded"
+                  width="80"
+                />
                 <div>
                   <h6 class="fw-semibold fs-6 mb-0 ms-1">
                     {{ book.name | titlecase }}
                   </h6>
-                  <span class="mb-1 badge rounded-pill fs-3 mt-3" [ngClass]="CONDITIONS[order.condition]">
-                    {{order.condition | titlecase}}
+                  <span
+                    class="mb-1 badge rounded-pill fs-3 mt-3"
+                    [ngClass]="CONDITIONS[order.condition]"
+                  >
+                    {{ order.condition | titlecase }}
                   </span>
                   <!-- <p class="mb-0">{{book.subject.name}}</p> -->
                 </div>
               </div>
             </td>
-
 
             <td class="text-end border-bottom-0">
               <h6 class="fs-4 fw-semibold mb-0">
@@ -41,12 +54,33 @@
         </tbody>
       </table>
       <div *ngIf="order.condition === 'purchased'" class="text-end">
-        <button [routerLink]="'/app/myorders/evaluation/' + order._id" class="btn btn-primary print-page" type="button">
-          <span><i class="ti ti-currency-dollar fs-5"></i>
-            Claim </span>
+        <button
+          [routerLink]="'/app/myorders/evaluation/' + order._id"
+          class="btn btn-primary print-page px-4 py-3"
+          type="button"
+        >
+          <span> To Evaluation </span>
         </button>
       </div>
-    </div> 
+      <div *ngIf="order.condition === 'pending cashback'" class="text-end">
+        <button
+          [routerLink]="'/app/myorders/evaluation/' + order._id"
+          class="btn btn-primary print-page px-4 py-3"
+          type="button"
+        >
+          <span> To Evaluation </span>
+        </button>
+      </div>
+      <div *ngIf="order.condition === 'claimable cashback'" class="text-end">
+        <button
+          [routerLink]="'/app/myorders/evaluation/' + order._id"
+          class="btn btn-primary print-page px-4 py-3"
+          type="button"
+        >
+          <span> Claim Cashback </span>
+        </button>
+      </div>
+    </div>
   </div>
 </ng-container>
 <ng-template #preloader>

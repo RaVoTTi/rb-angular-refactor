@@ -7,6 +7,7 @@ import { ComponentsModule, SubHeaderComponent } from 'projects/components/src/pu
 import { EvaluationComponent } from './pages/evaluation/evaluation.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UtilsModule } from 'projects/utils/src/public-api';
+import { ClaimComponent } from './pages/claim/claim.component';
 const routes: Routes = [
   {
     path: '',
@@ -26,11 +27,16 @@ const routes: Routes = [
         component: EvaluationComponent,
 
       },
+      {
+        path: 'claim/:id',
+        component: ClaimComponent,
+
+      },
     ]
   }
 ];
 @NgModule({
-  declarations: [MyOrdersListComponent, MyOrderViewComponent, EvaluationComponent],
+  declarations: [MyOrdersListComponent, MyOrderViewComponent, EvaluationComponent, ClaimComponent],
   imports: [CommonModule, RouterModule.forChild(routes), ComponentsModule, ReactiveFormsModule, UtilsModule],
 })
 export class MyOrdersModule { }

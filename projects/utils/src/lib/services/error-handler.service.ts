@@ -42,6 +42,17 @@ export class ErrorHandlerService {
     required: 'This field is required',
     equalTo: 'Please enter the correct option',
     invalid: 'It is incorrect',
+    BTC: 'Crypto pattern is incorrect',
+    ETH: 'Crypto pattern is incorrect',
+    XRP: 'Crypto pattern is incorrect',
+    LTC: 'Crypto pattern is incorrect',
+    BCH: 'Crypto pattern is incorrect',
+    EOS: 'Crypto pattern is incorrect',
+    XLM: 'Crypto pattern is incorrect',
+    ADA: 'Crypto pattern is incorrect',
+    XMR: 'Crypto pattern is incorrect',
+    DASH: 'Crypto pattern is incorrect',
+
 
     // emailUsed: 'Please enter other email address',
   };
@@ -51,7 +62,7 @@ export class ErrorHandlerService {
   errorMsg(formControl: AbstractControl): string | null {
     if(formControl.errors && formControl.touched){
       const firstError = Object.keys(formControl.errors)[0];
-      return this._msgs[firstError] || 'Error';
+      return this._msgs[firstError] ;
     }
     return null
   }

@@ -15,6 +15,7 @@ export * from './ICheckout';
 export * from './IStripe';
 export * from './ICartItem';
 export * from './ICart';
+export * from './ICashback';
 export * from './IChangePassword';
 
 

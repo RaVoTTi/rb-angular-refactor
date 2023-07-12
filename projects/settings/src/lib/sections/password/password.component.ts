@@ -5,6 +5,7 @@ import { ValidatorsService } from 'projects/auth-user/src/lib/validators/validat
 import { SettingsService } from '../../services/settings.service';
 import { ErrorHandlerService } from 'projects/utils/src/public-api';
 
+
 @Component({
   selector: 'lib-password',
   templateUrl: './password.component.html'

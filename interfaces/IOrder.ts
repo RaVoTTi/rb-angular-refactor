@@ -11,8 +11,10 @@ export interface IOrder {
     | 'place order'
     | 'purchased'
     | 'pending cashback'
-    | 'cashback'
+    | 'claimable cashback'
+    | 'claimed cashback'
     | 'refunded'
     | 'failed';
   dateCreated: Date;
+
 }
