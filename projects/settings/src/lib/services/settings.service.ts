@@ -20,11 +20,7 @@ export class SettingsService {
       .put<IResponse>(`${this.API_URL}/settings/password`, data)
 
   }
-    putCashback(data: ICashback): Observable<IResponse> {
-    return this.http
-      .put<IResponse>(`${this.API_URL}/settings/cashback`, data)
 
-  }
   getUserDetails(): Observable<IResponse<IUser>> {
     return this.http
       .get<IResponse<IUser>>(`${this.API_URL}/settings/details`)
@@ -32,7 +28,12 @@ export class SettingsService {
   }
   getCashbackTotal(): Observable<IResponse<number>> {
     return this.http
-      .get<IResponse<number>>(`${this.API_URL}/settings/cashback`)
+      .get<IResponse<number>>(`${this.API_URL}/myorder/cashback`)
+
+  }
+  putCashback(data: ICashback): Observable<IResponse> {
+    return this.http
+      .put<IResponse>(`${this.API_URL}/myorder/cashback`, data)
 
   }
 }

@@ -62,7 +62,7 @@
           <span> To Evaluation </span>
         </button>
       </div>
-      <div *ngIf="order.condition === 'pending cashback'" class="text-end">
+      <!-- <div *ngIf="order.condition === 'pending cashback'" class="text-end">
         <button
           [routerLink]="'/app/myorders/evaluation/' + order._id"
           class="btn btn-primary print-page px-4 py-3"
@@ -70,10 +70,10 @@
         >
           <span> To Evaluation </span>
         </button>
-      </div>
+      </div> -->
       <div *ngIf="order.condition === 'claimable cashback'" class="text-end">
         <button
-          [routerLink]="'/app/myorders/evaluation/' + order._id"
+          [routerLink]="'/app/settings'"
           class="btn btn-primary print-page px-4 py-3"
           type="button"
         >

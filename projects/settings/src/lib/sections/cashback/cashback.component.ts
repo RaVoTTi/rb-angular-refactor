@@ -90,8 +90,8 @@ export class CashbackComponent implements OnInit {
     this.cryptoForm.disable();
     const { type, wallet } = this.cryptoForm.value as ICashback;
 
-    this.settingsService.putCashback({ type, wallet }).subscribe((Response) => {
-
+    this.settingsService.putCashback({ type, wallet }).subscribe((response) => {
+      this.total = response.result || 0
     });
     setTimeout(() => {
       this.cryptoForm.enable();
