@@ -8,7 +8,6 @@ export * from './lib/interceptors/status-handler-toastr.interceptor'
 export * from './lib/interceptors/retry.interceptor'
 
 
-export * from './lib/services/error-handler.service'
 export * from './lib/services/loading.service'
 
 

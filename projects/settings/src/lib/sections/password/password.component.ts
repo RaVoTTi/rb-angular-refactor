@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IChangePassword } from 'interfaces/IChangePassword';
 import { ValidatorsService } from 'projects/auth-user/src/lib/validators/validators.service';
 import { SettingsService } from '../../services/settings.service';
-import { ErrorHandlerService } from 'projects/utils/src/public-api';
 
 
 @Component({
@@ -17,7 +16,6 @@ export class PasswordComponent {
     private formBuilder: FormBuilder,
     private vs: ValidatorsService,
     private settingsService: SettingsService,
-    private errorH : ErrorHandlerService
   ) {
     this._initForm()
   }
@@ -57,8 +55,5 @@ export class PasswordComponent {
       }
     );
   }
-  errorMsg(key: string){
-    return this.errorH.errorMsg(this.passwordForm.controls[key]);
 
-  }
 }

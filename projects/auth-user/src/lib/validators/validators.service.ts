@@ -16,12 +16,12 @@ interface IPat {
 })
 export class ValidatorsService {
   pats: IPat = {
-    emailPat:
+    email:
       /^([a-z0-9._%+-]+@(((\bgmail\b))|(\boutlook\b)|(\blive\b)|(\byahoo\b)|(\bhotmail\b)|(\btest\b))+(\.[a-z]{2,4}$))/,
-    passwordPat: /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,12}$/,
-    namePat:
-      /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,12}$/,
-    minMaxPat: /^.{2,4}$/,
+    password: /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,12}$/,
+    name:
+      /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{4,12}$/,
+    minMax: /^.{2,4}$/,
     phone: /^[0-9]{9,15}$/,
     BTC: /^(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,39}$/,
     ETH: /^0x[a-fA-F0-9]{40}$/,
@@ -44,7 +44,7 @@ export class ValidatorsService {
       const one = formGroup.get(camp1)?.value;
       const two = formGroup.get(camp2)?.value;
 
-      if (one != two) {
+      if (one != two || one.length ===0 ) {
         formGroup.get(camp2)?.setErrors({ mismatch: true });
         return {
           mismatch: true,
@@ -90,11 +90,26 @@ export class ValidatorsService {
 
     };
   }
+  validateTypeof(type: string){
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+
+      if ( typeof(value) !== type ) {
+        control.setErrors({ [type]: true, });
+        return {
+          [type]: true,
+        };
+      }
+      control.setErrors(null);
+
+      return null;
+    };
+  }
   equalToValidator(expectedValue: any) {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
-      if (value !== expectedValue) {
-        control.setErrors({ equalTo: false });
+      if (value !== expectedValue ) {
+        control.setErrors({ equalTo: true });
 
         return { equalTo: true };
       }
