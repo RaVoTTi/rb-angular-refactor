@@ -28,9 +28,8 @@
             {{ crypto }}
           </option>
         </select>
-        <small [errorMsg]="errorMsg('type')"> </small>
       </div>
-      <div class="mb-4">
+      <div class="mb-4" [errorMsg]="cryptoForm.controls['wallet']">
         <label for="exampleInputPassword1" class="form-label fw-semibold"
           >Crypto Address</label
         >
@@ -41,7 +40,7 @@
           id="exampleInputtext"
           [placeholder]="getPlaceHolder()"
         />
-        <!-- <small [errorMsg]="errorMsg('wallet')"> </small> -->
+        <div></div>
       </div>
 
       <div class="d-flex align-items-center justify-content-end mt-4">

@@ -8,7 +8,6 @@ import {
 } from 'projects/auth-base/src/public-api';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { ErrorHandlerService } from 'projects/utils/src/public-api';
 import { tap } from 'rxjs';
 
 @Component({
@@ -24,7 +23,6 @@ export class LoginComponent {
     private authBaseService: AuthBaseService,
     private localStorageService: LocalStorageService,
     private toastr: ToastrService,
-    private errorH: ErrorHandlerService,
     private router: Router,
 
     private vs: ValidatorsService // private messageService: MessageService
@@ -61,14 +59,11 @@ export class LoginComponent {
     this.toastr.info('Coming Soon', '503');
   }
 
-  errorMsg(key: string) {
-    return this.errorH.errorMsg(this.loginForm.controls[key]);
-  }
 
   private _initForm() {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, this.vs.validatePat('emailPat')]],
-      password: ['', [Validators.required, this.vs.validatePat('passwordPat')]],
+      email: ['', [Validators.required, this.vs.validatePat('email')]],
+      password: ['', [Validators.required, this.vs.validatePat('password')]],
     });
   }
 }

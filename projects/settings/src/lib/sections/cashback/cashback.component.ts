@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SettingsService } from '../../services/settings.service';
-import { ErrorHandlerService } from 'projects/utils/src/public-api';
 import { ValidatorsService } from 'projects/auth-user/src/public-api';
 import { ICashback } from 'interfaces/ICashback';
 import { take } from 'rxjs';
@@ -55,7 +54,6 @@ export class CashbackComponent implements OnInit {
     private formBuilder: FormBuilder,
     private vs: ValidatorsService,
     private settingsService: SettingsService,
-    private errorH: ErrorHandlerService
   ) {
     this._initForm();
   }
@@ -79,9 +77,7 @@ export class CashbackComponent implements OnInit {
     return this.cryptosDic[this.cryptoForm.value.type || 'DEFAULT'];
   }
 
-  errorMsg(key: string) {
-    return this.errorH.errorMsg(this.cryptoForm.controls[key]);
-  }
+ 
   claimCashback() {
     if (this.cryptoForm.invalid && this.total > 0) {
       this.cryptoForm.markAllAsTouched();

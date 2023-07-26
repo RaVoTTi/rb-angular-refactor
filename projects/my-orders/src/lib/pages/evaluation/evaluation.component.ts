@@ -13,7 +13,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { IEvaluation } from 'interfaces/public-api';
-import { ErrorHandlerService } from 'projects/utils/src/public-api';
 import { ValidatorsService } from 'projects/auth-user/src/lib/validators/validators.service';
 
 @Component({
@@ -36,7 +35,6 @@ export class EvaluationComponent implements OnInit {
     private myOrdersService: MyOrdersService,
     private fb: FormBuilder,
     private router: Router,
-    private errorH: ErrorHandlerService,
     private vs: ValidatorsService
   ) {
     this.myForm = this.fb.group({
@@ -116,14 +114,7 @@ export class EvaluationComponent implements OnInit {
         }
       });
   }
-  errorMsg(i: number, j: number) {
-    if(this.flag){
 
-      return this.errorH.errorMsg(this.selectedOptionControl(i, j));
-    }
-    return null
-
-  }
 
 
 }
