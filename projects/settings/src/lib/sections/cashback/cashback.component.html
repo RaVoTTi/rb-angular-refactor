@@ -47,7 +47,7 @@
         <button
           type="submit"
           class="btn btn-primary"
-          [disabled]="cryptoForm.invalid || cryptoForm.disabled"
+          [disabled]="cryptoForm.invalid || cryptoForm.disabled || total === 0"
         >
           Claim
         </button>

@@ -28,12 +28,12 @@ export class SettingsService {
   }
   getCashbackTotal(): Observable<IResponse<number>> {
     return this.http
-      .get<IResponse<number>>(`${this.API_URL}/myorder/cashback`)
+      .get<IResponse<number>>(`${this.API_URL}/cashback`)
 
   }
   putCashback(data: ICashback): Observable<IResponse> {
     return this.http
-      .put<IResponse>(`${this.API_URL}/myorder/cashback`, data)
+      .put<IResponse>(`${this.API_URL}/cashback`, data)
 
   }
 }

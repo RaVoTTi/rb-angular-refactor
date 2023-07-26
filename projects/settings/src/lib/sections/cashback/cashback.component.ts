@@ -23,30 +23,32 @@ import { take } from 'rxjs';
 export class CashbackComponent implements OnInit {
   cryptoForm!: FormGroup;
   cryptosDic: { [key: string]: string } = {
-    BTC: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
-    ETH: '0x5B67871C3a857dE81EdFA2Faa470e0AE2F336967',
-    XRP: 'rPVMhWBsfF9iMXYj3aAzJVkPDTFNSyWdKy',
-    LTC: 'LhN9LJ5VxZP9x3V2B9nVJaPLrV5TAbSBaW',
-    BCH: '1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu',
-    EOS: 'eosioaccount1',
-    XLM: 'GBHFRPSD3TQALUZ32XUR7PDPIQSWZY2XK3AGIYU4JSZ6OJRN2MZQXSHF',
-    ADA: 'DdzFFzCqrhstZSL3jhxQrZsZxcZ4CvC5w7jqxrYRVr7fZWhYWWRPjST1F5T8TUaVeSFdXGZtbewRNzwt4ZstfhZixToW78ayiSe6kpyz',
-    XMR: '49tDSd1aq5hRRXXa3yV6a3kmGZ9UTRkbof9BZ32vykWrPR52L6GcP4S1UF8JCPjAmLDt3Kehb8XX5q5LG6vskPZh9mVe7Y4',
-    DASH: 'Xhcc6qFhWfP5vdPnE1Ax6WdZ9MAv7xh1rW',
-    DEFAULT: '0000000000000000',
+    // BTC: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
+    // ETH: '0x5B67871C3a857dE81EdFA2Faa470e0AE2F336967',
+    // XRP: 'rPVMhWBsfF9iMXYj3aAzJVkPDTFNSyWdKy',
+    // LTC: 'LhN9LJ5VxZP9x3V2B9nVJaPLrV5TAbSBaW',
+    // BCH: '1BpEi6DfDAUFd7GtittLSdBeYJvcoaVggu',
+    // EOS: 'eosioaccount1',
+    // XLM: 'GBHFRPSD3TQALUZ32XUR7PDPIQSWZY2XK3AGIYU4JSZ6OJRN2MZQXSHF',
+    // ADA: 'DdzFFzCqrhstZSL3jhxQrZsZxcZ4CvC5w7jqxrYRVr7fZWhYWWRPjST1F5T8TUaVeSFdXGZtbewRNzwt4ZstfhZixToW78ayiSe6kpyz',
+    "USDT (TRC20)" :  'TFsXs5iDGHK8m9nJ1bVzLqmPkE9a7yuKqp'
+    // XMR: '49tDSd1aq5hRRXXa3yV6a3kmGZ9UTRkbof9BZ32vykWrPR52L6GcP4S1UF8JCPjAmLDt3Kehb8XX5q5LG6vskPZh9mVe7Y4',
+    // DASH: 'Xhcc6qFhWfP5vdPnE1Ax6WdZ9MAv7xh1rW',
+    // DEFAULT: '0000000000000000',
   };
 
   cryptosArray = [
-    'BTC',
-    'ETH',
-    'XRP',
-    'LTC',
-    'BCH',
-    'EOS',
-    'XLM',
-    'ADA',
-    'XMR',
-    'DASH',
+    // 'BTC',
+    // 'ETH',
+    // 'XRP',
+    // 'LTC',
+    // 'BCH',
+    // 'EOS',
+    // 'XLM',
+    // 'ADA',
+    'USDT (TRC20)'
+    // 'XMR',
+    // 'DASH',
   ];
   total: number = 0
 
@@ -69,8 +71,8 @@ export class CashbackComponent implements OnInit {
 
   private _initForm() {
     this.cryptoForm = this.formBuilder.group({
-      type: ['', [Validators.required, this.vs.isNotIn(this.cryptosArray)]],
-      wallet: ['', Validators.required, this.vs.validatePat('ETH')],
+      type: ["USDT (TRC20)", [Validators.required, this.vs.isNotIn(this.cryptosArray)]],
+      wallet: ['', Validators.required, this.vs.validatePat("USDT (TRC20)")],
     });
   }
   getPlaceHolder() {

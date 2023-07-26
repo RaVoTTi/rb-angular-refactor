@@ -87,38 +87,37 @@ export class ErrorMsgDirective implements AfterViewInit {
 
   private _valid = `<div class="valid-feedback"></div>`;
 
-  div!: HTMLDivElement | null;
+  span!: HTMLSpanElement | null;
 
   input!: HTMLInputElement | null;
 
   @Input() set errorMsg(control: AbstractControl) {
     control.statusChanges.pipe(debounceTime(1000)).subscribe((value) => {
-      // if (!this.div) {
-      //   this.div = this.renderer.createElement('div');
+      // if (!this.span) {
+      //   this.span = this.renderer.createElement('div');
       //   // this.span = this.renderer.createElement('span');
-      //   this.renderer.appen dChild(this.el.nativeElement.parentNode, this.div);
+      //   this.renderer.appen dChild(this.el.nativeElement.parentNode, this.span);
       // }
-      console.log(control)
       let text;
-      if (control.errors && !control.pristine) {
+      if (control.errors && control.dirty) {
         const firstError = Object.keys(control.errors)[0];
         const errorMsg = this._errorMsgs[firstError];
         this.renderer.removeClass(this.input, 'is-valid');
-        this.renderer.removeClass(this.div, 'valid-feedback');
+        this.renderer.removeClass(this.span, 'valid-feedback');
         this.renderer.addClass(this.input, 'is-invalid');
-        this.renderer.addClass(this.div, 'invalid-feedback');
+        this.renderer.addClass(this.span, 'invalid-feedback');
         text = this.renderer.createText(errorMsg);
-        this.renderer.appendChild(this.div, text);
+        this.renderer.appendChild(this.span, text);
       } else if (value === 'VALID') {
         this.renderer.removeClass(this.input, 'is-invalid');
-        this.renderer.removeClass(this.div, 'invalid-feedback');
+        this.renderer.removeClass(this.span, 'invalid-feedback');
         this.renderer.addClass(this.input, 'is-valid');
-        this.renderer.addClass(this.div, 'valid-feedback');
+        this.renderer.addClass(this.span, 'valid-feedback');
         text = this.renderer.createText(this._succesMsgs['generic']);
       }
-      if (!control.pristine && this.div) {
-        this.div.innerText = '';
-        this.renderer.appendChild(this.div, text);
+      if (control.dirty && this.span) {
+        this.span.innerText = '';
+        this.renderer.appendChild(this.span, text);
       }
 
       // if()
@@ -131,6 +130,6 @@ export class ErrorMsgDirective implements AfterViewInit {
   ) {}
   ngAfterViewInit(): void {
     this.input = this.el.nativeElement.querySelector('input');
-    this.div = this.el.nativeElement.querySelector('div');
+    this.span = this.el.nativeElement.querySelector('div');
   }
 }

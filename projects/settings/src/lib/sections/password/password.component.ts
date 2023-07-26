@@ -39,13 +39,13 @@ export class PasswordComponent {
         oldPassword: [
           '',
           [Validators.required, 
-            this.vs.validatePat('passwordPat')
+            this.vs.validatePat('password')
           ],
         ],
         newPassword: [
           '',
           [Validators.required, 
-            this.vs.validatePat('passwordPat')
+            this.vs.validatePat('password')
           ],
         ],
         newPassword2: ['', [Validators.required]],
