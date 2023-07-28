@@ -1,56 +1,31 @@
-
-<div
-  class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4"
->
+<div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
   <div class="col-sm-8 col-md-6 col-xl-9">
     <h2 class="mb-3 fs-7 fw-bolder">Welcome to Robin Boook</h2>
     <p class="mb-8">Your Literary Companion</p>
     <div class="position-relative text-center my-4">
-      <p
-        class="mb-0 fs-4 px-3 d-inline-block bg-white text-dark z-index-5 position-relative"
-      >
+      <p class="mb-0 fs-4 px-3 d-inline-block bg-white text-dark z-index-5 position-relative">
         Sign in with
       </p>
       <!-- <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span> -->
     </div>
     <div class="row">
       <div class="col-6 mb-2 mb-sm-0" (click)="showInfo()">
-        <a
-          class="btn btn-white text-dark border fw-normal d-flex align-items-center justify-content-center rounded-2 py-3"
-          role="button"
-        >
-          <img
-            src="assets/svgs/google-icon.svg"
-            alt=""
-            class="img-fluid me-2"
-            width="18"
-            height="18"
-            
-          />
+        <a class="btn btn-white text-dark border fw-normal d-flex align-items-center justify-content-center rounded-2 py-3"
+          role="button">
+          <img src="assets/svgs/google-icon.svg" alt="" class="img-fluid me-2" width="18" height="18" />
           Google
         </a>
       </div>
       <div class="col-6" (click)="showInfo()">
-        <a
-          class="btn btn-white text-dark border fw-normal d-flex align-items-center justify-content-center rounded-2 py-3"
-          role="button"
-        >
-          <img
-            src="assets/svgs/facebook-icon.svg"
-            alt=""
-            class="img-fluid me-2"
-            width="18"
-            height="18"
-
-          />
+        <a class="btn btn-white text-dark border fw-normal d-flex align-items-center justify-content-center rounded-2 py-3"
+          role="button">
+          <img src="assets/svgs/facebook-icon.svg" alt="" class="img-fluid me-2" width="18" height="18" />
           Facebook
         </a>
       </div>
     </div>
     <div class="position-relative text-center my-4">
-      <p
-        class="mb-0 fs-4 px-3 d-inline-block bg-white text-dark z-index-5 position-relative"
-      >
+      <p class="mb-0 fs-4 px-3 d-inline-block bg-white text-dark z-index-5 position-relative">
         or sign in with
       </p>
       <!-- <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span> -->
@@ -58,35 +33,19 @@
     <form [formGroup]="loginForm" (submit)="login()">
       <div class="mb-3" [errorMsg]="loginForm.controls['email']">
         <label for="exampleInputEmail1" class="form-label">Email</label>
-        <input
-          type="email"
-          formControlName="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
+        <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+          aria-describedby="emailHelp" />
         <div></div>
       </div>
 
       <div class="mb-3" [errorMsg]="loginForm.controls['password']">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input
-          type="password"
-          formControlName="password"
-          class="form-control"
-          id="exampleInputPassword1"
-        />
+        <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" />
         <div></div>
       </div>
       <div class="d-flex align-items-center justify-content-between mb-4">
         <div class="form-check">
-          <input
-            class="form-check-input primary"
-            type="checkbox"
-            value=""
-            id="flexCheckChecked"
-            checked
-          />
+          <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" formControlName="remember" checked />
           <label class="form-check-label text-dark" for="flexCheckChecked">
             Remeber this Device
           </label>
@@ -94,16 +53,12 @@
         <a class="text-primary fw-medium">Forgot Password ?</a>
       </div>
       <button type="submit" class="btn btn-primary w-100 py-3 mb-4 rounded-2"
-      [disabled]="loginForm.invalid || loginForm.disabled"
-      
-      >
+        [disabled]="loginForm.invalid || loginForm.disabled">
         Sign In
       </button>
       <div class="d-flex align-items-center justify-content-center">
         <p class="fs-4 mb-0 fw-medium">New to Robin Boook?</p>
-        <a class="text-primary fw-medium ms-2" routerLink="/auth/signup"
-          >Create an account</a
-        >
+        <a class="text-primary fw-medium ms-2" routerLink="/auth/signup">Create an account</a>
       </div>
     </form>
   </div>

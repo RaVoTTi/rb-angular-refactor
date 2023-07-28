@@ -37,16 +37,22 @@ export class LoginComponent {
     }
     this.loginForm.disable()
     const { email, password } = this.loginForm.value as ILogin;
-    
+
     this.authBaseService
       .postLogin({ email, password })
       .subscribe((response) => {
+        if (this.loginForm.get('remember')?.value) {
+          localStorage.setItem('email', this.loginForm.get('email')?.value)
+        } else {
+          localStorage.removeItem('email')
+        }
+
         if (response.token) {
           this.localStorageService.setToken(response.token);
           this.router.navigate(['/app/books']);
         }
       });
-    setTimeout(()=>{
+    setTimeout(() => {
       this.loginForm.enable()
       this.loginForm.patchValue({
         password: ''
@@ -62,8 +68,9 @@ export class LoginComponent {
 
   private _initForm() {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, this.vs.validatePat('email')]],
+      email: [localStorage.getItem('email') || '', [Validators.required, this.vs.validatePat('email')]],
       password: ['', [Validators.required, this.vs.validatePat('password')]],
+      remember: [false]
     });
   }
 }
