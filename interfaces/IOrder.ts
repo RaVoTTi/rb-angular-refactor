@@ -16,5 +16,8 @@ export interface IOrder {
     | 'refunded'
     | 'failed';
   dateCreated: Date;
+  dateClaimable: Date;
+
+
 
 }

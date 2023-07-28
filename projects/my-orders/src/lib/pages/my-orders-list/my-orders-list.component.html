@@ -2,21 +2,14 @@
 
 <ng-container *ngIf="orders; else preloader">
   <div class="container-fluid">
-    <div
-      *ngFor="let order of orders"
-      class="table-responsive border rounded my-3 p-4"
-    >
+    <div *ngFor="let order of orders" class="table-responsive border rounded my-3 p-4">
       <table class="table align-middle text-nowrap">
         <thead>
           <tr>
             <th>Purchased: {{ order.dateCreated | date }} </th>
             <th class="text-end">
-              <a
-                [routerLink]="['/app/myorders/id/', order._id]"
-                class="text-info"
-              >
-                See invoice</a
-              >
+              <a [routerLink]="['/app/myorders/id/', order._id]" class="text-info">
+                See invoice</a>
             </th>
           </tr>
         </thead>
@@ -24,20 +17,12 @@
           <tr *ngFor="let book of order.books">
             <td class="border-bottom-0">
               <div class="d-flex align-items-center gap-3">
-                <img
-                  [src]="book.image"
-                  alt=""
-                  class="img-fluid rounded"
-                  width="80"
-                />
+                <img [src]="book.image" alt="" class="img-fluid rounded" width="80" />
                 <div>
                   <h6 class="fw-semibold fs-6 mb-0 ms-1">
                     {{ book.name | titlecase }}
                   </h6>
-                  <span
-                    class="mb-1 badge rounded-pill fs-3 mt-3"
-                    [ngClass]="CONDITIONS[order.condition]"
-                  >
+                  <span class="mb-1 badge rounded-pill fs-3 mt-3" [ngClass]="CONDITIONS[order.condition]">
                     {{ order.condition | titlecase }}
                   </span>
                   <!-- <p class="mb-0">{{book.subject.name}}</p> -->
@@ -54,29 +39,19 @@
         </tbody>
       </table>
       <div *ngIf="order.condition === 'purchased'" class="text-end">
-        <button
-          [routerLink]="'/app/myorders/evaluation/' + order._id"
-          class="btn btn-primary print-page px-4 py-3"
-          type="button"
-        >
+        <button [routerLink]="'/app/myorders/evaluation/' + order._id" class="btn btn-primary print-page px-4 py-3"
+          type="button">
           <span> To Evaluation </span>
         </button>
       </div>
-      <!-- <div *ngIf="order.condition === 'pending cashback'" class="text-end">
-        <button
-          [routerLink]="'/app/myorders/evaluation/' + order._id"
-          class="btn btn-primary print-page px-4 py-3"
-          type="button"
-        >
-          <span> Esperanding </span>
+      <div *ngIf="order.condition === 'pending cashback'" class="d-flex align-items-center  justify-content-end">
+        <h5 class=" fw-semibold"> {{"Available " + (order.dateClaimable | date:'MM/dd/yyyy')   }}</h5>
+        <button class="btn btn-primary print-page ms-4 px-4 py-3" type="button" disabled>
+          <span> Claim Cashback </span>
         </button>
-      </div> -->
+      </div>
       <div *ngIf="order.condition === 'claimable cashback'" class="text-end">
-        <button
-          [routerLink]="'/app/settings'"
-          class="btn btn-primary print-page px-4 py-3"
-          type="button"
-        >
+        <button [routerLink]="'/app/settings'" class="btn btn-primary print-page px-4 py-3" type="button">
           <span> Claim Cashback </span>
         </button>
       </div>

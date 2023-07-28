@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { take } from 'rxjs';
+import { of, take } from 'rxjs';
 import { MyOrdersService } from '../../services/my-orders.service';
 import { IOrder } from 'interfaces/public-api';
 import { conditions } from '../../utils/conditions';
@@ -11,9 +11,11 @@ import { conditions } from '../../utils/conditions';
 export class MyOrdersListComponent implements OnInit {
   orders!: IOrder[];
   CONDITIONS = conditions
+  // dateClaimable: Date = new Date()
+
   // screenWidth: any;
 
-  constructor(private myOrdersService: MyOrdersService) {}
+  constructor(private myOrdersService: MyOrdersService) { }
   // ngOnInit(): void {
   //   throw new Error('Method not implemented.');
   // }
@@ -24,15 +26,11 @@ export class MyOrdersListComponent implements OnInit {
       .pipe(take(1))
       .subscribe(({ result }) => {
         if (result) {
-          this.orders = result;
+          this.orders = result
         }
       });
   }
-  
 
-  // @HostListener('window:resize', ['$event'])
-  // onWindowResize() {
-  //   this.screenWidth = window.innerWidth;
-  // }
+
 
 }
