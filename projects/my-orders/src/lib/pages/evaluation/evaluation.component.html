@@ -3,48 +3,29 @@
   <ng-container *ngIf="books; else preloader">
     <form [formGroup]="myForm" (submit)="submit()">
       <div formArrayName="books">
-        <div
-          class="card w-100 position-relative overflow-hidden"
-          *ngFor="let book of booksControls.controls; let i = index"
-        >
+        <div class="card w-100 position-relative overflow-hidden"
+          *ngFor="let book of booksControls.controls; let i = index">
           <div class="card-body p-4" [formGroupName]="i">
             <h5 class="card-title mb-4">
               {{ book.get(["name"])?.value | titlecase }}
             </h5>
             <ng-container formArrayName="evaluation">
-              <div
-                class="my-4"
-                *ngFor="
+              <div class="my-4" *ngFor="
                   let question of evaluationControls(i).controls;
                   let j = index
-                "
-              >
-                <ng-container [formGroupName]="j"
-                
-                [errorMsg]="selectedOptionControl(i,j)"
-                >
+                ">
+                <ng-container [formGroupName]="j">
                   <h6 class="card-subtitle fw-semibold">
                     {{ question.get(["question"])?.value }}
                   </h6>
 
-                  <div
-                    class="form-check ms-3 my-3"
-                    *ngFor="
+                  <div class="form-check ms-3 my-3" [errorMsg]="selectedOptionControl(i,j)" *ngFor="
                       let option of question.get(['options'])?.value;
                       let k = index
-                    "
-                  >
-                    <input
-                      class="form-check-input primary fs-4 is-invalid"
-                      type="radio"
-                      [value]="k + 1"
-                      id="flexCheckChecked"
-                      formControlName="selectedOption"
-                    />
-                    <label
-                      class="form-check-label text-dark fs-4"
-                      for="flexCheckChecked"
-                    >
+                    ">
+                    <input class="form-check-input primary fs-4 " type="radio" [value]="k + 1"
+                      id="flexCheckChecked" formControlName="selectedOption" />
+                    <label class="form-check-label text-dark fs-4" for="flexCheckChecked">
                       {{ option }}
                     </label>
                   </div>
@@ -98,4 +79,23 @@
       <label class="form-check-label" for="styled_radio2">or me</label>
     </div>
   </fieldset>
+</div> -->
+
+<!-- <div class="col-md-6">
+  <div class="mb-3 form-group error">
+    <label>Radio Buttons
+      <span class="text-danger">*</span></label>
+    <fieldset class="controls">
+      <div class="form-check">
+        <input type="radio" value="1" name="styled_radio" required="" id="styled_radio1" class="form-check-input" aria-invalid="true">
+        <label class="form-check-label" for="styled_radio1">Check me</label>
+      </div>
+    <div class="help-block"><ul role="alert"><li>This is required</li></ul></div></fieldset>
+    <fieldset>
+      <div class="form-check">
+        <input type="radio" value="2" name="styled_radio" id="styled_radio2" class="form-check-input" aria-invalid="false">
+        <label class="form-check-label" for="styled_radio2">or me</label>
+      </div>
+    </fieldset>
+  </div>
 </div> -->

@@ -7,14 +7,10 @@ import {
   Renderer2,
 } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
+import { IMap } from 'interfaces/public-api';
 import { debounceTime } from 'rxjs';
 
-interface IMap {
-  // [key: string]: {
-  //   [key: string]: string;
-  // };
-  [key: string]: string;
-}
+
 @Directive({
   selector: '[errorMsg]',
 })
@@ -85,7 +81,6 @@ export class ErrorMsgDirective implements AfterViewInit {
     securityCode: 'Security code is valid.',
   };
 
-  private _valid = `<div class="valid-feedback"></div>`;
 
   span!: HTMLSpanElement | null;
 

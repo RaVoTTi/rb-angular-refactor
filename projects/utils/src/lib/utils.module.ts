@@ -2,13 +2,15 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ErrorMsgDirective } from './directives/error-msg.directive';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingInterceptor, LoadingService, RetryInterceptor, StatusHandlerToastrInterceptor } from '../public-api';
+import { RadioErrorMsgDirective } from './directives/radio-error-msg.directive';
 
 
 
 @NgModule({
   declarations: [
   
-    ErrorMsgDirective
+    ErrorMsgDirective,
+       RadioErrorMsgDirective
   ],
   imports: [
   ],

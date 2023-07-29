@@ -17,5 +17,7 @@ export * from './ICartItem';
 export * from './ICart';
 export * from './ICashback';
 export * from './IChangePassword';
+export * from './IMap';
+
 
 
