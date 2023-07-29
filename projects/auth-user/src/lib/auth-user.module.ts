@@ -8,6 +8,8 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ComponentsModule } from 'projects/components/src/public-api';
 import { UtilsModule } from 'projects/utils/src/public-api';
+import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
+import { ResendComponent } from './pages/resend/resend.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,14 @@ const routes: Routes = [
         path: 'signup',
         component: SignupComponent,
       },
+      {
+        path: 'confirmation/:id',
+        component: ConfirmationComponent,
+      },
+      {
+        path: 'resend',
+        component: ResendComponent,
+      },
     ],
   },
 ];
@@ -34,6 +44,6 @@ const routes: Routes = [
     ComponentsModule,
     UtilsModule
   ],
-  declarations: [AuthViewComponent, LoginComponent, SignupComponent],
+  declarations: [AuthViewComponent, LoginComponent, SignupComponent, ConfirmationComponent, ResendComponent],
 })
-export class AuthUserModule {}
+export class AuthUserModule { }

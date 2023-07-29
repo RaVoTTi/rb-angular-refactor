@@ -70,7 +70,7 @@ export class LoginComponent {
     this.loginForm = this.formBuilder.group({
       email: [localStorage.getItem('email') || '', [Validators.required, this.vs.validatePat('email')]],
       password: ['', [Validators.required, this.vs.validatePat('password')]],
-      remember: [false]
+      remember: [true]
     });
   }
 }

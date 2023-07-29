@@ -1,0 +1,38 @@
+<div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
+  <div class="col-sm-8 col-md-6 col-xl-9">
+    <ng-container *ngIf="email === true;else no_email">
+
+      <div class="mb-3">
+        <h3 class="fw-bolder fs-7">Email Verification</h3>
+        <p>We sent a verification link to your email. Press the link in the email and then login. </p>
+
+      </div>
+      <div class="mb-5" [errorMsg]="emailForm">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" [formControl]="emailForm" class="form-control" aria-describedby="emailHelp" readonly />
+      </div>
+      <a routerLink="/auth/login" class="btn btn-primary w-100 py-8 mb-4">To Login</a>
+      <div class="d-flex align-items-center">
+        <p class="fs-4 mb-0 text-dark">Didn't get the code?</p>
+        <a class="text-primary fw-medium ms-2" (click)="resend()">Resend</a>
+      </div>
+    </ng-container>
+    <ng-template #no_email>
+
+      <div class="mb-3">
+        <h3 class="fw-bolder fs-7">Email Verification</h3>
+        <p>Put your email </p>
+
+      </div>
+      <div class="mb-5" [errorMsg]="emailForm">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" [formControl]="emailForm" class="form-control" aria-describedby="emailHelp" />
+      </div>
+      <button (click)="resend()" [disabled]="emailForm.invalid || emailForm.disabled"
+        class="btn btn-primary w-100 py-8 mb-4">Send
+        Link</button>
+
+    </ng-template>
+
+
+  </div>

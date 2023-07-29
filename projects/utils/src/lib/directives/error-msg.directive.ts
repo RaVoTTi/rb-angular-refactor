@@ -25,7 +25,7 @@ export class ErrorMsgDirective implements AfterViewInit {
 
     phone: 'Invalid phone number.',
     password:
-      'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and one symbol.',
+      'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and one symbol. [!,@,#,$,%,^,&,*]',
     required: 'This field is required.',
     mismatch: 'Passwords do not match.',
     equalTo: 'Please enter the correct option',

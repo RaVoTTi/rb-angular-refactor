@@ -27,16 +27,23 @@ export class SignupComponent {
       return;
     }
     const user = this.signUpForm.value as IRegister
-    
-    
+
+
     this.authBaseService
       .postSignUp(user).subscribe((response) => {
 
-        if (response.token) {
-          this.router.navigate(['/app/books']);
+        if (response.ok) {
+          const email = this.signUpForm.get('email')?.value
+          this.router.navigateByUrl('/auth/resend',
+          { state: { email } }
+        );
+        } else {
+          this.router.navigate(['/auth/login/']);
+
         }
       })
 
+    
 
   }
   private _initForm() {
@@ -45,7 +52,7 @@ export class SignupComponent {
         name: ['', [Validators.required, this.vs.validatePat('name')]],
         lastName: ['', [Validators.required, this.vs.validatePat('name')]],
         email: ['', [Validators.required, this.vs.validatePat('email')]],
-        phone: [ '', [this.vs.validateTypeof('number'), this.vs.validatePat('phone')]],
+        phone: ['', [this.vs.validateTypeof('number'), this.vs.validatePat('phone')]],
         password: [
           '',
           [Validators.required, this.vs.validatePat('password')],

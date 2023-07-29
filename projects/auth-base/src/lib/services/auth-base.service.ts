@@ -48,10 +48,20 @@ export class AuthBaseService {
       .get<IResponse>(`${this.API_URL}/auth/verify`)
 
   }
+
+
   getVerifyAdminJWT(): Observable<IResponse> {
     return this.http
       .get<IResponse>(`${this.API_URL}/auth/verify/admin`)
 
+  }
+  patchEmailResendJWT(email: string): Observable<IResponse> {
+    return this.http
+      .patch<IResponse>(`${this.API_URL}/auth/resend/confirmation`, { email })
+  }
+  patchEmailConfirmationJWT(token: string): Observable<IResponse> {
+    return this.http
+      .patch<IResponse>(`${this.API_URL}/auth/confirmation/${token}`, {})
   }
 
   postSignUp(user: IRegister): Observable<IResponse> {
