@@ -24,7 +24,7 @@ export class EvaluationComponent implements OnInit {
   myForm: FormGroup;
   orderId!: string;
   books!: IBook[] | undefined;
-  flag: boolean = false
+  submited = false
 
   get booksControls() {
     return this.myForm.get('books') as FormArray;
@@ -100,9 +100,9 @@ export class EvaluationComponent implements OnInit {
     ]) as FormControl;
   }
   submit() {
+    this.submited = true
+
     if (this.myForm.invalid) {
-      this.flag = true
-      this.myForm.markAllAsTouched();
       return;
     }
     this.myOrdersService
@@ -113,6 +113,10 @@ export class EvaluationComponent implements OnInit {
           this.router.navigateByUrl('/app/myorders');
         }
       });
+  }
+
+  reloadForm() {
+    window.location.reload()
   }
 
 

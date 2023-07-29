@@ -19,20 +19,20 @@
                     {{ question.get(["question"])?.value }}
                   </h6>
 
-                  <div class="form-check ms-3 my-3" [errorMsg]="selectedOptionControl(i,j)" *ngFor="
+                  <div class="form-check ms-3 my-3" *ngFor="
                       let option of question.get(['options'])?.value;
                       let k = index
                     ">
-                    <input class="form-check-input primary fs-4 " type="radio" [value]="k + 1"
-                      id="flexCheckChecked" formControlName="selectedOption" />
+                    <input class="form-check-input primary fs-4 " type="radio" [value]="k + 1" id="flexCheckChecked"
+                      formControlName="selectedOption" />
                     <label class="form-check-label text-dark fs-4" for="flexCheckChecked">
                       {{ option }}
                     </label>
                   </div>
-                  <span></span>
+                  <small *ngIf="submited && question.get(['selectedOption'])?.invalid" class="text-danger fs-3">*This is
+                    incorrect </small>
                 </ng-container>
 
-                <!-- <small [errorMsg]="errorMsg(i, j)" > </small> -->
               </div>
             </ng-container>
           </div>
@@ -50,9 +50,15 @@
                 You must answer all the questions correctly before submitting.
               </p>
             </div>
-            <button type="submit" class="btn btn-primary py-3 rounded-2">
+            <button *ngIf="!submited;else reload" type="submit" class="btn btn-primary py-3 rounded-2">
               Claim Cashback
             </button>
+            <ng-template #reload>
+
+              <button (click)="reloadForm()" class="btn btn-danger py-3 rounded-2">
+                Try Again
+              </button>
+            </ng-template>
           </div>
         </div>
       </div>
