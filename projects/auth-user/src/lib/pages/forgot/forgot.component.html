@@ -1,0 +1,26 @@
+<div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
+    <div class="col-sm-8 col-md-6 col-xl-9">
+
+        <div class="mb-5">
+            <h2 class="fw-bolder fs-7 mb-3">Forgot your password?</h2>
+            <p class="mb-0 ">
+                Please enter the email address associated with your account and we will email you a link to reset your
+                password.
+            </p>
+        </div>
+        <form (submit)="send()">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" [formControl]="emailForm" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-3 mb-4 rounded-2"
+                [disabled]="emailForm.invalid || emailForm.disabled">
+                Send Email
+            </button>
+            <button routerLink="/auth/login" class="btn btn-light-primary w-100 py-3 mb-4 rounded-2">
+                To Login
+            </button>
+        </form>
+    </div>
+</div>

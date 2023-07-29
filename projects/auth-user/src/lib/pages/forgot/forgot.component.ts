@@ -1,17 +1,16 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthBaseService } from 'projects/auth-base/src/public-api';
-import { map, take } from 'rxjs';
 import { ValidatorsService } from '../../validators/validators.service';
+import { AuthBaseService } from 'projects/auth-base/src/public-api';
 
 @Component({
-  selector: 'lib-confirmation',
-  templateUrl: './resend.component.html',
+  selector: 'lib-forgot',
+  templateUrl: './forgot.component.html',
   styles: [
   ]
 })
-export class ResendComponent implements OnInit, AfterViewInit {
+export class ForgotComponent {
 
   email!: boolean
   emailForm!: FormControl
@@ -29,22 +28,14 @@ export class ResendComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    if (history?.state?.email && typeof (history.state.email) === 'string') {
 
-      this.email = true
-      const hideEmail = history.state.email
+      this.emailForm = this.fb.control('', [Validators.required,Validators.email])
 
-      this.emailForm = this.fb.control(hideEmail, Validators.email)
-    } else {
-      this.email = false
-      this.emailForm = this.fb.control('', Validators.email)
-
-    }
   }
   ngAfterViewInit(): void {
   }
 
-  resend() {
+  send() {
     if (!this.canResend) {
       console.log("Please wait for 60 seconds before resending.");
       return;
@@ -57,7 +48,7 @@ export class ResendComponent implements OnInit, AfterViewInit {
     }
 
     this.emailForm.disable();
-    this.authBaseService.patchEmailResendJWT(this.emailForm.value).subscribe((response) => {
+    this.authBaseService.patchForgotPasswordSendJWT(this.emailForm.value).subscribe((response) => {
       console.log(response);
       this.emailForm.enable(); // Re-enable the form after successful resend
       this.canResend = false; // Set the flag to block further resends
@@ -66,8 +57,4 @@ export class ResendComponent implements OnInit, AfterViewInit {
       }, 60000);
     });
   }
-
-
 }
-
-

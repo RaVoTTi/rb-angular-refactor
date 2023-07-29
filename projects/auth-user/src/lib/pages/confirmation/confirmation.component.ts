@@ -23,9 +23,9 @@ export class ConfirmationComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.pipe(take(1)).subscribe((params) => {
-      if (params['id']) {
-        this.emailToken = params['id'];
-        this.authBaseService.patchEmailConfirmationJWT(this.emailToken).subscribe((result) => {
+      if (params['token']) {
+        this.emailToken = params['token'];
+        this.authBaseService.getEmailConfirmationJWT(this.emailToken).subscribe((result) => {
           if (result.ok) {
             this.router.navigate(['/auth/login']);
           } else{

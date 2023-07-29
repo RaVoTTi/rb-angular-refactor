@@ -59,10 +59,19 @@ export class AuthBaseService {
     return this.http
       .patch<IResponse>(`${this.API_URL}/auth/resend/confirmation`, { email })
   }
-  patchEmailConfirmationJWT(token: string): Observable<IResponse> {
+  getEmailConfirmationJWT(token: string): Observable<IResponse> {
     return this.http
-      .patch<IResponse>(`${this.API_URL}/auth/confirmation/${token}`, {})
+      .get<IResponse>(`${this.API_URL}/auth/confirmation/${token}`)
   }
+  patchForgotPasswordSendJWT(email: string): Observable<IResponse> {
+    return this.http
+      .patch<IResponse>(`${this.API_URL}/auth/forgot/password`, { email })
+  }
+  patchForgotPasswordJWT(token: string, password: string): Observable<IResponse> {
+    return this.http
+      .patch<IResponse>(`${this.API_URL}/auth/forgot/password/${token}`, { password })
+  }
+
 
   postSignUp(user: IRegister): Observable<IResponse> {
     return this.http

@@ -1,0 +1,29 @@
+<div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
+    <div class="col-sm-8 col-md-6 col-xl-9">
+
+        <div class="mb-3">
+            <h2 class="fw-bolder fs-7 mb-3">Change your password</h2>
+            <p class="mb-0 ">
+                Please enter your new password to change it.
+            </p>
+        </div>
+        <form [formGroup]="passwordForm" (submit)="changePassword()">
+            <div [errorMsg]="passwordForm.controls['password']" class="mb-4">
+                <label for="exampleInputpassword" class="form-label fw-semibold">New Password</label>
+                <input type="password" class="form-control" id="exampleInputpassword" formControlName="password"
+                    placeholder="••••••••••" />
+                <div></div>
+            </div>
+            <div [errorMsg]="passwordForm.controls['password2']" class="mb-4">
+                <label for="exampleInputpassword2" class="form-label fw-semibold">Confirm Password</label>
+                <input type="password" class="form-control" id="exampleInputpassword2" formControlName="password2"
+                    placeholder="••••••••••" />
+                <div></div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-3 mb-4 rounded-2"
+            [disabled]="passwordForm.invalid || passwordForm.disabled">
+            Change Password
+        </button>
+        </form>
+    </div>
+</div>

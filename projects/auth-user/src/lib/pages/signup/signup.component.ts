@@ -51,7 +51,7 @@ export class SignupComponent {
       {
         name: ['', [Validators.required, this.vs.validatePat('name')]],
         lastName: ['', [Validators.required, this.vs.validatePat('name')]],
-        email: ['', [Validators.required, this.vs.validatePat('email')]],
+        email: ['', [Validators.required, Validators.email]],
         phone: ['', [this.vs.validateTypeof('number'), this.vs.validatePat('phone')]],
         password: [
           '',

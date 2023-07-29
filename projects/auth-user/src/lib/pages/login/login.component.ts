@@ -68,7 +68,7 @@ export class LoginComponent {
 
   private _initForm() {
     this.loginForm = this.formBuilder.group({
-      email: [localStorage.getItem('email') || '', [Validators.required, this.vs.validatePat('email')]],
+      email: [localStorage.getItem('email') || '', [Validators.required, Validators.email]],
       password: ['', [Validators.required, this.vs.validatePat('password')]],
       remember: [true]
     });

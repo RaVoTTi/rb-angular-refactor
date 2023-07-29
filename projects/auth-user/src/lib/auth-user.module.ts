@@ -10,6 +10,8 @@ import { ComponentsModule } from 'projects/components/src/public-api';
 import { UtilsModule } from 'projects/utils/src/public-api';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 import { ResendComponent } from './pages/resend/resend.component';
+import { ForgotComponent } from './pages/forgot/forgot.component';
+import { ChangeComponent } from './pages/change/change.component';
 
 const routes: Routes = [
   {
@@ -25,12 +27,20 @@ const routes: Routes = [
         component: SignupComponent,
       },
       {
-        path: 'confirmation/:id',
+        path: 'confirmation/:token',
         component: ConfirmationComponent,
       },
       {
         path: 'resend',
         component: ResendComponent,
+      },
+      {
+        path: 'forgot',
+        component: ForgotComponent,
+      },
+      {
+        path: 'change/:token',
+        component: ChangeComponent,
       },
     ],
   },
@@ -44,6 +54,6 @@ const routes: Routes = [
     ComponentsModule,
     UtilsModule
   ],
-  declarations: [AuthViewComponent, LoginComponent, SignupComponent, ConfirmationComponent, ResendComponent],
+  declarations: [AuthViewComponent, LoginComponent, SignupComponent, ConfirmationComponent, ResendComponent, ForgotComponent, ChangeComponent],
 })
 export class AuthUserModule { }
