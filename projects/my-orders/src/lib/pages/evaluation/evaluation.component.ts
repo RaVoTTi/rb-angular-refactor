@@ -52,7 +52,9 @@ export class EvaluationComponent implements OnInit {
       .getMyOrderEvaluation(this.orderId)
       .pipe(take(1))
       .subscribe((response) => {
+
         this.books = response.result || [];
+        console.log(this.books)
         this.addEvaluations(this.books);
       });
   }
