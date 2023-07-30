@@ -13,6 +13,7 @@ import { PreloaderComponent } from './preloader/preloader.component';
 import { ToastrComponent } from './toastr/toastr.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NothingComponent } from './nothing/nothing.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
     SubHeaderComponent,
     PreloaderComponent,
     ToastrComponent,
+    NothingComponent,
   ],
   imports: [
     RouterModule,
@@ -34,6 +36,7 @@ import { ToastrModule } from 'ngx-toastr';
   exports: [
     FooterComponent,
     CardBookComponent,
+    NothingComponent,
 
     ImgComponent,
     BreadcrumbsComponent,

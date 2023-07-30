@@ -9,7 +9,7 @@ import { WishlistLocalService } from './wishlist-local.service';
   providedIn: 'root',
 })
 export class WishlistHttpService {
-  wishlistHttp$: BehaviorSubject<IBook[] | undefined> = new BehaviorSubject<
+   wishlistHttp$: BehaviorSubject<IBook[] | undefined> = new BehaviorSubject<
     IBook[] | undefined
   >(undefined);
 
@@ -20,7 +20,7 @@ export class WishlistHttpService {
     private wishlistLocalService: WishlistLocalService
   ) {}
   initWishlistByIds(): Observable<IResponse<IBook[]> | null> {
-    const ids = this.wishlistLocalService.getWishlist();
+    const ids = this.wishlistLocalService.getWishlist() ?? [];
     
     let queryIds = '';
 
