@@ -1,18 +1,22 @@
 <rb-sub-header title="My Learning" subtitle="books"></rb-sub-header>
 
-<rb-preloader *ngIf="allMyLearnings ; else content"></rb-preloader>
 
-<ng-template #content>
-  <ng-container *ngIf="allMyLearnings?.length === 0; else truly_content">
-    <rb-nothing></rb-nothing>
+<ng-container *ngIf="allMyLearnings?.length !== 0 ; else content">
+  <div class="container-fluid">
 
-  </ng-container>
-  
-  <ng-template #truly_content>
     <div class="list-container">
       <rb-card-book *ngFor="let book of allMyLearnings" [book]="book" [url]="'/app/mylearning/id/' + book._id">
       </rb-card-book>
     </div>
-  </ng-template>
+  </div>
+  
+</ng-container>
+
+
+<ng-template #content>
+  
+  
+
+  <rb-nothing></rb-nothing>
+
 </ng-template>
- 

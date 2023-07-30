@@ -8,7 +8,7 @@ export const WISHLIST_KEY = 'wishlist';
 })
 export class WishlistLocalService {
   wishlist$: BehaviorSubject<string[]> = new BehaviorSubject(
-    this.getWishlist() || []
+    this.getWishlist() ?? []
   );
 
   initWishlist: string[] = [];
@@ -25,10 +25,10 @@ export class WishlistLocalService {
   getWishlist(): string[] | null {
     const wishlistRaw = localStorage.getItem(WISHLIST_KEY);
 
-    return wishlistRaw ? JSON.parse(wishlistRaw) : null;
+    return wishlistRaw ? JSON.parse(wishlistRaw) : [];
   }
   setBookWishlist(bookId: string): string[] {
-    const wishlist = this.getWishlist() || [];
+    const wishlist = this.getWishlist() ?? [];
     if (!Array.isArray(wishlist)) {
       this.emptyBookWishlist();
     }
@@ -42,7 +42,7 @@ export class WishlistLocalService {
     return wishlist;
   }
   deleteBookWishlist(bookId: string): string[] {
-    const wishlist = this.getWishlist() || [];
+    const wishlist = this.getWishlist() ?? [];
     if (wishlist.includes(bookId)) {
       const index = wishlist.indexOf(bookId);
       if (index !== -1) {

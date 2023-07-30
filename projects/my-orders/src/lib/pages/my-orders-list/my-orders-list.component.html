@@ -1,6 +1,6 @@
 <rb-sub-header title="My orders" subtitle="books"></rb-sub-header>
 
-<ng-container *ngIf="orders; else preloader">
+<ng-container *ngIf="orders.length !== 0; else nothing">
   <div class="container-fluid">
     <div *ngFor="let order of orders" class="table-responsive border rounded my-3 p-4">
       <table class="table align-middle text-nowrap">
@@ -58,6 +58,6 @@
     </div>
   </div>
 </ng-container>
-<ng-template #preloader>
-  <rb-preloader></rb-preloader>
+<ng-template #nothing>
+  <rb-nothing></rb-nothing>
 </ng-template>

@@ -57,11 +57,11 @@ export class LoadingInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const http = ['PUT', 'POST', 'PATCH'];
+    // const http = ['PUT', 'POST', 'PATCH'];
 
-    if (!http.includes(request.method)) {
-      return next.handle(request);
-    }
+    // if (!http.includes(request.method)) {
+    //   return next.handle(request);
+    // }
 
     this.showLoading();
     this.activeRequests++;

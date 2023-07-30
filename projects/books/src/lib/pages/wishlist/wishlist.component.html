@@ -1,15 +1,10 @@
 <rb-sub-header title="Wishlist" subtitle="Books"></rb-sub-header>
 
-<rb-preloader *ngIf="!(wishlistItems$ | async); else content"></rb-preloader>
 
 
-<ng-template #content>
-  <ng-container *ngIf="(wishlistItems$ | async)?.length === 0; else truly_content">
-    <rb-nothing></rb-nothing>
-  </ng-container>
-  <ng-template #truly_content>
+  <ng-container *ngIf="(wishlistItems$ | async)?.length !== 0; else nothing" >
     <div class="container-fluid">
-
+    
       <div class="list-container">
         <rb-card-book *ngFor="let book of wishlistItems$ | async " [book]="book"
         (buttonEmitter)="addBookToWishlist(book._id)" [icon]="isFavorite(book._id) ? 'heart-filled' : 'heart'"
@@ -17,5 +12,8 @@
       </rb-card-book>
     </div>
   </div>
-  </ng-template>
+  </ng-container>
+<ng-template #nothing >
+
+  <rb-nothing></rb-nothing>
 </ng-template>

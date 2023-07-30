@@ -19,7 +19,7 @@ export class WishlistHttpService {
     private http: HttpClient,
     private wishlistLocalService: WishlistLocalService
   ) {}
-  initWishlistByIds(): Observable<IResponse<IBook[]> | null> {
+  initWishlistByIds(): Observable<IResponse<IBook[]> | []> {
     const ids = this.wishlistLocalService.getWishlist() ?? [];
     
     let queryIds = '';
@@ -35,7 +35,7 @@ export class WishlistHttpService {
         );
     }
     this.wishlistLocalService.emptyBookWishlist()
-    return of(null)
+    return of([])
   }
 
   // this.initWishlistByIds().subscribe( ({result}) => {

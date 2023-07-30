@@ -6,6 +6,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
+  styleUrls: ['./shell.component.scss'],
+
   styles: [
   ]
 })
