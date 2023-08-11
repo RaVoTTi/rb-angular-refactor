@@ -52,7 +52,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     ComponentsModule,
-    UtilsModule
+    UtilsModule,
+
   ],
   declarations: [AuthViewComponent, LoginComponent, SignupComponent, ConfirmationComponent, ResendComponent, ForgotComponent, ChangeComponent],
 })

@@ -10,6 +10,7 @@ import { IBook } from 'interfaces/public-api';
 import { CartLocalService } from 'projects/cart/src/lib/services/cart-local.service';
 import { LocalStorageService } from 'projects/auth-base/src/public-api';
 import { CartHttpService } from 'projects/cart/src/lib/services/cart-http.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class BookViewComponent implements OnInit {
 
     private route: ActivatedRoute,
     private router: Router,
-
+    private toastr: ToastrService
   ) {
   }
 
@@ -67,6 +68,7 @@ export class BookViewComponent implements OnInit {
 
 
   AddToCart() {
+    this.toastr.success('Add to cart succesfully','201')
     this.cartLocalService.setBookCart(this.bookId)
 
   }

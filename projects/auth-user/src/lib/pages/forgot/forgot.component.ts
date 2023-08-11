@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ValidatorsService } from '../../validators/validators.service';
 import { AuthBaseService } from 'projects/auth-base/src/public-api';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'lib-forgot',
@@ -21,8 +22,8 @@ export class ForgotComponent {
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
-    private vs: ValidatorsService
-
+    private vs: ValidatorsService,
+    private toastr: ToastrService
   ) {
 
   }
@@ -37,7 +38,7 @@ export class ForgotComponent {
 
   send() {
     if (!this.canResend) {
-      console.log("Please wait for 60 seconds before resending.");
+      this.toastr.warning( 'Too many attemps, wait 60s', '400')
       return;
     }
     // Check if 60 seconds have passed since the last resend
@@ -46,6 +47,7 @@ export class ForgotComponent {
       this.emailForm.markAllAsTouched();
       return;
     }
+
 
     this.emailForm.disable();
     this.authBaseService.patchForgotPasswordSendJWT(this.emailForm.value).subscribe((response) => {

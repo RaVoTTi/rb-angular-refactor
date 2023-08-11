@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthBaseService } from 'projects/auth-base/src/public-api';
 import { map, take } from 'rxjs';
 import { ValidatorsService } from '../../validators/validators.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'lib-confirmation',
@@ -22,7 +23,8 @@ export class ResendComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
-    private vs: ValidatorsService
+    private vs: ValidatorsService,
+    private toastr: ToastrService
 
   ) {
 
@@ -46,7 +48,7 @@ export class ResendComponent implements OnInit, AfterViewInit {
 
   resend() {
     if (!this.canResend) {
-      console.log("Please wait for 60 seconds before resending.");
+      this.toastr.warning( 'Too many attemps, wait 60s', '400')
       return;
     }
     // Check if 60 seconds have passed since the last resend

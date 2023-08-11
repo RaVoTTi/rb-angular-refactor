@@ -5,6 +5,7 @@ import { BooksService } from '../../services/books.service';
 import { WishlistLocalService, } from '../../services/wishlist-local.service';
 import { WishlistHttpService } from '../../services/wishlist-http.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'rb-books-list',
@@ -23,7 +24,8 @@ export class BooksListComponent implements OnInit{
     private booksService: BooksService,
     private wishlistLocalService: WishlistLocalService,
     private wishlistHttpService: WishlistHttpService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
 
 
   ) { 
@@ -57,9 +59,12 @@ export class BooksListComponent implements OnInit{
     let isFavorite = this.isFavorite(id)
     
     if (isFavorite === false) {
+      this.toastr.success('Add to wishlist succesfully','201')
+
       isFavorite = true;
       this.wishlistLocalService.setBookWishlist(id);
     } else {
+      this.toastr.success('Remove to wishlist succesfully','201')
       isFavorite = false;
       this.wishlistLocalService.deleteBookWishlist(id);
       this.wishlistHttpService.deleteItemWishlist(id);
