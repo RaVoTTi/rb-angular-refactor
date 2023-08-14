@@ -1,3 +1,3 @@
 export interface IStripe{
-  sessionId: string
+  id: string,
 }

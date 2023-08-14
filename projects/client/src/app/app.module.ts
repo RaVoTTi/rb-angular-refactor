@@ -11,6 +11,8 @@ import { AuthBaseModule, JwtInterceptor, UnauthorizedInterceptor } from 'project
 import { HomeModule } from './pages/home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { LoadingInterceptor, RetryInterceptor, StatusHandlerToastrInterceptor, UtilsModule } from 'projects/utils/src/public-api';
+import { environment } from 'environments/environment';
+import { NgxStripeModule } from 'ngx-stripe';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { LoadingInterceptor, RetryInterceptor, StatusHandlerToastrInterceptor, U
       maxOpened: 3,
       preventDuplicates: true
     }), 
-    
+    NgxStripeModule.forRoot(environment.STRIPE),
     AuthBaseModule.forRoot(),
     AppRoutingModule,
     SharedModule,

@@ -1,5 +1,6 @@
 export interface ICashback {
-  type: 'USDT (TRC20)'
+  type: 
+  // 'USDT (TRC20)'
     // | 'BTC'
     // | 'ETH'
     // | 'XRP'
@@ -7,7 +8,7 @@ export interface ICashback {
     // | 'BCH'
     // | 'EOS'
     // | 'XLM'
-    // | 'ADA'
+    'ADA'
     // | 'XMR'
     // | 'DASH';
   wallet: string;

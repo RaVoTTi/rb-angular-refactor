@@ -29,7 +29,12 @@
           </option>
         </select>
       </div>
-      <div class="mb-4" [errorMsg]="cryptoForm.controls['wallet']">
+      <div class="mb-3" [errorMsg]="cryptoForm.controls['wallet']">
+        <label for="AdaAddress1" class="form-label">Password</label>
+        <input type="text" formControlName="wallet" class="form-control" id="AdaAddress1" />
+        <div></div>
+      </div>
+      <!-- <div class="mb-4" [errorMsg]="cryptoForm.controls['wallet']">
         <label for="exampleInputPassword1" class="form-label fw-semibold"
           >Crypto Address</label
         >
@@ -41,7 +46,7 @@
           [placeholder]="getPlaceHolder()"
         />
         <div></div>
-      </div>
+      </div> -->
 
       <div class="d-flex align-items-center justify-content-end mt-4">
         <button

@@ -31,7 +31,8 @@ export class CashbackComponent implements OnInit {
     // EOS: 'eosioaccount1',
     // XLM: 'GBHFRPSD3TQALUZ32XUR7PDPIQSWZY2XK3AGIYU4JSZ6OJRN2MZQXSHF',
     // ADA: 'DdzFFzCqrhstZSL3jhxQrZsZxcZ4CvC5w7jqxrYRVr7fZWhYWWRPjST1F5T8TUaVeSFdXGZtbewRNzwt4ZstfhZixToW78ayiSe6kpyz',
-    "USDT (TRC20)" :  'TFsXs5iDGHK8m9nJ1bVzLqmPkE9a7yuKqp'
+    "ADA" :  'TFsXs5iDGHK8m9nJ1bVzLqmPkE9a7yuKqp'
+    
     // XMR: '49tDSd1aq5hRRXXa3yV6a3kmGZ9UTRkbof9BZ32vykWrPR52L6GcP4S1UF8JCPjAmLDt3Kehb8XX5q5LG6vskPZh9mVe7Y4',
     // DASH: 'Xhcc6qFhWfP5vdPnE1Ax6WdZ9MAv7xh1rW',
     // DEFAULT: '0000000000000000',
@@ -46,7 +47,7 @@ export class CashbackComponent implements OnInit {
     // 'EOS',
     // 'XLM',
     // 'ADA',
-    'USDT (TRC20)'
+    'ADA'
     // 'XMR',
     // 'DASH',
   ];
@@ -71,8 +72,8 @@ export class CashbackComponent implements OnInit {
 
   private _initForm() {
     this.cryptoForm = this.formBuilder.group({
-      type: ["USDT (TRC20)", [Validators.required, this.vs.isNotIn(this.cryptosArray)]],
-      wallet: ['', Validators.required, this.vs.validatePat("USDT (TRC20)")],
+      type: ["ADA", [Validators.required, this.vs.isNotIn(this.cryptosArray)]],
+      wallet: [, Validators.required, this.vs.validateADA()],
     });
   }
   getPlaceHolder() {
