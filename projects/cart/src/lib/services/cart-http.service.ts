@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { IBook, ICartItem, IResponse, IStripe } from 'interfaces/public-api';
 import {
@@ -13,7 +13,7 @@ import {
   of,
 } from 'rxjs';
 import { CartLocalService } from './cart-local.service';
-import { StripeService } from 'ngx-stripe';
+import { DOCUMENT } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -28,9 +28,9 @@ export class CartHttpService {
   STRIPE = environment.STRIPE;
 
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     private http: HttpClient,
     private cartLocalService: CartLocalService,
-    private stripeService: StripeService
   ) {}
   initCartByIds(): Observable<IResponse<ICartItem[]> | null> {
     const ids = this.cartLocalService.getCart();
@@ -63,19 +63,23 @@ export class CartHttpService {
     this.http
       .post<IResponse<IStripe>>(`${this.API_URL}/myorder/placeorder`, { ids })
       .pipe(
-        switchMap((payload) => {
-          const {result, ...rest} = payload
+        map((payload) => {
+          const { result, ...rest } = payload;
 
-            return this.stripeService.redirectToCheckout({ sessionId: result?.id || ''})
-
+          if (result?.url) {
+            this.document.location.href = result.url;
+          }else{
+            result!.error = 'Something Happend'
+          }
+          return {result, ...rest};
         })
       )
-      .subscribe(result => {
+      .subscribe(({result}) => {
         // If `redirectToCheckout` fails due to a browser or network
         // error, you should display the localized error message to your
         // customer using `error.message`.
-        if (result.error) {
-          console.log(result.error.message);
+        if (result?.error) {
+          console.log(result.error);
         }
       });
   }

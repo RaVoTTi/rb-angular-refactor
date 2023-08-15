@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -12,7 +12,6 @@ import { HomeModule } from './pages/home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { LoadingInterceptor, RetryInterceptor, StatusHandlerToastrInterceptor, UtilsModule } from 'projects/utils/src/public-api';
 import { environment } from 'environments/environment';
-import { NgxStripeModule } from 'ngx-stripe';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { NgxStripeModule } from 'ngx-stripe';
       maxOpened: 3,
       preventDuplicates: true
     }), 
-    NgxStripeModule.forRoot(environment.STRIPE),
     AuthBaseModule.forRoot(),
     AppRoutingModule,
     SharedModule,
@@ -45,4 +43,20 @@ import { NgxStripeModule } from 'ngx-stripe';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(private meta: Meta){
+    // this.meta.addTags([
+    //   {name: }
+    // ])
+  }
+//   <meta
+//   http-equiv="Content-Security-Policy"
+//   content="default-src 'none';
+// frame-src 'self';
+// script-src 'self' 'https://js.stripe.com/v3/' ;
+// style-src 'self' 'unsafe-inline';
+// font-src 'self' 'unsafe-inline' ;
+// img-src 'self' 'https://res.cloudinary.com/' data:;
+// connect-src 'self' 'http://localhost:8080/api/v1/book'"
+// />
+}

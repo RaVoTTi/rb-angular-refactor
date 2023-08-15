@@ -1,3 +1,4 @@
 export interface IStripe{
-  id: string,
+  url: string,
+  error?: string
 }
