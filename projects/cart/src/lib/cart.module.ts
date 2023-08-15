@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ComponentsModule, SubHeaderComponent } from 'projects/components/src/public-api';
 import { CartTableComponent } from './pages/cart-table/cart-table.component';
 import { CommonModule } from '@angular/common';
+import { ResumeComponent } from './pages/resume/resume.component';
 import { CartLocalService } from './services/cart-local.service';
 
 
@@ -10,7 +11,9 @@ const routes: Routes = [
 
   {
     path: '',
-    component: CartTableComponent,
+    // component: CartTableComponent,
+   component: ResumeComponent,
+
 
   }
 ]
@@ -18,6 +21,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     CartTableComponent,
+    ResumeComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -28,7 +32,7 @@ const routes: Routes = [
   ]
 })
 export class CartModule {
-  constructor(private cartLocalService: CartLocalService) {
-    cartLocalService.initCartLocalStorage()
+  constructor(private cartlocalService: CartLocalService) {
+    cartlocalService.initCartLocalStorage()
   }
 }

@@ -7,10 +7,9 @@ import { BooksService } from '../../services/books.service';
 import { WishlistLocalService } from '../../services/wishlist-local.service';
 import { environment } from 'environments/environment';
 import { IBook } from 'interfaces/public-api';
-import { CartLocalService } from 'projects/cart/src/lib/services/cart-local.service';
 import { LocalStorageService } from 'projects/auth-base/src/public-api';
-import { CartHttpService } from 'projects/cart/src/lib/services/cart-http.service';
 import { ToastrService } from 'ngx-toastr';
+import { CartHttpService, CartLocalService } from 'projects/cart/src/public-api';
 
 
 @Component({
@@ -56,9 +55,9 @@ export class BookViewComponent implements OnInit {
 
   buyNow() {
     //! FIX IT, it doesn't work without auth
-    this.cartLocalService.emptyBookCart()
-    this.cartLocalService.setBookCart(this.bookId)
-    this.cartHttpService.emptyBookHttpCart()
+    // this.cartLocalService.emptyBookCart()
+    // this.cartLocalService.setBookCart(this.bookId)
+    // this.cartHttpService.emptyBookHttpCart()
     this.router.navigateByUrl('/app/cart').finally(()=> {
     });
 

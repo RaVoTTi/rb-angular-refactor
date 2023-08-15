@@ -26,8 +26,10 @@
     <rb-card-book
       *ngFor="let book of books"
       [book]="book"
-      (buttonEmitter)="addBookToWishlist(book._id)"
-      [icon]="isFavorite(book._id) ? 'heart-filled' : 'heart'"
+      (wishEmitter)="addBookToWishlist(book._id)"
+      [wishIcon]="isFavorite(book._id) ? 'heart-filled' : 'heart'"
+      (cartEmitter)="addBookToWishlist(book._id)"
+      [cartIcon]="isFavorite(book._id) ? 'heart-filled' : 'heart'"
       [url]="'/app/books/id/' + book._id"
     >
     </rb-card-book>

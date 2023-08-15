@@ -44,7 +44,9 @@ import { environment } from 'environments/environment';
   bootstrap: [AppComponent],
 })
 export class AppModule { 
-  constructor(private meta: Meta){
+  PROD = environment.production
+
+  constructor(){
     // this.meta.addTags([
     //   {name: }
     // ])

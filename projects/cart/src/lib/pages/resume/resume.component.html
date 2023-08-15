@@ -1,0 +1,31 @@
+<rb-sub-header title="Cart" subtitle="Books"></rb-sub-header>
+
+<ng-container *ngIf="(cartItems$ | async)?.length !== 0; else nothing">
+  <div class="container-fluid">
+    <div class="list-container">
+      <rb-card-book
+        *ngFor="let book of cartItems$ | async"
+        [book]="book"
+        (wishEmitter)="addBookToCart(book._id)"
+        [wishIcon]="isFavorite(book._id) ? 'heart-filled' : 'heart'"
+        (cartEmitter)="addBookToCart(book._id)"
+        [cartIcon]="isFavorite(book._id) ? 'heart-filled' : 'heart'"
+        
+        [url]="'/app/books/id/' + book._id"
+      >
+      </rb-card-book>
+    </div>
+  </div>
+</ng-container>
+<ng-template #nothing>
+  <rb-nothing></rb-nothing>
+</ng-template>
+
+<div class="d-flex justify-content-end">
+  <button
+    (click)="goToPayment()"
+    class="btn btn-primary fw-semibold py-4 rounded-2 align-self-end"
+  >
+    Go to Payment
+  </button>
+</div>
