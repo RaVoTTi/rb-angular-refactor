@@ -4,7 +4,6 @@ import { ComponentsModule, SubHeaderComponent } from 'projects/components/src/pu
 import { CartTableComponent } from './pages/cart-table/cart-table.component';
 import { CommonModule } from '@angular/common';
 import { ResumeComponent } from './pages/resume/resume.component';
-import { CartLocalService } from './services/cart-local.service';
 
 
 const routes: Routes = [
@@ -20,7 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    CartTableComponent,
+    // CartTableComponent,
     ResumeComponent,
   ],
   imports: [
@@ -32,7 +31,5 @@ const routes: Routes = [
   ]
 })
 export class CartModule {
-  constructor(private cartlocalService: CartLocalService) {
-    cartlocalService.initCartLocalStorage()
-  }
+
 }

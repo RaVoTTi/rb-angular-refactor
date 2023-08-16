@@ -9,6 +9,7 @@ section.search .navbar {
   .container-fluid {
     max-width: 81rem;
     padding: 0 1rem;
+    flex-wrap: nowrap;
   }
   
   .breadcrumb-item::before{

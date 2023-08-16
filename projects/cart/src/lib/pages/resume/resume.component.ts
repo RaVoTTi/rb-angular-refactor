@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { CheckoutService } from '../../services/checkout.service';
 import { DOCUMENT } from '@angular/common';
-import { CartHttpService } from '../../services/cart-http.service';
-import { CartLocalService } from '../../services/cart-local.service';
+// import { CartHttpService } from '../../services/cart-http.service';
+// import { CartLocalService } from '../../services/cart-local.service';
 import { BehaviorSubject } from 'rxjs';
 import { IBook } from 'interfaces/IBook';
 
@@ -19,8 +19,8 @@ export class ResumeComponent {
     @Inject(DOCUMENT) private document: Document,
 
     private checkoutService: CheckoutService,
-    private cartHttpService: CartHttpService,
-    private cartlocalService: CartLocalService,
+    // private cartHttpService: CartHttpService,
+    // private cartlocalService: CartLocalService,
 
   ){}
 
@@ -41,21 +41,21 @@ export class ResumeComponent {
         // }
       });
   }
-    isFavorite(id: string): boolean {
-    return this.cartlocalService.isFavorite(id)
-  }
-  addBookToCart(id: string) {
-    // console.log('valentin')
-    //  isFavorite(id)
-    let isFavorite = this.isFavorite(id)
+  //   isFavorite(id: string): boolean {
+  //   return this.cartlocalService.isFavorite(id)
+  // }
+  // addBookToCart(id: string) {
+  //   // console.log('valentin')
+  //   //  isFavorite(id)
+  //   let isFavorite = this.isFavorite(id)
     
-    if (isFavorite === false) {
-      isFavorite = true;
-      this.cartlocalService.setBookCart(id);
-    } else {
-      isFavorite = false;
-      this.cartlocalService.deleteBookCart(id);
-      this.cartHttpService.deleteItemCart(id);
-    }
-  }
+  //   if (isFavorite === false) {
+  //     isFavorite = true;
+  //     this.cartlocalService.setBookCart(id);
+  //   } else {
+  //     isFavorite = false;
+  //     this.cartlocalService.deleteBookCart(id);
+  //     this.cartHttpService.deleteItemCart(id);
+  //   }
+  // }
 }

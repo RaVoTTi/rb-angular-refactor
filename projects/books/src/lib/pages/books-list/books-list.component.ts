@@ -2,8 +2,8 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { IBook } from 'interfaces/public-api';
 import { BehaviorSubject, take } from 'rxjs';
 import { BooksService } from '../../services/books.service';
-import { WishlistLocalService, } from '../../services/wishlist-local.service';
-import { WishlistHttpService } from '../../services/wishlist-http.service';
+import { CartLocalService, } from '../../services/cart-local.service';
+import { CartHttpService } from '../../services/cart-http.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
@@ -22,8 +22,8 @@ export class BooksListComponent implements OnInit{
 
   constructor(
     private booksService: BooksService,
-    private wishlistLocalService: WishlistLocalService,
-    private wishlistHttpService: WishlistHttpService,
+    private cartLocalService: CartLocalService,
+    private cartHttpService: CartHttpService,
     private fb: FormBuilder,
     private toastr: ToastrService
 
@@ -49,25 +49,25 @@ export class BooksListComponent implements OnInit{
 
 
   isFavorite(id: string): boolean {
-    return this.wishlistLocalService.isFavorite(id)
+    return this.cartLocalService.isFavorite(id)
   }
 
   // }
-  addBookToWishlist(id: string) {
+  addBookToCart(id: string) {
     // console.log('valentin')
     //  isFavorite(id)
     let isFavorite = this.isFavorite(id)
     
     if (isFavorite === false) {
-      this.toastr.success('Add to wishlist succesfully','201')
+      this.toastr.success('Add to cart succesfully','201')
 
       isFavorite = true;
-      this.wishlistLocalService.setBookWishlist(id);
+      this.cartLocalService.setBookCart(id);
     } else {
-      this.toastr.success('Remove to wishlist succesfully','201')
+      this.toastr.success('Remove to cart succesfully','201')
       isFavorite = false;
-      this.wishlistLocalService.deleteBookWishlist(id);
-      this.wishlistHttpService.deleteItemWishlist(id);
+      this.cartLocalService.deleteBookCart(id);
+      this.cartHttpService.deleteItemCart(id);
     }
   }
   search(): void {

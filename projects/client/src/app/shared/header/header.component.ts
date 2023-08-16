@@ -35,14 +35,14 @@ export class HeaderComponent {
     },
     {
       title: 'Cart',
-      url: '/app/cart',
+      url: '/app/books/cart',
       icon: 'shopping-cart'
     },
-    {
-      title: 'Wishlist',
-      url: '/app/books/wishlist',
-      icon: 'heart'
-    },
+    // {
+    //   title: 'Wishlist',
+    //   url: '/app/books/wishlist',
+    //   icon: 'heart'
+    // },
     
 
   ]

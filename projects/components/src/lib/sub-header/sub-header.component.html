@@ -1,23 +1,30 @@
 <section class="search">
-    <nav class="navbar bg-primary">
-        <div class="container-fluid ">
-            <div class="card-body px-4 py-1">
-                <div class="row align-items-center">
-                    <h4 class="fw-semibold text-light-info">{{title | titlecase}}</h4>
-                    <nav aria-label="breadcrumb text-light-info">
-                        <ol class="breadcrumb text-light-info">
-                            <li class="breadcrumb-item text-light-info">
-                                <a class="text-muted text-light-info" [routerLink]="'/app/' + subtitle">{{subtitle |
-                                    titlecase}}</a>
-                            </li>
-                            <li class="breadcrumb-item text-light-info" aria-current="page">{{title | titlecase}}</li>
-                        </ol>
-                    </nav>
-                </div>
-
-            </div>
+  <nav class="navbar bg-primary">
+    <div class="container-fluid">
+      <div class="card-body px-4 py-1">
+        <div class="row align-items-center">
+          <h4 class="fw-semibold text-light-info">{{ title | titlecase }}</h4>
+          <nav aria-label="breadcrumb text-light-info">
+            <ol class="breadcrumb text-light-info">
+              <li class="breadcrumb-item text-light-info">
+                <a
+                  class="text-muted text-light-info"
+                  [routerLink]="'/app/' + subtitle"
+                  >{{ subtitle | titlecase }}</a
+                >
+              </li>
+              <li class="breadcrumb-item text-light-info" aria-current="page">
+                {{ title | titlecase }}
+              </li>
+            </ol>
+          </nav>
         </div>
-        <!-- <h2 class="text-light-secondary mx-2">My Learning</h2>
+      </div>
+      <button *ngIf="button" class="btn btn-secondary py-2" [routerLink]="button.url">
+        {{ button.title }}
+      </button>
+    </div>
+    <!-- <h2 class="text-light-secondary mx-2">My Learning</h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
@@ -26,7 +33,6 @@
                   <li class="breadcrumb-item" aria-current="page">FAQ</li>
                 </ol>
               </nav> -->
-    </nav>
-
+  </nav>
 </section>
 <router-outlet></router-outlet>

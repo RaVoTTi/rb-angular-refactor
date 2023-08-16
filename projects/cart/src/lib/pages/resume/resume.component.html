@@ -3,17 +3,15 @@
 <ng-container *ngIf="(cartItems$ | async)?.length !== 0; else nothing">
   <div class="container-fluid">
     <div class="list-container">
-      <rb-card-book
+      <!-- <rb-card-book
         *ngFor="let book of cartItems$ | async"
         [book]="book"
-        (wishEmitter)="addBookToCart(book._id)"
-        [wishIcon]="isFavorite(book._id) ? 'heart-filled' : 'heart'"
-        (cartEmitter)="addBookToCart(book._id)"
-        [cartIcon]="isFavorite(book._id) ? 'heart-filled' : 'heart'"
+        (buttonEmitter)="addBookToCart(book._id)"
+        [icon]="isFavorite(book._id) ? 'heart-filled' : 'heart'"
         
         [url]="'/app/books/id/' + book._id"
       >
-      </rb-card-book>
+      </rb-card-book> -->
     </div>
   </div>
 </ng-container>

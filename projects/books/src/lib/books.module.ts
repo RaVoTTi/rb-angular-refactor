@@ -7,18 +7,17 @@ import { BooksListComponent } from './pages/books-list/books-list.component';
 import { SearchHeaderComponent } from './components/search-header/search-header.component';
 import { NgModule } from '@angular/core';
 
-import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { CartComponent } from './pages/cart/cart.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
-import { WishlistLocalService } from './services/wishlist-local.service';
 import { ReactiveFormsModule } from '@angular/forms';
-
-// import { WishlistService } from './services/wishlist.service';
+import { CartLocalService } from './services/cart-local.service';
+// import { CartService } from './services/wishlist.service';
 
 // ME
-// import { WishlistComponent } from './pages/wishlist/wishlist.component';
+// import { CartComponent } from './pages/wishlist/wishlist.component';
 // import { BooksListComponent } from './pages/books-list/books-list.component';
 // import { BookViewComponent } from './pages/book-view/book-view.component';
-// import { WishlistIconComponent } from './components/wishlist-icon/wishlist-icon.component';
+// import { CartIconComponent } from './components/wishlist-icon/wishlist-icon.component';
 // import { SearchHeaderComponent } from './components/search-header/search-header.component';
 // import { ComponentsModule } from 'projects/components/src/public-api';
 // import { BookDetailComponent } from './components/book-detail/book-detail.component';
@@ -47,8 +46,8 @@ const routes: Routes = [
   },
 
   {
-    path: 'wishlist',
-    component: WishlistComponent,
+    path: 'cart',
+    component: CartComponent,
   },
 
 ];
@@ -60,7 +59,7 @@ const routes: Routes = [
 
     BooksListComponent,
     BookViewComponent,
-    WishlistComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,
@@ -71,7 +70,7 @@ const routes: Routes = [
   ],
 })
 export class BooksModule {
-  constructor(wishlistService: WishlistLocalService) {
-    wishlistService.initWishlistLocalStorage();
+  constructor(cartService: CartLocalService) {
+    cartService.initCartLocalStorage();
   }
 }

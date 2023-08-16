@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-export const WISHLIST_KEY = 'cart';
+export const CART_KEY = 'cart';
 
 @Injectable({
   providedIn: 'root',
@@ -19,11 +19,11 @@ export class CartLocalService {
   initCartLocalStorage() {
     const oldCart = this.getCart();
     if (!oldCart) {
-      localStorage.setItem(WISHLIST_KEY, this.initCartString);
+      localStorage.setItem(CART_KEY, this.initCartString);
     }
   }
   getCart(): string[] | null {
-    const cartRaw = localStorage.getItem(WISHLIST_KEY);
+    const cartRaw = localStorage.getItem(CART_KEY);
 
     return cartRaw ? JSON.parse(cartRaw) : [];
   }
@@ -35,7 +35,7 @@ export class CartLocalService {
     if (!cart.includes(bookId)) {
       cart.push(bookId);
       const cartString = JSON.stringify(cart);
-      localStorage.setItem(WISHLIST_KEY, cartString);
+      localStorage.setItem(CART_KEY, cartString);
       this.cart$.next(cart);
     }
 
@@ -49,7 +49,7 @@ export class CartLocalService {
         cart.splice(index, 1);
       }
       const cartString = JSON.stringify(cart);
-      localStorage.setItem(WISHLIST_KEY, cartString);
+      localStorage.setItem(CART_KEY, cartString);
       this.cart$.next(cart);
     }
 
@@ -63,7 +63,7 @@ export class CartLocalService {
     return this.cart$.value?.includes(id);
   }
   emptyBookCart() {
-    localStorage.setItem(WISHLIST_KEY, this.initCartString);
+    localStorage.setItem(CART_KEY, this.initCartString);
     this.cart$.next(this.initCart);
   }
 }

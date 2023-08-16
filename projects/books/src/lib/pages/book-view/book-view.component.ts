@@ -4,12 +4,12 @@ import { BehaviorSubject, take } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { BooksService } from '../../services/books.service';
-import { WishlistLocalService } from '../../services/wishlist-local.service';
 import { environment } from 'environments/environment';
 import { IBook } from 'interfaces/public-api';
 import { LocalStorageService } from 'projects/auth-base/src/public-api';
 import { ToastrService } from 'ngx-toastr';
-import { CartHttpService, CartLocalService } from 'projects/cart/src/public-api';
+import { CartLocalService } from '../../services/cart-local.service';
+import { CartHttpService } from '../../services/cart-http.service';
 
 
 @Component({

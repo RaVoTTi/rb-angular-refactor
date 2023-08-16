@@ -8,20 +8,13 @@ import { IBook } from 'interfaces/public-api';
 })
 export class CardBookComponent {
   @Input() book!: IBook;
-  @Input() wishIcon!: string;
-  @Input() cartIcon!: string;
-
+  @Input() icon!: string;
   @Input() url!: string;
 
-  @Output() wishEmitter = new EventEmitter<void>();
-  @Output() cartEmitter = new EventEmitter<void>();
+  @Output() buttonEmitter = new EventEmitter<void>();
 
 
-
-  wishClick() {
-    this.wishEmitter.emit()
-  }
-  cartClick() {
-    this.cartEmitter.emit()
+  emitClick() {
+    this.buttonEmitter.emit()
   }
 }

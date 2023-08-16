@@ -52,12 +52,10 @@ const routes: Routes = [
       },
 
       {
-        path: 'cart',
-        // canActivate: [isLoggedInGuard],
-
-
+        path: 'checkout',
+        canActivate: [isLoggedInGuard],
         loadChildren: () =>
-          import('projects/cart/src/public-api').then((m) => m.CartModule),
+          import('projects/checkout/src/public-api').then((m) => m.CheckoutModule),
       },
       {
         path: 'settings',

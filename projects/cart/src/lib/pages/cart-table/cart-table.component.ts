@@ -1,15 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { IBook, ICart, ICartItem } from 'interfaces/public-api';
-import { CartLocalService } from '../../services/cart-local.service';
 import { BooksService } from 'projects/books/src/lib/services/books.service';
 import { BehaviorSubject, Observable, of, take } from 'rxjs';
-import { CartHttpService } from '../../services/cart-http.service';
 import { DOCUMENT } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'rb-cart-table',
-  templateUrl: './cart-table.component.html',
+  // templateUrl: './cart-table.component.html',
+  template: '',
   styleUrls: ['./cart-table.component.scss'],
 })
 export class CartTableComponent implements OnInit {
@@ -25,8 +24,8 @@ books : IBook[] | undefined
     private toastr: ToastrService,
     private booksService: BooksService,
 
-    private cartLocalService: CartLocalService,
-    private cartHttpService: CartHttpService
+    // private cartLocalService: CartLocalService,
+    // private cartHttpService: CartHttpService
   ) {}
   ngOnInit(): void {
     // this.cartHttpService.initCartByIds().subscribe();

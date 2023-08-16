@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { IBook, IResponse } from 'interfaces/public-api';
 import { BehaviorSubject, Observable, of, take, tap } from 'rxjs';
-import { WishlistLocalService } from './wishlist-local.service';
+import { CartLocalService } from './cart-local.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class WishlistHttpService {
-   wishlistHttp$: BehaviorSubject<IBook[] | undefined> = new BehaviorSubject<
+export class CartHttpService {
+   cartHttp$: BehaviorSubject<IBook[] | undefined> = new BehaviorSubject<
     IBook[] | undefined
   >(undefined);
 
@@ -17,10 +17,10 @@ export class WishlistHttpService {
 
   constructor(
     private http: HttpClient,
-    private wishlistLocalService: WishlistLocalService
+    private cartLocalService: CartLocalService
   ) {}
-  initWishlistByIds(): Observable<IResponse<IBook[]> | []> {
-    const ids = this.wishlistLocalService.getWishlist() ?? [];
+  initCartByIds(): Observable<IResponse<IBook[]> | []> {
+    const ids = this.cartLocalService.getCart() ?? [];
     
     let queryIds = '';
 
@@ -30,21 +30,21 @@ export class WishlistHttpService {
         .get<IResponse<IBook[]>>(`${this.API_URL}/book/ids?${queryIds}`)
         .pipe(
           tap(({ result }) => {
-            this.wishlistHttp$.next(result);
+            this.cartHttp$.next(result);
           })
         );
     }
-    this.wishlistLocalService.emptyBookWishlist()
+    this.cartLocalService.emptyBookCart()
     return of([])
   }
 
-  // this.initWishlistByIds().subscribe( ({result}) => {
+  // this.initCartByIds().subscribe( ({result}) => {
   // })
 
-  deleteItemWishlist(id: string) {
-    const newWishlist = this.wishlistHttp$.value?.filter(
+  deleteItemCart(id: string) {
+    const newCart = this.cartHttp$.value?.filter(
       (book) => book._id !== id
     );
-    this.wishlistHttp$.next(newWishlist);
+    this.cartHttp$.next(newCart);
   }
 }

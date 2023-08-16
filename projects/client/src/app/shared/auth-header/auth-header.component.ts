@@ -37,14 +37,14 @@ export class AuthHeaderComponent {
     },
     {
       title: 'Cart',
-      url: '/app/cart',
+      url: '/app/books/cart',
       icon: 'shopping-cart'
     },
-    {
-      title: 'Wishlist',
-      url: '/app/books/wishlist',
-      icon: 'heart'
-    },
+    // {
+    //   title: 'Wishlist',
+    //   url: '/app/books/wishlist',
+    //   icon: 'heart'
+    // },
     {
       title: 'My Orders',
       url: '/app/myorders',
@@ -68,11 +68,11 @@ export class AuthHeaderComponent {
       url: '/app/settings',
       icon: 'user'
     },
-    {
-      title: 'Wishlist',
-      url: '/app/books/wishlist',
-      icon: 'heart'
-    },
+    // {
+    //   title: 'Wishlist',
+    //   url: '/app/books/wishlist',
+    //   icon: 'heart'
+    // },
     {
       title: 'My Orders',
       url: '/app/myorders',

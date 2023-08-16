@@ -22,6 +22,7 @@
         "dist/cart"
       ],
       "checkout": [
+        "dist/checkout",
         "dist/checkout"
       ],
       "components": [

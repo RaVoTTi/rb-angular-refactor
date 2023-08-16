@@ -1,5 +1,10 @@
 import { Component, Input } from '@angular/core';
 
+interface IButton {
+  url: string,
+  title: string
+}
+
 @Component({
   selector: 'rb-sub-header',
   templateUrl: './sub-header.component.html',
@@ -8,5 +13,6 @@ import { Component, Input } from '@angular/core';
 export class SubHeaderComponent {
  @Input() title:string = '' 
  @Input() subtitle:string = '' 
+ @Input() button?: IButton;
 
 }
