@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 import { IResponse } from 'interfaces/IResponse';
 import { IStripe } from 'interfaces/IStripe';
-import { Observable } from 'rxjs';
+import { Observable, lastValueFrom, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +12,11 @@ export class CheckoutService {
   API_URL = environment.API_URL;
 
   constructor(private http: HttpClient) {}
-  buyCart(ids: string[]): Observable<IResponse<IStripe>> {
-    return this.http.post<IResponse<IStripe>>(
-      `${this.API_URL}/myorder/placeorder`,
+  async buyCart(ids: string[]): Promise<IResponse<IStripe>> {
+    const request$ =  this.http.post<IResponse<IStripe>>(
+      `${this.API_URL}/myorder/session`,
       { ids }
-    );
+    ).pipe(take(1));
+    return await lastValueFrom<IResponse<IStripe>>(request$);
   }
 }

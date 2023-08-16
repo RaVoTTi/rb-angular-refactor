@@ -22,7 +22,7 @@ export class CartLocalService {
       localStorage.setItem(CART_KEY, this.initCartString);
     }
   }
-  getCart(): string[] | null {
+  getCart(): string[] {
     const cartRaw = localStorage.getItem(CART_KEY);
 
     return cartRaw ? JSON.parse(cartRaw) : [];

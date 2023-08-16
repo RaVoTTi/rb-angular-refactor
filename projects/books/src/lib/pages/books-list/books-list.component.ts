@@ -2,10 +2,10 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { IBook } from 'interfaces/public-api';
 import { BehaviorSubject, take } from 'rxjs';
 import { BooksService } from '../../services/books.service';
-import { CartLocalService, } from '../../services/cart-local.service';
-import { CartHttpService } from '../../services/cart-http.service';
+
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { CartHttpService, CartLocalService } from 'projects/utils/src/public-api';
 
 @Component({
   selector: 'rb-books-list',
@@ -76,9 +76,18 @@ export class BooksListComponent implements OnInit{
       this.books = this.books?.filter(book =>
         book.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
+
     }
+
     else{
       this.books = this.allBooks
+    }
+
+
+    if(!this.books?.length){
+        this.toastr.warning('Book not found','404')
+        this.books = this.allBooks
+
     }
 
   }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IBook } from 'interfaces/IBook';
+import { CartHttpService, CartLocalService } from 'projects/utils/src/public-api';
 import { BehaviorSubject } from 'rxjs';
-import { CartHttpService } from '../../services/cart-http.service';
-import { CartLocalService } from '../../services/cart-local.service';
 
 @Component({
   selector: 'rb-cart',
@@ -24,6 +23,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartHttpService.initCartByIds().subscribe();
     this.cartItems$ = this.cartHttpService.cartHttp$;
+
   }
   // isFavorite(id: string): boolean {
   //   return !!this.cartLocalService.isFavorite(id)
@@ -48,5 +48,6 @@ export class CartComponent implements OnInit {
       this.cartHttpService.deleteItemCart(id);
     }
   }
+
 
 }

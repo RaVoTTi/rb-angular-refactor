@@ -10,7 +10,7 @@ import { NgModule } from '@angular/core';
 import { CartComponent } from './pages/cart/cart.component';
 import { ComponentsModule } from 'projects/components/src/public-api';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CartLocalService } from './services/cart-local.service';
+import { CartLocalService } from 'projects/utils/src/public-api';
 // import { CartService } from './services/wishlist.service';
 
 // ME

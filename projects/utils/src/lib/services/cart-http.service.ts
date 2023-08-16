@@ -12,6 +12,7 @@ export class CartHttpService {
    cartHttp$: BehaviorSubject<IBook[] | undefined> = new BehaviorSubject<
     IBook[] | undefined
   >(undefined);
+  cartPrice$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   API_URL = environment.API_URL;
 
@@ -31,6 +32,12 @@ export class CartHttpService {
         .pipe(
           tap(({ result }) => {
             this.cartHttp$.next(result);
+            let counter: number = 0;
+            this.cartHttp$.value?.forEach(({ price }) => {
+              counter += price;
+            });
+
+            this.cartPrice$.next(counter);
           })
         );
     }
@@ -46,5 +53,15 @@ export class CartHttpService {
       (book) => book._id !== id
     );
     this.cartHttp$.next(newCart);
+    let counter: number = 0;
+    this.cartHttp$.value?.forEach(({ price }) => {
+      counter += price;
+    });
+
+    this.cartPrice$.next(counter);
+
+  }
+  emptyBookHttpCart() {
+    this.cartHttp$.next([]);
   }
 }

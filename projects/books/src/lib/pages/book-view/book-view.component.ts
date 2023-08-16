@@ -8,8 +8,8 @@ import { environment } from 'environments/environment';
 import { IBook } from 'interfaces/public-api';
 import { LocalStorageService } from 'projects/auth-base/src/public-api';
 import { ToastrService } from 'ngx-toastr';
-import { CartLocalService } from '../../services/cart-local.service';
-import { CartHttpService } from '../../services/cart-http.service';
+import { CartHttpService, CartLocalService } from 'projects/utils/src/public-api';
+
 
 
 @Component({
@@ -52,23 +52,41 @@ export class BookViewComponent implements OnInit {
       }
     });
   }
+  isFavorite(id: string): boolean {
+    return this.cartLocalService.isFavorite(id)
+  }
 
+  addBookToCart(id: string) {
+    // console.log('valentin')
+    //  isFavorite(id)
+    let isFavorite = this.isFavorite(id)
+    
+    if (isFavorite === false) {
+      this.toastr.success('Add to cart succesfully','201')
+
+      isFavorite = true;
+      this.cartLocalService.setBookCart(id);
+    } else {
+      this.toastr.success('Remove to cart succesfully','201')
+      isFavorite = false;
+      this.cartLocalService.deleteBookCart(id);
+      this.cartHttpService.deleteItemCart(id);
+    }
+  }
   buyNow() {
-    //! FIX IT, it doesn't work without auth
-    // this.cartLocalService.emptyBookCart()
-    // this.cartLocalService.setBookCart(this.bookId)
-    // this.cartHttpService.emptyBookHttpCart()
-    this.router.navigateByUrl('/app/cart').finally(()=> {
-    });
+    this.cartLocalService.emptyBookCart()
+    this.cartLocalService.setBookCart(this.bookId)
+    this.cartHttpService.emptyBookHttpCart()
+    this.router.navigateByUrl('/app/books/cart')
 
   }
 
 
 
 
-  AddToCart() {
-    this.toastr.success('Add to cart succesfully','201')
-    this.cartLocalService.setBookCart(this.bookId)
+  buyCart() {
+    this.router.navigateByUrl('/app/books/cart');
+
 
   }
 

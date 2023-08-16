@@ -14,6 +14,7 @@ import { ToastrComponent } from './toastr/toastr.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NothingComponent } from './nothing/nothing.component';
+import { CardNothingComponent } from './card-nothing/card-nothing.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NothingComponent } from './nothing/nothing.component';
     PreloaderComponent,
     ToastrComponent,
     NothingComponent,
+    CardNothingComponent,
   ],
   imports: [
     RouterModule,
@@ -37,6 +39,7 @@ import { NothingComponent } from './nothing/nothing.component';
     FooterComponent,
     CardBookComponent,
     NothingComponent,
+    CardNothingComponent,
 
     ImgComponent,
     BreadcrumbsComponent,

@@ -9,6 +9,9 @@ export * from './lib/interceptors/retry.interceptor'
 
 
 export * from './lib/services/loading.service'
+export * from './lib/services/cart-http.service'
+export * from './lib/services/cart-local.service'
+
 
 
 

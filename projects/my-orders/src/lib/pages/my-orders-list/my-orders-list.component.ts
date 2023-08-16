@@ -26,7 +26,7 @@ export class MyOrdersListComponent implements OnInit {
       .pipe(take(1))
       .subscribe(({ result }) => {
         if (result) {
-          this.orders = result ?? []
+          this.orders = result.reverse() ?? []
 
         }
       });

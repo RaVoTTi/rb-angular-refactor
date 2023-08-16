@@ -1,3 +1,4 @@
+
 <rb-sub-header
   [title]="book ? (book.name | titlecase) : ''"
   subtitle="Books"
@@ -13,8 +14,18 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="shop-content">
+          <div>
             <div class="d-flex align-items-center gap-2 mb-2">
+
+              <i
+              class="icon-cart ti ti-basket-filled font fs-8 text-dark"
+              title="To Cart"
+              [ngClass]="
+                isFavorite(book._id) ? 'ti-basket-filled' : 'ti-shopping-cart'
+              "
+              (click)="addBookToCart(book._id)"
+
+            ></i>
               <span class="badge text-bg-primary fs-2 fw-semibold rounded-3"
                 >In Stock</span
               >
@@ -22,11 +33,19 @@
             </div>
             <h4 class="fw-semibold">{{ book.name | titlecase }}</h4>
             <p class="mb-3">By {{ book.autor.name | titlecase }}</p>
-            <h4 class="fw-semibold mb-4 pb-4 border-bottom">
-              <!-- <del class="fs-5 text-muted">$350</del> $275 -->
-              {{ book.price | currency }}
-            </h4>
-            <div class="d-flex align-items-center gap-8 pb-4 border-bottom">
+            <div
+              class="d-flex align-items-center border-bottom mb-4 pb-4 justify-content-between"
+            >
+              <h4 class="fw-semibold">
+                <!-- <del class="fs-5 text-muted">$350</del> $275 -->
+                {{ book.price | currency }}
+              </h4>
+
+
+            </div>
+            <div
+              class="d-flex align-items-center pb-4 border-bottom justify-content-between"
+            >
               <ul class="list-unstyled d-flex align-items-center mb-0">
                 <h6 class="mb-0 me-1 fs-4 fw-semibold">Calification:</h6>
 
@@ -53,11 +72,11 @@
                 <li>
                   <a class=""><i class="ti ti-star text-warning fs-4"></i></a>
                 </li>
+                <a class="ms-2">(236 reviews)</a>
               </ul>
-              <a>(236 reviews)</a>
             </div>
 
-            <div class="d-sm-flex align-items-center gap-3 pt-8 mb-7">
+            <div class="d-sm-flex align-items-center gap-3 pt-8 mb-7 mt-2">
               <button
                 (click)="buyNow()"
                 class="btn d-block btn-primary fw-semibold px-5 py-3 mb-2 mb-sm-0"
@@ -65,14 +84,17 @@
                 Buy Now
               </button>
               <button
-                (click)="AddToCart()"
+                (click)="buyCart()"
                 class="btn d-block fw-semibold btn-outline-primary px-7 py-3"
               >
-                Add to Cart
+                Buy Cart
               </button>
             </div>
             <p class="mb-0">Dispatched instantly</p>
-            <a>Why the longer time for delivery? Because it is a summarized E-Book</a>
+            <a
+              >Why the longer time for delivery? Because it is a summarized
+              E-Book</a
+            >
           </div>
         </div>
       </div>

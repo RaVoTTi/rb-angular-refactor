@@ -1,13 +1,9 @@
-<rb-sub-header title="Cart" subtitle="books"></rb-sub-header>
+<rb-sub-header title="Checkout" subtitle="books"></rb-sub-header>
 <div class="checkout container-fluid">
   <div class="card shadow-none border mt-3">
     <div class="card-body p-4">
       <div class="wizard-content">
-        <form class="tab-wizard wizard-circle wizard clearfix" >
-          <div class="content clearfix">
-            <!-- Step 1 -->
-            <section id="steps-uid-0-p-0" role="tabpanel" aria-labelledby="steps-uid-0-h-0" class="body current"
-              aria-hidden="false">
+
               <div class="table-responsive">
                 <table class="table align-middle text-nowrap mb-0">
                   <thead class="fs-4">
@@ -17,18 +13,28 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <ng-container *ngIf="(cartItems$ | async)!.length > 0; else nothing">
-
+                    <ng-container
+                      *ngIf="(cartItems$ | async)!.length > 0; else nothing"
+                    >
                       <tr *ngFor="let item of cartItems$ | async">
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-3">
-                            <img [src]="item.image" alt="" class="img-fluid rounded" width="80" />
+                            <img
+                              [src]="item.image"
+                              alt=""
+                              class="img-fluid rounded"
+                              width="80"
+                            />
                             <div>
                               <h6 class="fw-semibold fs-4 mb-0">
                                 {{ item.name | titlecase }}
                               </h6>
-                              <p class="mb-0">{{item.subject.name}}</p>
-                              <!-- <a (click)="deleteItem(item._id)" class="text-danger fs-4"><i class="ti ti-trash"></i></a> -->
+                              <p class="mb-0">{{ item.subject.name }}</p>
+                              <a
+                                (click)="deleteItem(item._id)"
+                                class="text-danger fs-4"
+                                ><i class="ti ti-trash"></i
+                              ></a>
                             </div>
                           </div>
                         </td>
@@ -42,14 +48,15 @@
                     <ng-template #nothing>
                       <tr>
                         <td colspan="2">
-                          <div class="d-flex align-items-center justify-content-center p-4">
+                          <div
+                            class="d-flex align-items-center justify-content-center p-4"
+                          >
                             <i class="fs-10 ti ti-bow"></i>
-                            <h5 class="ms-3"> Nothing Here</h5>
+                            <h5 class="ms-3">Nothing Here</h5>
                           </div>
                         </td>
                       </tr>
                     </ng-template>
-
                   </tbody>
                 </table>
               </div>
@@ -80,21 +87,17 @@
                   </div>
                 </div>
               </div>
-            </section>
-
-
           </div>
           <div class="d-flex justify-content-end">
-            <!-- <button (click)="goToPayment()"
-              class="btn btn-primary fw-semibold py-4 rounded-2 align-self-end">Go to Payment</button> -->
-          </div>
-        </form>
+            <button
+              (click)="goToPayment()"
+              class="btn btn-primary fw-semibold py-4 rounded-2 align-self-end"
+              [disabled]="disabled()"
+              >
+              Go to Payment
+            </button>
+ 
       </div>
-      <!-- <div class="text-center my-4">
-           <img src="../../assets/images/products/empty-shopping-bag.gif" alt="" class="img-fluid" width="200">
-           <h5 class="mb-3 fw-semibold fs-5">Cart is Empty</h5>
-           <a href="./shop.html" class="btn btn-primary">Go back to Shopping</a>
-         </div> -->
     </div>
   </div>
 </div>
