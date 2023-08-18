@@ -72,12 +72,8 @@ export class CheckoutComponent {
         setTimeout(() => {
           this.loadingService.show();
         }, 5000);
-        throw Error;
       })
-      .catch((err) => {
-        this.router.navigateByUrl('/app/books/cart');
-        this.toastr.error('Something Happend', '500');
-      });
+
   }
   setTimeout(arg0: () => void, arg1: number) {
     throw new Error('Method not implemented.');
