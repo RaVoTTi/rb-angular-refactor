@@ -18,6 +18,8 @@ export * from './ICart';
 export * from './ICashback';
 export * from './IChangePassword';
 export * from './IMap';
+export * from './IError';
+
 
 
 

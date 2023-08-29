@@ -5,7 +5,7 @@
     <div class="position-relative z-index-5">
       <div class="row">
         <div class="col-xl-7 col-xxl-8">
-          <a routerLink="/app/books" class="text-nowrap logo-img d-block px-4 pt-3 w-100">
+          <a routerLink="/app/books" class="d-none d-xl-block text-nowrap logo-img d-block px-4 pt-3 pb-3 w-100">
             <img src="assets/rb/logo-header.svg" width="180" alt="">
           </a>
           <div class="d-none d-xl-flex align-items-center justify-content-center" style="height: calc(100vh - 80px);">
@@ -13,9 +13,12 @@
           </div>
         </div>
   
-        <div class="col-xl-5 col-xxl-4">
+        <div class="col-xl-5 col-xxl-4 " ngClass="" style="height: 100vh;">
           <router-outlet></router-outlet>
         </div>
+        <!-- <div class="col-xl-5 col-xxl-4 " style="height: calc(100vh );">
+          <router-outlet></router-outlet>
+        </div> -->
       </div>
     </div>
     

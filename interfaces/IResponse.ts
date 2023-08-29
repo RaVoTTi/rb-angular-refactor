@@ -1,4 +1,3 @@
-export * from './ISubject';
 
 export interface IResponse<G = void> {
   ok: boolean;
