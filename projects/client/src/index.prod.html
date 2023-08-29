@@ -18,10 +18,12 @@
       content="default-src 'none';
     frame-src 'self' https://js.stripe.com/;
   script-src 'self' https://js.stripe.com/v3/;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/  ;
-  font-src 'self' 'unsafe-inline' https://fonts.gstatic.com/ ;
-  img-src 'self' https://res.cloudinary.com/;
-  connect-src 'self' http://localhost:8080/;"
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/;
+  font-src 'self' 'unsafe-inline' https://fonts.gstatic.com/;
+  img-src 'self' https://robinboook.com/ https://res.cloudinary.com/ data:;
+  connect-src 'self';
+  script-src-attr 'unsafe-inline';
+  "
     />
 
     <link rel="shortcut icon" type="image/png" href="assets/rb/favicon.svg" />

@@ -8,12 +8,12 @@ import {
 } from 'projects/auth-base/src/public-api';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { tap } from 'rxjs';
+import { IError } from 'interfaces/IError';
 
 @Component({
   selector: 'lib-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   loginForm!: FormGroup;
@@ -40,18 +40,31 @@ export class LoginComponent {
 
     this.authBaseService
       .postLogin({ email, password })
-      .subscribe((response) => {
-        if (this.loginForm.get('remember')?.value) {
-          localStorage.setItem('email', this.loginForm.get('email')?.value)
-        } else {
-          localStorage.removeItem('email')
+      .subscribe({
+        next: (response) => {
+          if (this.loginForm.get('remember')?.value) {
+            localStorage.setItem('email', this.loginForm.get('email')?.value)
+          } else {
+            localStorage.removeItem('email')
+          }
+
+          if (response.token) {
+            this.localStorageService.setToken(response.token);
+            this.router.navigate(['/app/books']);
+          }
+
+        },
+        error: (error: IError) => {
+
+          const msg = error?.error?.msg
+
+          if (msg === "Please confirm your email to login") {
+            this.router.navigateByUrl('/auth/resend',
+              { state: { email } })
+          }
         }
 
-        if (response.token) {
-          this.localStorageService.setToken(response.token);
-          this.router.navigate(['/app/books']);
-        }
-      });
+      })
     setTimeout(() => {
       this.loginForm.enable()
       this.loginForm.patchValue({

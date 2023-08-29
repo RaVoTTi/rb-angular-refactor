@@ -5,6 +5,8 @@ import { Observable } from "rxjs";
 @Component({
   selector: 'lib-auth-view',
   templateUrl: './auth-view.component.html',
+  styleUrls: ['./auth-view.component.scss'],
+
 })
 export class AuthViewComponent  {
   isLoading$! : Observable<boolean>
