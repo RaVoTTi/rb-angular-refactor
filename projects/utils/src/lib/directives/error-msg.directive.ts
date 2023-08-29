@@ -24,6 +24,7 @@ export class ErrorMsgDirective implements AfterViewInit {
       'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and one symbol. [!,@,#,$,%,^,&,*]',
     required: 'This field is required.',
     mismatch: 'Passwords do not match.',
+    referredBy: 'The referral code must be no more than 12 characters.',
     equalTo: 'Please enter the correct option',
     invalid: 'It is incorrect',
     minlength: 'Minimum length must be {{ requiredLength }} characters.',
@@ -69,6 +70,8 @@ export class ErrorMsgDirective implements AfterViewInit {
     firstName: 'First name is valid.',
     lastName: 'Last name is valid.',
     age: 'Age is valid.',
+    referredBy: 'The referral code .',
+
     address: 'Address is valid.',
     city: 'City is valid.',
     country: 'Country is valid.',

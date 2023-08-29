@@ -22,8 +22,8 @@ export class ValidatorsService {
     name: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{4,25}$/,
     minMax: /^.{2,4}$/,
     phone: /^[0-9]{9,15}$/,
-
-    'USDT (TRC20)': /^T[A-Za-z1-9]{33}$/,
+    referredBy: /^[a-zA-Z0-9_-]{0,12}$/,
+    'USDT (TRC20)': /^ T[A - Za - z1 - 9]{ 33 } $ /,
     BTC: /^(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,39}$/,
     ETH: /^0x[a-fA-F0-9]{40}$/,
     XRP: /^r[0-9a-zA-Z]{24,34}$/,
@@ -55,6 +55,22 @@ export class ValidatorsService {
       }
       formGroup.get(camp2)?.setErrors(null);
       return null;
+    };
+  }
+  validateReferralCode(){
+    return (formControl: AbstractControl): ValidationErrors | null => {
+      const value = formControl?.value;
+      const regExp = this.pats['referredBy'];
+      if (typeof value === 'string' && !regExp.test(value) && value.length > 0) {
+        formControl.setErrors({ ['referredBy']: true });
+
+        return {
+          ['referredBy']: true,
+        };
+      } else {
+        formControl.setErrors(null);
+        return null;
+      }
     };
   }
   isNotIn(array: string[]) {

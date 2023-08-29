@@ -26,24 +26,29 @@ export class SignupComponent {
       this.signUpForm.markAllAsTouched();
       return;
     }
-    const user = this.signUpForm.value as IRegister
+
+    const { referredBy, ...rest } = this.signUpForm.value as IRegister
+    const user = {
+      ...rest,
+      ...((referredBy?.length === 12) ? { referredBy } : {}),
+
+    }
+
+      this.authBaseService
+        .postSignUp(user).subscribe((response) => {
+
+          if (response.ok) {
+            const email = this.signUpForm.get('email')?.value
+            this.router.navigateByUrl('/auth/resend',
+              { state: { email } }
+            );
+          } else {
+            this.router.navigate(['/auth/login/']);
+
+          }
+        })
 
 
-    this.authBaseService
-      .postSignUp(user).subscribe((response) => {
-
-        if (response.ok) {
-          const email = this.signUpForm.get('email')?.value
-          this.router.navigateByUrl('/auth/resend',
-          { state: { email } }
-        );
-        } else {
-          this.router.navigate(['/auth/login/']);
-
-        }
-      })
-
-    
 
   }
   private _initForm() {
@@ -59,6 +64,8 @@ export class SignupComponent {
         ],
         password2: ['', [Validators.required, this.vs.validatePat('password')]],
         terms: [false, [Validators.required, Validators.requiredTrue]],
+        referredBy: [''],
+
       },
       {
         validators: [this.vs.passwordMismatch('password', 'password2')],

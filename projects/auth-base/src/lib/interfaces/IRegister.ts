@@ -3,5 +3,6 @@ export interface IRegister {
   lastName: string;
   email: string;
   phone: number;
-  password:string
+  password:string;
+  referredBy?: string
 }

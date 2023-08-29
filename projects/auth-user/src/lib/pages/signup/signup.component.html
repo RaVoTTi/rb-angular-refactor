@@ -1,43 +1,53 @@
-<div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
+<div class="authentication-login h-100 bg-body row justify-content-center align-items-center p-4">
   <div class="col-sm-8 col-md-6 col-xl-9">
-    <h2 class="mb-3 fs-7 fw-bolder">Welcome to Robin Boook</h2>
-    <p class="mb-8">Your Literary Companion</p>
+    <a routerLink="/app/books" class=" text-nowrap logo-img d-block ms-n2 w-100 mb-3">
+      <img src="assets/rb/logo-header.svg" width="180" alt="">
+    </a>
+    <!-- <h2 class="mb-3 fs-7 fw-bolder">Welcome to Robin Boook</h2> -->
+    <!-- <p class="mb-8">Your Literary Companion</p> -->
 
     <form [formGroup]="signUpForm" (submit)="signUp()">
       <div class="mb-3" [errorMsg]="signUpForm.controls['name']">
-        <label for="exampleInputEmail1" class="form-label">Name</label>
-        <input type="text" formControlName="name" class="form-control" id="exampleInputtext"
+        <label for="InputName" class="form-label">Name</label>
+        <input type="text" formControlName="name" class="form-control" id="InputName"
           aria-describedby="textHelp" />
         <div></div>
       </div>
 
       <div class="mb-3" [errorMsg]="signUpForm.controls['lastName']">
-        <label for="exampleInputEmail1" class="form-label">LastName</label>
-        <input type="text" formControlName="lastName" class="form-control" id="exampleInputtext"
+        <label for="inputLastName" class="form-label">LastName</label>
+        <input type="text" formControlName="lastName" class="form-control" id="inputLastName"
           aria-describedby="textHelp" />
         <div></div>
       </div>
       <div class="mb-3" [errorMsg]="signUpForm.controls['email']">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+        <label for="inputEmail" class="form-label">Email address</label>
+        <input type="email" formControlName="email" class="form-control" id="inputEmail"
           aria-describedby="emailHelp" />
         <div></div>
       </div>
       <div class="mb-3" [errorMsg]="signUpForm.controls['phone']">
-        <label for="exampleInputPhone1" class="form-label">Phone</label>
-        <input type="number" formControlName="phone" class="form-control" id="exampleInputPhone1"
+        <label for="inputPhone" class="form-label">Phone</label>
+        <input type="number" formControlName="phone" class="form-control" id="inputPhone"
           aria-describedby="phoneHelp" />
         <div></div>
       </div>
       <div class="mb-3" [errorMsg]="signUpForm.controls['password']">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" />
+        <label for="inputPassword1" class="form-label">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="inputPassword1" />
         <div></div>
       </div>
       <div class="mb-3" [errorMsg]="signUpForm.controls['password2']">
-        <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
-        <input type="password" formControlName="password2" class="form-control" id="exampleInputPassword2" />
+        <label for="inputPassword2" class="form-label">Confirm Password</label>
+        <input type="password" formControlName="password2" class="form-control" id="inputPassword2" />
         <div></div>
+      </div>
+
+
+      <div class="mb-3"  [errorMsg]="signUpForm.controls['referredBy']">
+        <label for="inputReferrred" class="form-label" >Referral Code</label>
+        <input type="text" id="ReferralID" formControlName="referredBy" class="form-control" 
+          aria-describedby="ReferrredHelp" placeholder="Optional" />
       </div>
       <div class="d-flex align-items-center justify-content-between mb-4">
         <div>

@@ -1,8 +1,4 @@
-
-<rb-sub-header
-  [title]="book ? (book.name | titlecase) : ''"
-  subtitle="Books"
-></rb-sub-header>
+<rb-sub-header [title]="book ? (book.name | titlecase) : ''" subtitle="Books"></rb-sub-header>
 
 <div class="container-fluid">
   <div class="card shadow-none border my-3">
@@ -15,9 +11,15 @@
         </div>
         <div class="col-lg-6">
           <div>
-            <div class="d-flex align-items-center gap-2 mb-2">
 
-              <i
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <button type="button"
+                class="btn mb-1 btn-light-primary btn-circle btn-md d-inline-flex align-items-center justify-content-center">
+                <i class="icon-cart ti font fs-8 text-primary " title="To Cart" [ngClass]="
+                  isFavorite(book._id) ? 'ti-basket-filled' : 'ti-shopping-cart'
+                " (click)="addBookToCart(book._id)"></i>
+              </button>
+              <!-- <i
               class="icon-cart ti ti-basket-filled font fs-8 text-dark"
               title="To Cart"
               [ngClass]="
@@ -25,17 +27,13 @@
               "
               (click)="addBookToCart(book._id)"
 
-            ></i>
-              <span class="badge text-bg-primary fs-2 fw-semibold rounded-3"
-                >In Stock</span
-              >
+            ></i> -->
+              <span class="badge text-bg-primary fs-2 fw-semibold rounded-3">In Stock</span>
               <span class="fs-2">{{ book.subject.name | uppercase }}</span>
             </div>
             <h4 class="fw-semibold">{{ book.name | titlecase }}</h4>
             <p class="mb-3">By {{ book.autor.name | titlecase }}</p>
-            <div
-              class="d-flex align-items-center border-bottom mb-4 pb-4 justify-content-between"
-            >
+            <div class="d-flex align-items-center border-bottom mb-4 pb-4 justify-content-between">
               <h4 class="fw-semibold">
                 <!-- <del class="fs-5 text-muted">$350</del> $275 -->
                 {{ book.price | currency }}
@@ -43,31 +41,21 @@
 
 
             </div>
-            <div
-              class="d-flex align-items-center pb-4 border-bottom justify-content-between"
-            >
+            <div class="d-flex align-items-center pb-4 border-bottom justify-content-between">
               <ul class="list-unstyled d-flex align-items-center mb-0">
                 <h6 class="mb-0 me-1 fs-4 fw-semibold">Calification:</h6>
 
                 <li>
-                  <a class="me-1"
-                    ><i class="ti ti-star text-warning fs-4"></i
-                  ></a>
+                  <a class="me-1"><i class="ti ti-star text-warning fs-4"></i></a>
                 </li>
                 <li>
-                  <a class="me-1"
-                    ><i class="ti ti-star text-warning fs-4"></i
-                  ></a>
+                  <a class="me-1"><i class="ti ti-star text-warning fs-4"></i></a>
                 </li>
                 <li>
-                  <a class="me-1"
-                    ><i class="ti ti-star text-warning fs-4"></i
-                  ></a>
+                  <a class="me-1"><i class="ti ti-star text-warning fs-4"></i></a>
                 </li>
                 <li>
-                  <a class="me-1"
-                    ><i class="ti ti-star text-warning fs-4"></i
-                  ></a>
+                  <a class="me-1"><i class="ti ti-star text-warning fs-4"></i></a>
                 </li>
                 <li>
                   <a class=""><i class="ti ti-star text-warning fs-4"></i></a>
@@ -77,24 +65,16 @@
             </div>
 
             <div class="d-sm-flex align-items-center gap-3 pt-8 mb-7 mt-2">
-              <button
-                (click)="buyNow()"
-                class="btn d-block btn-primary fw-semibold px-5 py-3 mb-2 mb-sm-0"
-              >
+              <button (click)="buyNow()" class="btn d-block btn-primary fw-semibold px-5 py-3 mb-2 mb-sm-0">
                 Buy Now
               </button>
-              <button
-                (click)="buyCart()"
-                class="btn d-block fw-semibold btn-outline-primary px-7 py-3"
-              >
+              <button (click)="buyCart()" class="btn d-block fw-semibold btn-outline-primary px-7 py-3">
                 Buy Cart
               </button>
             </div>
             <p class="mb-0">Dispatched instantly</p>
-            <a
-              >Why the longer time for delivery? Because it is a summarized
-              E-Book</a
-            >
+            <a>Why the longer time for delivery? Because it is a summarized
+              E-Book</a>
           </div>
         </div>
       </div>
@@ -102,22 +82,12 @@
   </div>
   <div class="card shadow-none border my-3">
     <div class="card-body p-4">
-      <ul
-        class="nav nav-pills user-profile-tab border-bottom"
-        id="pills-tab"
-        role="tablist"
-      >
+      <ul class="nav nav-pills user-profile-tab border-bottom" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
           <button
             class="nav-link position-relative rounded-0 active d-flex align-items-center justify-content-center bg-transparent fs-3 py-6"
-            id="pills-description-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-description"
-            type="button"
-            role="tab"
-            aria-controls="pills-description"
-            aria-selected="true"
-          >
+            id="pills-description-tab" data-bs-toggle="pill" data-bs-target="#pills-description" type="button"
+            role="tab" aria-controls="pills-description" aria-selected="true">
             Description
           </button>
         </li>
@@ -138,13 +108,8 @@
         </li> -->
       </ul>
       <div class="tab-content pt-4" id="pills-tabContent">
-        <div
-          class="tab-pane fade show active"
-          id="pills-description"
-          role="tabpanel"
-          aria-labelledby="pills-description-tab"
-          tabindex="0"
-        >
+        <div class="tab-pane fade show active" id="pills-description" role="tabpanel"
+          aria-labelledby="pills-description-tab" tabindex="0">
           <h5 class="fs-5 fw-semibold mb-7">
             {{ book.name | titlecase }}
           </h5>
