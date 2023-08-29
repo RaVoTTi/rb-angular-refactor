@@ -1,0 +1,103 @@
+<rb-sub-header title="Checkout" subtitle="books"></rb-sub-header>
+<div class="checkout container-fluid">
+  <div class="card shadow-none border mt-3">
+    <div class="card-body p-4">
+      <div class="wizard-content">
+
+              <div class="table-responsive">
+                <table class="table align-middle text-nowrap mb-0">
+                  <thead class="fs-4">
+                    <tr>
+                      <th>Product</th>
+                      <th class="text-end">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container
+                      *ngIf="(cartItems$ | async)!.length > 0; else nothing"
+                    >
+                      <tr *ngFor="let item of cartItems$ | async">
+                        <td class="border-bottom-0">
+                          <div class="d-flex align-items-center gap-3">
+                            <img
+                              [src]="item.image"
+                              alt=""
+                              class="img-fluid rounded"
+                              width="80"
+                            />
+                            <div>
+                              <h6 class="fw-semibold fs-4 mb-0">
+                                {{ item.name | titlecase }}
+                              </h6>
+                              <p class="mb-0">{{ item.subject.name }}</p>
+                              <a
+                                (click)="deleteItem(item._id)"
+                                class="text-danger fs-4"
+                                ><i class="ti ti-trash"></i
+                              ></a>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="text-end border-bottom-0">
+                          <h6 class="fs-4 fw-semibold mb-0">
+                            {{ item.price | currency }}
+                          </h6>
+                        </td>
+                      </tr>
+                    </ng-container>
+                    <ng-template #nothing>
+                      <tr>
+                        <td colspan="2">
+                          <div
+                            class="d-flex align-items-center justify-content-center p-4"
+                          >
+                            <i class="fs-10 ti ti-bow"></i>
+                            <h5 class="ms-3">Nothing Here</h5>
+                          </div>
+                        </td>
+                      </tr>
+                    </ng-template>
+                  </tbody>
+                </table>
+              </div>
+              <div class="order-summary border rounded p-4 my-4">
+                <div class="p-3">
+                  <h5 class="fs-5 fw-semibold mb-4">Order Summary</h5>
+                  <div class="d-flex justify-content-between mb-4">
+                    <p class="mb-0 fs-4">Sub Total</p>
+                    <h6 class="mb-0 fs-4 fw-semibold">
+                      {{ cartPrice$ | async | currency }}
+                    </h6>
+                  </div>
+                  <div class="d-flex justify-content-between mb-4">
+                    <p class="mb-0 fs-4">Discount 0%</p>
+                    <h6 class="mb-0 fs-4 fw-semibold text-danger">
+                      -{{ 0 | currency }}
+                    </h6>
+                  </div>
+                  <div class="d-flex justify-content-between mb-4">
+                    <p class="mb-0 fs-4">Shipping</p>
+                    <h6 class="mb-0 fs-4 fw-semibold">Free</h6>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <h6 class="mb-0 fs-4 fw-semibold">Total</h6>
+                    <h6 class="mb-0 fs-5 fw-semibold">
+                      {{ cartPrice$ | async | currency }}
+                    </h6>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button
+              (click)="goToPayment()"
+              class="btn btn-primary fw-semibold py-4 rounded-2 align-self-end"
+              [disabled]="disabled()"
+              >
+              Go to Payment
+            </button>
+ 
+      </div>
+    </div>
+  </div>
+</div>
