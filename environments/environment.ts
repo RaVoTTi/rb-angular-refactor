@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   API_URL: 'http://localhost:8080/api/v1',
-  RAW_URL: 'http://localhost:8080',
+  FRONT_URL: 'http://localhost:4200',
   TOKEN: 'super-token',
   STRIPE: 'pk_test_51JR3R0G7Fajw9ng5oRoNhplTjd5Y05j15LdPRjG95oiBjoCYZKd2MWY8JRTRv7dtu8oMdYRiXAPJtkbVkbepTaqF0050q6vbD4'
 };

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidatorsService } from '../../validators/validators.service';
 import { AuthBaseService, IRegister } from 'projects/auth-base/src/public-api';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'lib-signup',
@@ -11,14 +11,18 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
   signUpForm!: FormGroup;
-
+  referredBy!: string
   constructor(
     private formBuilder: FormBuilder,
     private authBaseService: AuthBaseService,
     private router: Router,
-    private vs: ValidatorsService // private messageService: MessageService
+    private vs: ValidatorsService, // private messageService: MessageService
+    private activatedRoute: ActivatedRoute
   ) {
-    this._initForm();
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.referredBy = params['referredBy'] ?? '';
+    });
+    this._initForm(this.referredBy);
   }
 
   signUp() {
@@ -32,26 +36,27 @@ export class SignupComponent {
       ...rest,
       ...((referredBy?.length === 12) ? { referredBy } : {}),
 
+
     }
 
-      this.authBaseService
-        .postSignUp(user).subscribe((response) => {
+    this.authBaseService
+      .postSignUp(user).subscribe((response) => {
 
-          if (response.ok) {
-            const email = this.signUpForm.get('email')?.value
-            this.router.navigateByUrl('/auth/resend',
-              { state: { email } }
-            );
-          } else {
-            this.router.navigate(['/auth/login/']);
+        if (response.ok) {
+          const email = this.signUpForm.get('email')?.value
+          this.router.navigateByUrl('/auth/resend',
+            { state: { email } }
+          );
+        } else {
+          this.router.navigate(['/auth/login/']);
 
-          }
-        })
+        }
+      })
 
 
 
   }
-  private _initForm() {
+  private _initForm(referredBy: string) {
     this.signUpForm = this.formBuilder.group(
       {
         name: ['', [Validators.required, this.vs.validatePat('name')]],
@@ -64,7 +69,7 @@ export class SignupComponent {
         ],
         password2: ['', [Validators.required, this.vs.validatePat('password')]],
         terms: [false, [Validators.required, Validators.requiredTrue]],
-        referredBy: [''],
+        referredBy: [referredBy],
 
       },
       {

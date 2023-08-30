@@ -19,7 +19,6 @@ import { CartHttpService, CartLocalService } from 'projects/utils/src/public-api
 
 })
 export class BookViewComponent implements OnInit {
-  RAW_URL = environment.RAW_URL
   book!: IBook;
   bookId!: string;
   isAuth$: BehaviorSubject<boolean | undefined> = new BehaviorSubject<boolean | undefined>(undefined)

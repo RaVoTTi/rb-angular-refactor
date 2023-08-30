@@ -9,6 +9,7 @@ import { ImageComponent } from './sections/image/image.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UtilsModule } from 'projects/utils/src/public-api';
 import { CashbackComponent } from './sections/cashback/cashback.component';
+import { ReferralComponent } from './sections/referral/referral.component';
 
 const routes: Routes = [
 
@@ -30,6 +31,7 @@ const routes: Routes = [
     DetailsComponent,
     ImageComponent,
     CashbackComponent,
+    ReferralComponent,
   ],
   imports: [
     CommonModule,

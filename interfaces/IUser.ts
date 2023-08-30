@@ -10,7 +10,10 @@ export interface IUser {
   isAdmin?: boolean;
   dateCreated?: Date;
   password?: string;
-  address?: IAddress;
+  referralCode?: string;
+  referredBy?: string;
+  
+
 }
 
 export const exampleIUser: IUser ={
