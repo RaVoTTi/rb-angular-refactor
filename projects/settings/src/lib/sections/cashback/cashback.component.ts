@@ -15,6 +15,10 @@ import { take } from 'rxjs';
 // XMR: /^4[0-9AB][1-9A-HJ-NP-Za-km-z]{93}$/,
 // DASH: /^X[1-9A-HJ-NP-Za-km-z]{33}$/,
 
+import { createPopper } from '@popperjs/core';
+
+
+
 @Component({
   selector: 'lib-cashback',
   templateUrl: './cashback.component.html',
@@ -59,6 +63,14 @@ export class CashbackComponent implements OnInit {
     private settingsService: SettingsService,
   ) {
     this._initForm();
+    const button = document.querySelector('#popperbutton') as Element;
+const tooltip = document.querySelector('#poppertooltip') as HTMLElement;
+
+// Pass the button, the tooltip, and some options, and Popper will do the
+// magic positioning for you:
+createPopper(button, tooltip, {
+  placement: 'right',
+});
   }
   ngOnInit() {
     this.settingsService

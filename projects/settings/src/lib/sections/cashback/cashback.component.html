@@ -1,29 +1,33 @@
 <div class="card w-100 position-relative overflow-hidden">
-  <div
-    class="card-body p-4 d-flex flex-column justify-content-between h-100 d-inline-block"
-  >
+  <div class="card-body p-4 d-flex flex-column justify-content-between h-100 d-inline-block">
 
     <div>
-      <h5 class="card-title fw-semibold">Claim Cashback</h5>
+      <div class="d-flex align-items-center justify-content-between mb-6">
+        <h5 class="card-title fw-semibold">Claim Cashback</h5>
+        <!-- <i class="ti ti-info-circle-filled fs-7 pointer" data-bs-toggle="tooltip"></i> -->
+
+        
+        <!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
+
+      </div>
       <p class="card-subtitle mb-4">
         Add your crypto address to claim your cashback
       </p>
     </div>
+    <div class="tooltip bs-tooltip-auto fade show" role="tooltip" id="tooltip555994" data-popper-placement="top"
+      style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(66px, -539.5px, 0px);">
+      <div class="tooltip-arrow" style="position: absolute; left: 0px; transform: translate3d(40.5px, 0px, 0px);"></div>
+      <div class="tooltip-inner">Tooltip on top</div>
+    </div>
     <div class="text-center">
       <p class="mb-0 fs-4">Total Cashback</p>
       <h4 class="mb-0 fw-semibold lh-1">{{ total
-         | currency }}</h4>
+        | currency }}</h4>
     </div>
     <form [formGroup]="cryptoForm" (submit)="claimCashback()">
       <div class="mb-4">
-        <label for="exampleInputPassword1" class="form-label fw-semibold"
-          >Crypto</label
-        >
-        <select
-          class="form-select"
-          aria-label="Default select example"
-          formControlName="type"
-        >
+        <label for="exampleInputPassword1" class="form-label fw-semibold">Crypto</label>
+        <select class="form-select" aria-label="Default select example" formControlName="type">
           <option *ngFor="let crypto of cryptosArray" [value]="crypto">
             {{ crypto }}
           </option>
@@ -49,11 +53,8 @@
       </div> -->
 
       <div class="d-flex align-items-center justify-content-end mt-4">
-        <button
-          type="submit"
-          class="btn btn-primary"
-          [disabled]="cryptoForm.invalid || cryptoForm.disabled || total === 0"
-        >
+        <button type="submit" class="btn btn-primary"
+          [disabled]="cryptoForm.invalid || cryptoForm.disabled || total === 0">
           Claim
         </button>
       </div>

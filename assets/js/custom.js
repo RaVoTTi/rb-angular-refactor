@@ -1,5 +1,6 @@
 $(function () {
 
+
     // =================================
     // Tooltip
     // =================================
@@ -10,14 +11,24 @@ $(function () {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
+    // =================================
+    // Popover
+    // =================================
+    var popoverTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="popover"]')
+    );
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
+    });
+
     // scroll
 
     $(".scroll-link").on("click", function (t) {
         var o = $(this);
         $("html, body").stop().animate({
-           scrollTop: $(o.attr("href")).offset().top - 10
+            scrollTop: $(o.attr("href")).offset().top - 10
         }, 1e3), t.preventDefault()
-     })
+    })
 
     // fixed header
 
@@ -32,8 +43,8 @@ $(function () {
     // Aos
 
     AOS.init({
-		once: true,
-	});
+        once: true,
+    });
 
     // Production Slider
 

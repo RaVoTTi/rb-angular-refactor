@@ -12,6 +12,8 @@ export interface IBook extends IMinIBook{
   state: boolean
   isFeatured: boolean
   image: string
+  imageSM: string
+
   price: number
   dateCreated?: Date
   content: string
