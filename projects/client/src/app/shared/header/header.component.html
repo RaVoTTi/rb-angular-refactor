@@ -2,89 +2,47 @@
 <header class="header">
   <nav class="navbar navbar-expand-lg py-0">
     <div class="container-fluid flex-nowrap">
-      <a
-        class="navbar-brand me-0 py-0 d-block d-sm-none"
-        routerLink="/app/books"
-      >
+      <a class="navbar-brand me-0 py-0 d-block d-sm-none" routerLink="/app/books">
         <img src="assets/rb/icon-footer.svg" />
       </a>
-      <a
-        class="navbar-brand me-0 py-0 d-none d-sm-block"
-        routerLink="/app/books"
-      >
+      <a class="navbar-brand me-0 py-0 d-none d-sm-block" routerLink="/app/books">
         <img src="assets/rb/logo-header.svg" />
       </a>
-      <button
-        class="navbar-toggler d-none"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
         <i class="ti ti-menu-2 fs-9"></i>
       </button>
-      <button
-        class="navbar-toggler border-0 p-0 shadow-none"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar"
-      >
+      <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
         <i class="ti ti-menu-2 fs-9"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav align-items-center mb-2 mb-lg-0 ms-auto">
           <li>
-            <a class="nav-link" routerLinkActive="active" routerLink="/app/home"
-              >Home</a
-            >
+            <a class="nav-link" routerLinkActive="active" routerLink="/app/home">Home</a>
           </li>
           <li>
-            <a
-              class="nav-link"
-              routerLinkActive="active"
-              routerLink="/app/books"
-              >Books</a
-            >
+            <a class="nav-link" routerLinkActive="active" routerLink="/app/books">Books</a>
           </li>
           <li>
-            <a
-              class="nav-link"
-              routerLinkActive="active"
-              routerLink="/app/books/cart"
-              >Cart</a
-            >
+            <a class="nav-link" routerLinkActive="active" routerLink="/app/books/cart">Cart</a>
           </li>
           <li>
-            <a
-              class="nav-link"
-              routerLinkActive="active"
-              routerLink="/app/info/about"
-              >About</a
-            >
+            <a class="nav-link" routerLinkActive="active" routerLink="/app/info/about">About</a>
           </li>
 
           <li>
-            <a class="nav-link" routerLinkActive="active" routerLink="/app/info/faq"
-              >FAQ</a
-            >
+            <a class="nav-link" routerLinkActive="active" routerLink="/app/info/faq">FAQ</a>
           </li>
 
           <li class="nav-item ms-2">
-            <a
-              routerLink="/auth/login"
-              class="btn btn-outline-primary fs-3 rounded btn-hover-shadow px-3 py-2"
-              >Login</a
-            >
+            <a routerLink="/auth/login"
+              class="btn btn-outline-primary fs-3 rounded btn-hover-shadow px-3 py-2">Login</a>
           </li>
           <li class="nav-item ms-2">
-            <a
-              routerLink="/auth/signup"
-              class="btn btn-primary fs-3 rounded btn-hover-shadow px-3 py-2 text-nowrap"
-              >Sign Up For Free</a
-            >
+            <a routerLink="/auth/signup"
+              class="btn btn-primary fs-3 rounded btn-hover-shadow px-3 py-2 text-nowrap">Sign Up For Free</a>
           </li>
         </ul>
       </div>
@@ -93,35 +51,24 @@
 </header>
 <!-- Header End -->
 <!-- SideBar Start -->
-<div
-  class="offcanvas offcanvas-start modernize-lp-offcanvas"
-  tabindex="-1"
-  id="offcanvasNavbar"
-  aria-labelledby="offcanvasNavbarLabel"
->
+<div class="offcanvas offcanvas-start modernize-lp-offcanvas" tabindex="-1" id="offcanvasNavbar"
+  aria-labelledby="offcanvasNavbarLabel">
   <div class="offcanvas-header p-4">
-    <img
-      src="./assets/rb/logo-header.svg"
-      alt=""
-      class="img-fluid"
-      width="150"
-    />
+    <img src="./assets/rb/logo-header.svg" alt="" class="img-fluid" width="150" />
   </div>
   <div class="offcanvas-body p-4">
     <ul class="list-group pt-2 border-bottom  rounded-0">
       <li *ngFor="let item of sideBarItems" class="list-group-item border-0 p-0 mb-2">
         <a [routerLink]="item.url"
-          class="d-flex align-items-center gap-2 list-group-item-action text-dark px-3 py-6 rounded-1"><i
-            class="ti fs-6" ngClass="ti-{{item.icon}}"></i>{{item.title}}
+          class="d-flex align-items-center gap-2 list-group-item-action text-dark px-3 py-6 rounded-1">
+          <i class="ti fs-6" ngClass="ti-{{item.icon}}"></i>{{item.title}}
         </a>
       </li>
-    <a routerLink="/auth/login" class="btn btn-outline-primary w-100 mt-4 py-3">Login</a>
-    <a routerLink="/auth/signup" class="btn btn-primary w-100 mt-4 text-nowrap py-3">Sign Up For Free</a>
+      <a routerLink="/auth/login" class="btn btn-outline-primary w-100 mt-4 py-3">Login</a>
+      <a routerLink="/auth/signup" class="btn btn-primary w-100 mt-4 text-nowrap py-3">Sign Up For Free</a>
 
-     
+
     </ul>
   </div>
 </div>
 <!-- Sidebar End -->
-
-
