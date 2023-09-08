@@ -4,21 +4,22 @@
     <div>
       <div class="d-flex align-items-center justify-content-between mb-6">
         <h5 class="card-title fw-semibold">Claim Cashback</h5>
-        <!-- <i class="ti ti-info-circle-filled fs-7 pointer" data-bs-toggle="tooltip"></i> -->
+        <i class="ti ti-info-circle-filled fs-7 pointer"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseCashback" aria-expanded="false" aria-controls="collapseCashback"></i>
 
-        
-        <!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
 
       </div>
-      <p class="card-subtitle mb-4">
+      <div class="collapse" id="collapseCashback">
+        <div class="card card-body">
+          When entering your address for transactions, it's crucial to ensure that it's accurate and correctly formatted. Incorrect or mistyped addresses can result in irreversible loss of assets. Additionally, please note that transactions must be conducted through the Cardano network. Using another network may result in transaction failure or loss of funds.
+        </div>
+      </div>
+      
+
+      <p class="card-subtitle my-4">
         Add your crypto address to claim your cashback
       </p>
     </div>
-    <div class="tooltip bs-tooltip-auto fade show" role="tooltip" id="tooltip555994" data-popper-placement="top"
-      style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(66px, -539.5px, 0px);">
-      <div class="tooltip-arrow" style="position: absolute; left: 0px; transform: translate3d(40.5px, 0px, 0px);"></div>
-      <div class="tooltip-inner">Tooltip on top</div>
-    </div>
+
     <div class="text-center">
       <p class="mb-0 fs-4">Total Cashback</p>
       <h4 class="mb-0 fw-semibold lh-1">{{ total

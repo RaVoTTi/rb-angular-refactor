@@ -2,7 +2,18 @@
   <div class="card-body p-4 d-flex flex-column justify-content-start h-100 d-inline-block">
 
     <div>
-      <h5 class="card-title fw-semibold">Invite Friends and get cashback</h5>
+      <div class="d-flex align-items-center justify-content-between mb-6">
+        <h5 class="card-title fw-semibold">Invite Friends and get cashback</h5>
+        <i class="ti ti-info-circle-filled fs-7 pointer" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseCashback" aria-expanded="false" aria-controls="collapseCashback"></i>
+
+
+      </div>
+      <div class="collapse" id="collapseCashback">
+        <div class="card card-body">
+Unlock more Cashback with our Friend Referral program! Invite your friends to shop with us, and you'll earn 3% cashback on their first purchase. It's easy, rewarding, and a win-win for everyone. Start inviting your friends today!
+        </div>
+      </div>
       <p class="card-subtitle mb-4">
         Share your Referral Code to claim ADA
       </p>
@@ -16,7 +27,8 @@
           <input type="text" readonly formControlName="url" class="form-control" id="urlReferralCode" />
 
 
-          <button (click)="copyText(referralForm.controls['url'])" class="btn btn-primary  font-medium" type="button">Copy</button>
+          <button (click)="copyText(referralForm.controls['url'])" class="btn btn-primary  font-medium"
+            type="button">Copy</button>
 
         </div>
       </div>
@@ -24,7 +36,8 @@
         <label for="referralCode" class="form-label">Referral Code </label>
         <div class="input-group mb-3">
           <input type="text" readonly formControlName="referralCode" class="form-control" id="referralCode" />
-          <button (click)="copyText(referralForm.controls['referralCode'])" class="btn btn-primary  font-medium" type="button">Copy</button>
+          <button (click)="copyText(referralForm.controls['referralCode'])" class="btn btn-primary  font-medium"
+            type="button">Copy</button>
         </div>
       </div>
 

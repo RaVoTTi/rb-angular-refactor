@@ -16,14 +16,9 @@
       "books": [
         "dist/books"
       ],
-      "books-state": [
-        "dist/books-state"
-      ],
-      "cart": [
-        "dist/cart"
-      ],
+
+
       "checkout": [
-        "dist/checkout",
         "dist/checkout"
       ],
       "components": [
@@ -32,24 +27,18 @@
       "info": [
         "dist/info"
       ],
-      "interfaces": [
-        "dist/interfaces"
-      ],
+
       "my-learning": [
         "dist/my-learning"
       ],
       "my-orders": [
         "dist/my-orders"
       ],
-      "orders": [
-        "dist/orders"
-      ],
+
       "settings": [
         "dist/settings"
       ],
-      "test1": [
-        "dist/test1"
-      ],
+
       "utils": [
         "dist/utils"
       ]

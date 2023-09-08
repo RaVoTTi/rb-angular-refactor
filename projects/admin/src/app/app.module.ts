@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { UtilsModule } from 'projects/utils/src/public-api';
-import { ComponentsModule } from 'projects/components/src/public-api';
 
 @NgModule({
   declarations: [
@@ -14,10 +12,7 @@ import { ComponentsModule } from 'projects/components/src/public-api';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ComponentsModule
-    // SharedModule
-
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

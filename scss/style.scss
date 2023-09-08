@@ -10,7 +10,10 @@
 
 //
 // Import Bootstrap source files (Required file)
-@import "../scss/bootstrap/scss/bootstrap.scss";
+// @import "../scss/bootstrap/scss/bootstrap.scss";
+// @import "../scss/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 // 
 // Scrollbar style (Required file)
 // 
@@ -87,5 +90,5 @@
 
 
 //@import "icons/crypto-icons/cryptocoins.css";
-@import "icons/tabler-icons/tabler-icons.min.css";
+// @import "icons/tabler-icons/tabler-icons.min.css";
 //@import "icons/flag-icon-css/flag-icon.min.css";

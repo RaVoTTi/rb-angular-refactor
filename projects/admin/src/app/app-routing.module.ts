@@ -4,7 +4,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 const routes: Routes = [
   {
-    path: "admin",
+    path: '',
     component: SidebarComponent
   }
 ];

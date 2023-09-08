@@ -40,7 +40,7 @@ export class BooksListComponent implements OnInit{
       .getBooks()
       .pipe(take(1))
       .subscribe((response) => {
-        this.books = response.result;
+        this.books = response.result?.reverse();
         this.allBooks = response.result;
 
       });
